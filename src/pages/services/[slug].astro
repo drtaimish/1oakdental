@@ -5,7 +5,8 @@ import { serviceContent } from '../../data/serviceContent.js';
 import ServiceArt from '../../components/ServiceArt.astro';
 import VideoEmbed from '../../components/VideoEmbed.astro';
 import { media } from '../../data/media.js';
-import { serviceSeo } from '../../data/seo.js';
+import { serviceSeo, serviceBadges, serviceSteps, serviceExtra, serviceAftercare } from '../../data/seo.js';
+import { patientInfo } from '../../data/patientInfo.js';
 
 export function getStaticPaths() {
   return services.map((s) => ({ params: { slug: s.slug }, props: { service: s } }));
@@ -15,6 +16,10 @@ const c = serviceContent[service.slug];
 const m = media[service.slug] || {};
 const seo = serviceSeo[service.slug] || { faqs: [], related: [] };
 const related = services.filter((x) => seo.related.includes(x.slug));
+const badges = serviceBadges[service.slug] || [];
+const steps = serviceSteps[service.slug] || [];
+const extra = serviceExtra[service.slug] || [];
+const aftercare = (serviceAftercare[service.slug] || []).map((id) => patientInfo.find((p) => p.slug === id)).filter(Boolean);
 const breadcrumbs = {
   '@type': 'BreadcrumbList',
   itemListElement: [
@@ -54,6 +59,7 @@ const schema = { '@context': 'https://schema.org', '@graph': [breadcrumbs, proce
         <p class="eyebrow">{practice.neighbourhood}</p>
         <h1>{c.h1}</h1>
         <p class="lead">{c.intro}</p>
+        {badges.length > 0 && <ul class="trust compact" aria-label="Key facts">{badges.map((b) => <li>{b}</li>)}</ul>}
         <div class="actions">
           <a class="btn" href="/contact/">Book a free consultation</a>
           <a class="btn secondary" href={`tel:${practice.phoneE164}`}>Call {practice.phone}</a>
@@ -75,6 +81,23 @@ const schema = { '@context': 'https://schema.org', '@graph': [breadcrumbs, proce
         <p>{p}</p>
       </section>
     ))}
+    {steps.length > 0 && (
+      <section>
+        <h2>What happens, step by step</h2>
+        <ol class="steps">
+          {steps.map(([h, p]) => <li><h3>{h}</h3><p>{p}</p></li>)}
+        </ol>
+      </section>
+    )}
+    {extra.map(([h, p]) => (
+      <section><h2>{h}</h2><p>{p}</p></section>
+    ))}
+    {aftercare.length > 0 && (
+      <section class="card tint">
+        <h2>Before and after your appointment</h2>
+        <ul class="related">{aftercare.map((a) => <li><a href={`/patient-info/${a.slug}/`}>{a.title}</a><span class="muted"> · {a.summary}</span></li>)}</ul>
+      </section>
+    )}
     {seo.faqs.length > 0 && (
       <section class="faq">
         <h2>Common questions</h2>

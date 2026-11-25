@@ -101,3 +101,115 @@ export const serviceSeo = {
     ],
   },
 };
+
+// Short badges under the service H1. Keep to true, checkable statements.
+export const serviceBadges = {
+  'general-dentistry': ['Accepting new patients', 'Direct insurance billing', 'CDCP accepted', 'Evenings and Saturdays'],
+  'childrens-dentistry': ['Pediatric dentist on staff', 'CDCP accepted', 'Sedation and GA in office'],
+  'sleep-dentistry': ['Physician anaesthesiologist', 'IV, deep sedation and GA', 'In office, not hospital'],
+  'emergency-dentist': ['Call first, we triage by phone', 'You do not need to be a patient', 'Surgeon on site'],
+  'invisalign': ['Digital scan, no putty', 'Free consultation', 'Monthly financing'],
+  'tooth-extractions': ['Done by an oral surgery dentist', 'Awake or asleep: your choice', 'Referral not needed'],
+  'wisdom-teeth-removal': ['Awake or asleep: your choice', 'Referral not needed', 'Written aftercare and a number to call'],
+  'dental-implants': ['Placed by Dr. Taimish, every case', '3D scan at consultation', 'All-inclusive written quote'],
+  'all-on-4-dental-implants': ['Temporary fixed teeth, usually same day', 'Sedation or GA with an anaesthesiologist', 'All-inclusive written quote'],
+};
+
+// Numbered steps: "What happens, step by step".
+export const serviceSteps = {
+  'dental-implants': [
+    ['Free consultation and 3D scan', 'We look at the tooth or gap, take a CBCT scan, and show you the bone and nerves on screen. You leave with a written, all-inclusive quote.'],
+    ['Any preparation', 'If a tooth needs to come out or the bone needs building up, that is done first, or sometimes at the same visit as the implant.'],
+    ['Implant placement', 'Under local anaesthetic, with sedation if you want it. The visit takes about an hour. Most people return to work the next day.'],
+    ['Healing', 'Three to six months while the bone fuses to the implant. A temporary tooth can be worn if the gap shows.'],
+    ['Your new tooth', 'A scan of the healed implant, then a custom crown is made and fitted. From then on it is checked and cleaned like any other tooth.'],
+  ],
+  'all-on-4-dental-implants': [
+    ['Consultation and planning', 'Scan, photos and a conversation about what you want. We plan the implant positions digitally and give you an all-inclusive written quote, including sedation.'],
+    ['Surgery day', 'Under sedation or general anaesthesia with our anaesthesiologist. Remaining teeth are removed, four to six implants are placed, and a fixed temporary bridge is attached, usually the same day.'],
+    ['Healing with your temporary teeth', 'Three to six months on a soft-to-medium diet while the implants integrate. You come in for checks and adjustments.'],
+    ['Your final bridge', 'A scan of the healed implants, a trial fitting, then your final bridge in zirconia or acrylic over titanium, made to your approved shape and shade.'],
+    ['Maintenance', 'A checkup and professional cleaning at least every six months, with the bridge removed for a deep clean when needed.'],
+  ],
+  'wisdom-teeth-removal': [
+    ['Consultation', 'A panoramic or 3D X-ray shows where the teeth sit relative to the nerve and sinus. We tell you which teeth need to come out, which can stay, and whether awake or asleep makes more sense for you.'],
+    ['Choose your comfort level', 'Local anaesthetic only, IV sedation, or general anaesthesia with our physician anaesthesiologist. If you choose sedation, you get fasting instructions and need an adult escort.'],
+    ['The procedure', 'Usually 30 to 60 minutes for all four. Dr. Taimish does every surgery himself.'],
+    ['Going home', 'Gauze, ice, written instructions and a direct number. Someone takes you home if you were sedated.'],
+    ['Recovery', 'Swelling peaks at day two or three and most people are back to normal within a week. We check on you and see you if anything needs a look.'],
+  ],
+  'sleep-dentistry': [
+    ['Tell us what worries you', 'At a free consultation we talk about your past experiences and what you need done, and recommend the lightest level of sedation that will work.'],
+    ['Medical screening', 'A health history and, if needed, a conversation with our anaesthesiologist. This is where we make sure office sedation is safe for you.'],
+    ['Your appointment', 'You arrive fasted, with an adult escort. The anaesthesiologist looks after you the whole time while Dr. Taimish or Dr. Dong does the dentistry. Long treatment plans are often finished in one visit.'],
+    ['Recovery and home', 'You rest until steady, then go home with your escort and written instructions. Most people feel normal by the next morning.'],
+  ],
+  'tooth-extractions': [
+    ['Assessment', 'X-rays and an exam to confirm the tooth cannot be saved, and to plan how it comes out and what replaces it.'],
+    ['Comfort', 'Local anaesthetic, with sedation if you prefer. You should feel pressure, never pain.'],
+    ['Extraction', 'Simple or surgical, depending on the tooth. If you are planning an implant, a bone graft can be placed in the socket at the same time.'],
+    ['Aftercare', 'Gauze, instructions and a number to call. Most people are back to normal in a day or two.'],
+  ],
+  'invisalign': [
+    ['Free consultation and scan', 'A digital scan, no putty impressions, and a preview of how your teeth could move.'],
+    ['Your plan', 'We review the plan with you, confirm the number of aligners and the timeline, and give you a written quote.'],
+    ['Wearing your aligners', 'About 22 hours a day, changing to the next set every one to two weeks. Short check-ins every six to ten weeks.'],
+    ['Finishing and retainers', 'Final refinements if needed, then retainers to keep the result.'],
+  ],
+  'childrens-dentistry': [
+    ['First visit (by age one)', 'A short, friendly look at the teeth and gums, often on your lap, and brushing advice. The goal is a happy first memory of the dentist.'],
+    ['Toddlers and preschoolers', 'Checkups every six months, fluoride, and help with thumb-sucking, bottles and sippy cups.'],
+    ['School age', 'Sealants on new molars, cleanings, cavity care, and watching how the jaws and adult teeth are developing.'],
+    ['Teens', 'Wisdom teeth monitoring, sports mouthguards, orthodontic timing and a handover to adult care when they are ready.'],
+  ],
+  'emergency-dentist': [
+    ['Call us', 'Describe what happened and what hurts. We tell you what to do right now and book the soonest time.'],
+    ['We get you comfortable', 'The first visit is about stopping the pain and dealing with infection or damage: a dressing, a temporary filling, draining swelling, or removing a hopeless tooth.'],
+    ['Then we plan', 'Once you are comfortable, we talk through the long-term fix and the cost, with no pressure to decide that day.'],
+  ],
+  'general-dentistry': [
+    ['Your first visit', 'A full exam, any X-rays you need, a gum check and a cleaning if time allows. We explain what we see on the screen.'],
+    ['A plan in writing', 'If anything needs doing, you get a written plan with fees and what your insurance is likely to cover.'],
+    ['Ongoing care', 'Checkups and cleanings every six months, or more often if your gums need it. Reminders by text or email.'],
+  ],
+};
+
+// Extra depth sections, rendered after the main copy.
+export const serviceExtra = {
+  'emergency-dentist': [
+    ['Is it urgent? A quick guide', 'See us today: severe or constant toothache, a broken tooth with pain, a knocked-out adult tooth, a swollen face or gum, bleeding that will not stop, a lost crown or filling that hurts. See us this week: a chipped tooth without pain, a lost filling without pain, mild sensitivity, a broken denture. Go to an emergency department first: swelling that affects breathing or swallowing, swelling spreading to the eye, a facial injury with a possible fracture, uncontrolled bleeding after an injury.'],
+    ['What to do before you arrive', 'Toothache: rinse with warm water, floss gently to remove trapped food, take regular pain relief, and do not put aspirin on the gum. Swelling: cold compress on the outside, do not apply heat. Broken tooth: save any pieces in milk, cover a sharp edge with sugar-free gum or dental wax. Lost crown: keep it; it can often be re-cemented.'],
+    ['Why a surgeon helps in an emergency', 'Many dental emergencies end with a tooth that needs to come out, an abscess that needs draining or a wisdom tooth that is infected. Dr. Taimish does this work daily, so you are not referred elsewhere mid-problem.'],
+  ],
+  'childrens-dentistry': [
+    ['Tips for a good first visit', 'Book a morning time when your child is rested. Keep your language neutral: avoid words like hurt, needle or drill, even to say they will not happen. Let us introduce the instruments. Bring a comfort item. If you are nervous yourself, it is fine for the other parent to bring them.'],
+    ['Brushing at home', 'From the first tooth, twice a day with a soft brush. A rice-grain smear of fluoride toothpaste under age three, a pea-sized amount from three to six. An adult brushes or finishes the job until about age eight.'],
+  ],
+  'all-on-4-dental-implants': [
+    ['Temporary versus final teeth', 'Your same-day bridge is acrylic, made to let you eat soft food and smile while the implants heal. Your final bridge, made after healing, is built for decades of chewing: zirconia (a very hard ceramic) or acrylic teeth over a titanium frame. We talk through the trade-offs of each and show you examples.'],
+    ['Why most patients choose to be asleep', 'Full-arch surgery is longer than a single implant and often includes extractions. With a physician anaesthesiologist in the room, you can have deep sedation or general anaesthesia safely in our office, wake up with your temporary teeth in, and remember nothing of the surgery.'],
+    ['Questions to ask any office', 'Who places the implants, and how many full arches have they done? Is the quote all-inclusive? What is the final bridge made of? Who provides the sedation, and what are their qualifications? What happens if an implant fails? Ask us all of these.'],
+  ],
+  'dental-implants': [
+    ['Who places your implant matters', 'Implant placement is surgery. Dr. Taimish limits his practice to oral surgery and implants, places every implant at 1 Oak Dental himself, and teaches implant courses to other dentists. General dentists across Toronto refer their implant cases to him.'],
+    ['Technology we use', 'A CBCT (3D) scan before every implant, digital planning, and guided surgery when it improves precision. Implants from established manufacturers with long published track records.'],
+  ],
+  'sleep-dentistry': [
+    ['Levels of sedation, plainly', 'IV sedation: deeply relaxed, drowsy, little memory, still breathing on your own and able to respond. Deep sedation: asleep, not easily roused. General anaesthesia: fully unconscious with breathing supported. We recommend the lightest level that will let you have your treatment comfortably.'],
+    ['Why a physician anaesthesiologist', 'Many offices offer sedation given by the dentist who is also doing the procedure. At 1 Oak Dental, Dr. Esufali, a medical doctor specialising in anaesthesia, does nothing but monitor and look after you while the dentistry is done by someone else. That is the same separation of roles you would have in a hospital.'],
+  ],
+  'wisdom-teeth-removal': [
+    ['Keep them or remove them?', 'Not every wisdom tooth needs to come out. Fully erupted teeth that you can clean and that are not damaging the neighbour can stay and be watched. Partially erupted teeth that trap food and get infected, impacted teeth pressing on the second molar, and teeth with cysts or decay are the usual reasons for removal. We show you your X-ray and explain which applies.'],
+    ['Nerve and sinus', 'Lower wisdom teeth can sit close to the nerve that supplies feeling to the lip and chin; upper ones can sit close to the sinus. A 3D scan when the X-ray suggests closeness lets Dr. Taimish plan around them. Temporary numbness is uncommon and almost always resolves; we discuss your individual risk before you decide.'],
+  ],
+};
+
+// Which patient-info pages belong on which service page.
+export const serviceAftercare = {
+  'wisdom-teeth-removal': ['before-sedation', 'after-extractions', 'after-sedation'],
+  'tooth-extractions': ['after-extractions', 'before-sedation'],
+  'dental-implants': ['after-implants', 'before-sedation'],
+  'all-on-4-dental-implants': ['before-sedation', 'after-full-arch', 'after-sedation'],
+  'sleep-dentistry': ['before-sedation', 'after-sedation'],
+  'childrens-dentistry': ['before-sedation'],
+};
