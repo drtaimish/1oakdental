@@ -1,0 +1,19 @@
+---
+import Base from '../../layouts/Base.astro';
+import { services } from '../../data/practice.js';
+import ServiceArt from '../../components/ServiceArt.astro';
+---
+<Base title="Dental Services in Downtown Toronto" description="Dental implants, full-arch implants, wisdom teeth removal, Invisalign, emergency care and checkups at 1 Oak Dental, downtown Toronto.">
+  <div class="wrap">
+    <div class="hero"><h1>Our services</h1><p class="lead">Everything from routine cleanings to full-arch implants, in one downtown office.</p></div>
+    <div class="grid">
+      {services.map((s) => (
+        <a class="card" href={`/services/${s.slug}/`} style="text-decoration:none;color:inherit">
+          <ServiceArt slug={s.slug} size={56} />
+          <h2 style="font-size:1.2rem;margin-top:0">{s.title}{s.comingSoon && <span class="tag-soon">Coming soon</span>}</h2>
+          <p class="muted">{s.summary}</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</Base>

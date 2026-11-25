@@ -1,0 +1,54 @@
+---
+import Base from '../layouts/Base.astro';
+import { practice, team } from '../data/practice.js';
+const me = team.find((t) => t.id === 'taimish');
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Dr. Ammar Taimish',
+  honorificSuffix: 'DDS',
+  jobTitle: 'General dentist with a practice limited to oral surgery and implant dentistry',
+  description: me.bio[0],
+  knowsAbout: ['Dental implants', 'Full-arch implant rehabilitation', 'Wisdom teeth removal', 'Oral surgery', 'Sedation dentistry'],
+  alumniOf: 'New York University College of Dentistry',
+  worksFor: { '@id': `${practice.url}/#dentist` },
+  sameAs: [practice.linkedin, practice.instagram],
+};
+---
+<Base title="Dr. Ammar Taimish, DDS" description="Dr. Ammar Taimish, DDS, is a general dentist with a practice limited to oral surgery and implant dentistry. He practises at Norton Dental in Vaughan and is opening 1 Oak Dental in downtown Toronto." schema={schema}>
+  <div class="wrap">
+    <div class="hero hero-art">
+      <div>
+        <p class="eyebrow">Oral surgery and implant dentistry</p>
+        <h1>Dr. Ammar Taimish, DDS</h1>
+        <p class="lead">General dentist with a practice limited to oral surgery and implant dentistry</p>
+      </div>
+      {me.photo && <img class="hero-photo" src={me.photo} alt="Dr. Ammar Taimish" width="400" height="480" />}
+    </div>
+    <section class="prose">
+      {me.bio.map((para) => <p>{para}</p>)}
+    </section>
+    <section>
+      <h2>At a glance</h2>
+      <ul>
+        <li>Doctor of Dental Surgery, New York University College of Dentistry, 2002</li>
+        <li>Surgical training, Department of Surgery, Syracuse, New York (surgical anatomy of the head and neck)</li>
+        <li>Registered as a general dentist in Ontario since 2003</li>
+        <li>Practises at Norton Dental in Vaughan and provides oral surgery at dental offices across Toronto and the surrounding area</li>
+        <li>Implant course director; has taught courses on surgical extractions, impacted wisdom teeth and full-arch implant treatment</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Referring a patient</h2>
+      <p>Dr. Taimish accepts referrals for surgical extractions, impacted wisdom teeth, bone grafting, implants, full-arch cases and sedation, and coordinates with the referring dentist, including when you plan to restore the implants in your own office. <a href="/referring-dentists/">How referrals work →</a></p>
+    </section>
+    <section class="card">
+      <h2>Talk to Dr. Taimish</h2>
+      <p>Your first consultation is free. You will leave with a clear plan and a written estimate.</p>
+      <div class="actions">
+        <a class="btn" href="/contact/">Book a consultation with Dr. Taimish</a>
+        <a class="btn secondary" href="/team/">Meet the team</a>
+      </div>
+    </section>
+  </div>
+</Base>

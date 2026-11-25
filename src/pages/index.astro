@@ -1,0 +1,152 @@
+---
+import Base from '../layouts/Base.astro';
+import { practice, referralGroups, team, staff, trustItems, bookingHref, bookingLabel } from '../data/practice.js';
+import { neighbourhoods, transit } from '../data/seo.js';
+import { articles } from '../data/articles.js';
+const homeFaqs = [
+  ['Are you accepting new patients?', 'Yes. New patients, families and referred patients are all welcome. Book online or call (416) 214-0003.'],
+  ['Do I need a referral?', 'No. Anyone can book directly for wisdom teeth, implants or general care. Dentists can also refer patients to us for surgery, sedation or pediatric care.'],
+  ['Can I be asleep for my treatment?', 'Soon. IV sedation, deep sedation and general anaesthesia with a physician anaesthesiologist are coming to our office. Join the waitlist on the sleep dentistry page.'],
+  ['Are you taking new patients?', 'Yes, right now. Request an appointment online or call (416) 214-0003.'],
+  ['Do you take my insurance and the CDCP?', 'We bill most insurance plans directly and accept the Canadian Dental Care Plan. Monthly financing is available through Beautifi.'],
+  ['Where are you?', '1 Oak St, Unit 3, at Dundas and Parliament in Regent Park, downtown Toronto. Streetcar 505 stops outside; street parking and paid lots nearby.'],
+];
+const homeSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: homeFaqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) };
+const patientLinks = [
+  ['Family and general dentistry', '/services/general-dentistry/'],
+  ['Sleep dentistry (coming soon)', '/services/sleep-dentistry/'],
+  ['Our technology: CBCT, TRIOS scanning, 3D printing', '/technology/'],
+  ['Invisalign clear aligners', '/services/invisalign/'],
+  ['Veneers, whitening and smile makeovers', '/services/smile-makeover/'],
+  ['Root canal treatment', '/services/root-canal/'],
+  ['Tooth extractions', '/services/tooth-extractions/'],
+  ['Dentures and implant dentures', '/services/dentures/'],
+  ['Dental implants', '/services/dental-implants/'],
+  ['Compare tooth replacement options', '/tooth-replacement-options/'],
+];
+---
+<Base
+  title="1 Oak Dental | Family Dentist and Oral Surgery in Downtown Toronto"
+  description="Now accepting new patients. Family dentist, pediatric dentist, oral surgery and implants at 1 Oak St in downtown Toronto. Sleep dentistry coming soon. Referrals welcome."
+  schema={homeSchema}
+>
+  <div class="wrap">
+    <div class="hero">
+      <p class="eyebrow">Downtown Toronto · 1 Oak St</p>
+      <p class="badge-new">Now accepting new patients</p>
+      <h1>Family dentist in downtown Toronto. A referral partner for your practice.</h1>
+      <p class="lead">Checkups and kids' dentistry, wisdom teeth and implants, from a dentist who does only oral surgery and a pediatric dentist, in one downtown office. Sleep dentistry with a physician anaesthesiologist is coming soon.</p>
+      <div class="actions">
+        <a class="btn" href={bookingHref}>{bookingLabel}</a>
+        <a class="btn secondary" href="/referring-dentists/">I'm referring a patient</a>
+      </div>
+      <p class="muted" style="margin:10px 0 0">New patients welcome. Same-day time is kept for emergencies.</p>
+    </div>
+
+    <ul class="trust" aria-label="Why patients choose us">
+      {trustItems.map((t) => <li>{t.href ? <a href={t.href}>{t.text}</a> : t.text}</li>)}
+    </ul>
+
+    <section class="panels" aria-label="Choose your path">
+      <div class="panel patients">
+        <h2>Explore your care options</h2>
+        <ul>
+          {patientLinks.map(([t, h]) => <li><a href={h}>{t}</a></li>)}
+        </ul>
+        <a class="btn" href={bookingHref}>{bookingLabel}</a>
+      </div>
+      <div class="panel dentists">
+        <h2>Refer to {practice.name}</h2>
+        <ul>
+          {referralGroups.map((g) => <li><a href={`/referring-dentists/#${g.id}`}>{g.title}</a></li>)}
+        </ul>
+        <a class="btn" style="background:#fff;color:var(--brand)" href="/referring-dentists/#refer">Start a referral</a>
+      </div>
+    </section>
+
+    <section>
+      <h2>Why patients and dentists choose {practice.name}</h2>
+      <div class="grid why">
+        <div class="card"><h3>Surgery by a dentist who does only surgery</h3><p>Dr. Taimish is a general dentist with a practice limited to oral surgery and implant dentistry. He performs every surgery himself, and other dentists refer their surgical cases to him.</p></div>
+        <div class="card"><h3>Sleep dentistry, coming soon</h3><p>IV sedation, deep sedation and general anaesthesia in our office, with a physician anaesthesiologist whose only job is looking after you. <a href="/services/sleep-dentistry/">Join the waitlist</a>.</p></div>
+        <div class="card"><h3>A real children's specialist</h3><p>Dr. Alice Dong is a pediatric dentist. Kids get care from someone trained for kids, including sedation when it is the kind choice.</p></div>
+        <div class="card"><h3>No surprises on cost</h3><p>Written, all-inclusive quotes. Direct insurance billing, CDCP accepted, monthly financing through Beautifi.</p></div>
+        <div class="card"><h3>Hours that fit a working week</h3><p>Evenings on Wednesday and Thursday, Saturdays, and same-day time kept for emergencies.</p></div>
+        <div class="card"><h3>Honest advice</h3><p>If a tooth can be saved, we say so. If a treatment is not needed, we say that too. You leave every visit knowing your options.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>How a first visit works</h2>
+      <ol class="steps">
+        <li><h3>Book online or call</h3><p>Tell us what is bothering you, or that you just want a checkup. Emergencies: call and we fit you in.</p></li>
+        <li><h3>A proper look</h3><p>Exam, the X-rays or 3D scan you need, and a conversation. For surgery and implants, the consultation is free.</p></li>
+        <li><h3>A plan in writing</h3><p>Options, fees and what your insurance is likely to cover, before anything starts.</p></li>
+        <li><h3>Treatment at your pace</h3><p>Then written aftercare and a number to call.</p></li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Patient guides</h2>
+      <div class="grid">
+        {articles.map((a) => (
+          <a class="card" href={`/blog/${a.slug}/`} style="text-decoration:none;color:inherit"><h3 style="margin-top:0;font-size:1.15rem">{a.title}</h3><p class="muted" style="margin:0">{a.description}</p></a>
+        ))}
+      </div>
+    </section>
+
+    <section>
+      <h2>Our dentists</h2>
+      <p><a href="/team/">Meet the whole team →</a></p>
+      <div class="grid">
+        {team.map((t) => (
+          <div class="card doc">{t.photo && <img src={t.photo} alt={t.name} width="300" height="360" loading="lazy" />}<h3 style="margin:0">{t.name}</h3><p class="muted" style="margin:4px 0 8px">{t.role}</p><p style="margin:0">{t.blurb}</p></div>
+        ))}
+      </div>
+    </section>
+
+    <section>
+      <h2>And the people you'll actually see most</h2>
+      <ul class="staff-strip" aria-label="Our staff">
+        {staff.map((s) => (
+          <li>
+            {s.photo ? <img src={s.photo} alt={s.name || s.role} width="160" height="160" loading="lazy" /> : <span class="avatar" aria-hidden="true">·</span>}
+            <span class="who"><strong>{s.name || s.role}</strong>{s.name && <span class="muted"> · {s.role}</span>}</span>
+          </li>
+        ))}
+      </ul>
+      <p class="muted"><a href="/team/#coordinator">Meet everyone →</a></p>
+    </section>
+
+    {practice.gallery.length > 0 && (
+      <section>
+        <h2>Before and after</h2>
+        <p class="muted">Real patients of {practice.name}, shared with their permission.</p>
+        <div class="grid">
+          {practice.gallery.map((g) => (
+            <figure class="case">
+              <img src={g.before} alt={`Before: ${g.alt}`} loading="lazy" />
+              <img src={g.after} alt={`After: ${g.alt}`} loading="lazy" />
+              <figcaption>{g.alt}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <section class="faq">
+      <h2>Quick answers</h2>
+      {homeFaqs.map(([q, a]) => <details><summary>{q}</summary><p>{a}</p></details>)}
+    </section>
+
+    <section>
+      <h2>Find us</h2>
+      <p>{practice.street}, {practice.city}, {practice.region} {practice.postalCode}. In {practice.neighbourhood}. {transit}</p>
+      <p class="muted">Patients come to us from {neighbourhoods.slice(0, -1).join(', ')} and {neighbourhoods.at(-1)}, and referring dentists send cases from across the GTA.</p>
+      <div class="actions">
+        <a class="btn secondary" href={practice.googleProfileUrl || practice.mapsUrl} rel="noopener">Get directions</a>
+        <a class="btn secondary" href={`tel:${practice.phoneE164}`}>Call {practice.phone}</a>
+      </div>
+    </section>
+  </div>
+</Base>

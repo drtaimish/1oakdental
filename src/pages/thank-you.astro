@@ -1,0 +1,10 @@
+---
+import Base from '../layouts/Base.astro';
+import { practice } from '../data/practice.js';
+---
+<Base title="Thank You" description="Thanks for contacting 1 Oak Dental.">
+  <div class="wrap hero">
+    <h1>Thank you, we got your request</h1>
+    <p class="lead">Our team will call you soon. If it is urgent, call us at <a href={`tel:${practice.phoneE164}`}>{practice.phone}</a>.</p>
+  </div>
+</Base>

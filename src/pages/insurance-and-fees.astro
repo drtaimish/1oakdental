@@ -1,0 +1,66 @@
+---
+import Base from '../layouts/Base.astro';
+import { practice, bookingHref, bookingLabel } from '../data/practice.js';
+const faqs = [
+  ['Do you bill insurance directly?', 'Yes. For most plans we submit the claim and collect the insurer\'s portion directly, so you pay only your share at the visit. Bring your insurance card or app details to your first appointment, including the policy and ID numbers.'],
+  ['What about a second insurance plan?', 'We can coordinate two plans. We need the second carrier\'s name, the group or plan number, the ID number, and the name and date of birth of the plan holder. The primary plan pays first; we then submit the balance to the secondary plan.'],
+  ['Do you accept the Canadian Dental Care Plan (CDCP)?', 'Yes. Important: the CDCP often does not cover the full fee. Depending on your income band, a co-payment of 0%, 40% or 60% of the CDCP fee may apply, and some services are not covered or need pre-approval. We tell you the expected co-payment before treatment starts.'],
+  ['How are your fees set?', 'Our fees follow the Ontario Dental Association suggested fee guide for the current year, which is what most insurance plans base their coverage on.'],
+  ['Will I know the cost before treatment?', 'Yes. After your exam you receive a written treatment plan with the fee for each item. For implants and full-arch cases the quote is all-inclusive: scan, surgery, any grafting, temporary and final teeth. For insured patients we can send a pre-determination to your insurer so you know what they will pay.'],
+  ['Why do implant and All-on-4 costs vary so much between offices?', 'Quotes differ in what they include. Some advertise the surgical fee alone and add the scan, grafting, abutment, temporary teeth and final restoration later. Ask any office for the all-in figure. Ours is.'],
+  ['What payment methods do you take?', 'Debit, Visa, Mastercard, American Express and cash.'],
+  ['Is there financing?', `Yes, through ${practice.payments.financing}, a Canadian patient-financing provider. You apply online in a few minutes, usually with an instant decision, and repay monthly. There is no cost to apply, and you can use it for any treatment plan.`],
+  ['What if I need to cancel?', 'Please give us two business days\' notice so we can offer the time to someone else. Longer appointments hold Dr. Taimish, an assistant and a room, so we ask for extra notice on those.'],
+];
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+};
+---
+<Base title="Insurance, CDCP, Fees and Financing" description="How insurance, the Canadian Dental Care Plan, fees and monthly financing work at 1 Oak Dental in downtown Toronto. Direct billing, written quotes, no surprises." schema={schema}>
+  <div class="wrap">
+    <div class="hero">
+      <p class="eyebrow">Paying for care</p>
+      <h1>Insurance, CDCP, fees and financing</h1>
+      <p class="lead">We bill most plans directly, accept the CDCP, follow the Ontario fee guide, and put every fee in writing before we start.</p>
+      <div class="actions">
+        <a class="btn" href={bookingHref}>{bookingLabel}</a>
+        <a class="btn secondary" href={practice.payments.financingUrl} rel="noopener">Apply for financing</a>
+      </div>
+    </div>
+    <section class="faq">
+      {faqs.map(([q, a]) => <details><summary>{q}</summary><p>{a}</p></details>)}
+    </section>
+    <section id="payment-plans">
+      <h2>Payment plans and financing</h2>
+      <p>Larger treatments such as implants, full arches, veneers and Invisalign do not have to be paid all at once.</p>
+      <ul>
+        <li><strong>Insurance first.</strong> We bill your plan directly and tell you in writing what it is expected to cover before you decide.</li>
+        <li><strong>Monthly financing through {practice.payments.financing}.</strong> A third-party plan you can apply for online in a few minutes, with approval usually the same day. Terms are set by {practice.payments.financing}, not by us. <a href={practice.payments.financingUrl} rel="noopener">Apply with {practice.payments.financing} →</a></li>
+        <li><strong>Payment plans.</strong> For treatment done in stages, such as implants that heal for a few months before the final teeth, payment can follow the stages. Ask us at your consultation.</li>
+        <li><strong>CDCP.</strong> We accept the Canadian Dental Care Plan for eligible patients.</li>
+      </ul>
+      <p>Every option is explained before treatment starts, with no pressure to choose the biggest plan.</p>
+      <div class="actions"><a class="btn" href="/contact/">Ask about payment plans</a></div>
+    </section>
+    <section>
+      <h2>What affects the cost of implant treatment</h2>
+      <p>Exact prices depend on your mouth, which is why we quote after a scan rather than on a website. These are the things that move the number:</p>
+      <ul>
+        <li><strong>How many teeth</strong> are being replaced, and whether they share implants (a bridge on two implants can replace three teeth).</li>
+        <li><strong>Bone grafting or a sinus lift</strong>, if the bone has shrunk since the tooth was lost.</li>
+        <li><strong>Extractions</strong> needed before or at the time of implant placement.</li>
+        <li><strong>Sedation or general anaesthesia</strong> (coming soon), which adds the anaesthesiologist's time.</li>
+        <li><strong>Materials for the final teeth</strong>: for full arches, acrylic over titanium versus zirconia.</li>
+        <li><strong>Temporary teeth</strong> while you heal.</li>
+      </ul>
+      <p>Your written quote lists each of these so you can compare it line by line with any other office.</p>
+    </section>
+    <section class="card">
+      <h2>Not sure what your plan covers?</h2>
+      <p>Send us your insurance details before your visit and we will check your coverage for you.</p>
+      <a class="btn" href="/contact/">Contact us</a>
+    </section>
+  </div>
+</Base>

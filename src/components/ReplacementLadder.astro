@@ -1,0 +1,35 @@
+---
+// Tooth replacement ladder: one rung per option, simplest to most permanent, revealed one by one on scroll.
+// Props: compact (hide pros/cons and show a link to the full page), ink (draw the placeholder art in ink, not green).
+import { replacementOptions } from '../data/replacementOptions.js';
+import ServiceArt from './ServiceArt.astro';
+interface Props { compact?: boolean }
+const { compact = false } = Astro.props;
+---
+<ol class="ladder" aria-label="Tooth replacement options, simplest to most permanent">
+  {replacementOptions.map((o, i) => (
+    <li class="rung" id={o.id}>
+      <div class="rung-media">
+        {o.media.clip
+          ? <video class="hero-photo" muted loop playsinline preload="none" poster={o.media.clip.poster} data-src={o.media.clip.src} width="1600" height="1200" aria-label={o.media.clip.alt}></video>
+          : o.media.photo
+          ? <img class="hero-photo" src={o.media.photo.src} alt={o.media.photo.alt} width="1600" height="1200" loading="lazy" />
+          : <div class="rung-art"><ServiceArt slug={o.art} size={96} class="ink" /></div>}
+      </div>
+      <div class="rung-text">
+        <p class="eyebrow">Option {i + 1} of {replacementOptions.length} · {o.replaces}</p>
+        <h3>{o.title}</h3>
+        <p class="tagline">{o.tagline}</p>
+        <p>{o.summary}</p>
+        <p><strong>Best for:</strong> {o.suits}</p>
+        {!compact && (
+          <div class="pros-cons">
+            <div><strong>For</strong><ul>{o.pros.map((p) => <li>{p}</li>)}</ul></div>
+            <div><strong>Against</strong><ul>{o.cons.map((p) => <li>{p}</li>)}</ul></div>
+          </div>
+        )}
+        <a href={compact ? `/tooth-replacement-options/#${o.id}` : o.href}>{compact ? 'Compare in detail' : 'Read about this treatment'} →</a>
+      </div>
+    </li>
+  ))}
+</ol>

@@ -1,0 +1,25 @@
+# Cloudflare Workers config: static site from ./dist plus a tiny Worker for the forms.
+# Deploy: `npm run build && npx wrangler deploy` (or connect the repo under Workers > Create > Import a repository,
+# build command `npm run build`, deploy command `npx wrangler deploy`).
+name = "1oakdental"
+main = "worker/index.js"
+compatibility_date = "2026-11-25"
+
+[assets]
+directory = "./dist"
+binding = "ASSETS"
+not_found_handling = "404-page"
+run_worker_first = ["/api/*"]
+
+# Form submissions are emailed here. The sending domain (1oakdental.ca) must be onboarded under
+# Compute > Email Service > Email Sending, and on the free plan MAIL_TO must be a verified destination address
+# (Compute > Email Service > Email Routing > Destination addresses).
+[[send_email]]
+name = "EMAIL"
+
+[vars]
+MAIL_TO = "info@1oakdental.ca"
+MAIL_FROM = "forms@1oakdental.ca"
+# Optional: also post each submission as JSON somewhere (Zapier, Make, a spreadsheet):
+# FORM_WEBHOOK_URL = ""
+# REFERRAL_WEBHOOK_URL = ""

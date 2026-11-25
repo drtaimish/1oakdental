@@ -1,0 +1,1 @@
+Stills and short loops for the tooth replacement ladder, named by option id: flipper, partial-denture, complete-denture, implant-overdenture, single-implant, implant-bridge, full-arch. Images in public/images/options/<id>.jpg, loops in public/videos/options/<id>.mp4. Point to them from src/data/replacementOptions.js (media.photo / media.clip).

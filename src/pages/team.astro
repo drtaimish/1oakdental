@@ -1,0 +1,71 @@
+---
+import Base from '../layouts/Base.astro';
+import { practice, team, staff, languages } from '../data/practice.js';
+const initials = (n) => n.replace('Dr. ', '').split(' ').map((w) => w[0]).join('').slice(0, 2);
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': team.map((t) => ({
+    '@type': 'Person',
+    name: t.name,
+    ...(t.credentials ? { honorificSuffix: t.credentials } : {}),
+    jobTitle: t.role,
+    worksFor: { '@id': `${practice.url}/#dentist` },
+    ...(t.href ? { url: practice.url + t.href } : {}),
+    ...(Array.isArray(t.bio) ? { description: t.bio[0] } : {}),
+    ...(t.alumniOf ? { alumniOf: t.alumniOf.map((n) => ({ '@type': 'CollegeOrUniversity', name: n })) } : {}),
+    ...(t.certification ? { hasCredential: { '@type': 'EducationalOccupationalCredential', credentialCategory: 'certification', name: t.certification } } : {}),
+    ...(t.languages?.length ? { knowsLanguage: t.languages } : {}),
+  })),
+};
+---
+<Base title="Our Team: Oral Surgery, Pediatric Dentist, Anaesthesiologist" description="Meet the 1 Oak Dental team in downtown Toronto: Dr. Ammar Taimish (oral surgery and implants), Dr. Alice Dong (pediatric dentist) and Dr. Zakir Esufali, MD (anaesthesiologist)." schema={schema}>
+  <div class="wrap">
+    <div class="hero">
+      <p class="eyebrow">Our team</p>
+      <h1>A dentist who does only oral surgery, a children's specialist and a physician anaesthesiologist, under one roof</h1>
+      <p class="lead">Most dental offices refer out for oral surgery, for children who need sedation, and for general anaesthesia. At {practice.name} the people who do that work are on the team.</p>
+    </div>
+    <div class="team">
+      {team.map((t) => (
+        <article class="card member" id={t.id}>
+          {t.photo
+            ? <img src={t.photo} alt={t.name} width="400" height="400" loading="lazy" />
+            : <div class="avatar" aria-hidden="true">{initials(t.name)}</div>}
+          <div>
+            <h2>{t.name}{t.credentials && <span class="muted">, {t.credentials}</span>}</h2>
+            <p class="role">{t.role}</p>
+            {Array.isArray(t.bio) ? t.bio.map((para) => <p>{para}</p>) : <p>{t.bio || t.blurb}</p>}
+            {t.languages?.length > 1 && <p class="muted">Speaks {t.languages.join(' and ')}.</p>}
+            {t.bioDraft && <p class="todo">Draft bio, awaiting {t.name.split(' ').slice(-1)[0] === 'Dong' ? "Dr. Dong's" : 'approval'} approval.</p>}
+            {t.href && <a href={t.href}>More about {t.name.split(' ').slice(-1)[0] === 'Taimish' ? 'Dr. Taimish' : t.name} →</a>}
+          </div>
+        </article>
+      ))}
+    </div>
+    <section>
+      <h2>The rest of the team</h2>
+      <p class="muted">The people who book you in, clean your teeth, set up your surgery and hold your hand through it.</p>
+      <div class="grid staff">
+        {staff.map((s) => (
+          <article class="card staffer" id={s.id}>
+            {s.photo
+              ? <img src={s.photo} alt={s.name || s.role} width="400" height="400" loading="lazy" />
+              : <div class="avatar" aria-hidden="true">{s.name ? initials(s.name) : '·'}</div>}
+            <h3>{s.name || s.role}</h3>
+            <p class="role">{s.name ? s.role : <span class="todo">Name to come</span>}</p>
+            <p>{s.line}</p>
+            {s.languages.length > 0 && <p class="muted langs">Speaks {s.languages.join(', ')}</p>}
+          </article>
+        ))}
+      </div>
+    </section>
+    {languages.length > 1 && (
+      <section><h2>Languages</h2><p>Our team speaks {languages.join(', ')}.</p></section>
+    )}
+    <section class="card">
+      <h2>Want to meet us first?</h2>
+      <p>Your first consultation is free, in person or by phone.</p>
+      <a class="btn" href="/contact/">Request an appointment</a>
+    </section>
+  </div>
+</Base>

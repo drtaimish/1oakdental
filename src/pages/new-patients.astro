@@ -1,0 +1,35 @@
+---
+import Base from '../layouts/Base.astro';
+import { practice, bookingHref, bookingLabel } from '../data/practice.js';
+---
+<Base title="New Patients Welcome" description="New patients are welcome at 1 Oak Dental in downtown Toronto. What to expect, insurance, CDCP and payment options.">
+  <div class="wrap">
+    <div class="hero">
+      <h1>New patients welcome</h1>
+      <p class="lead">Whether you need a cleaning or a full smile makeover, here is what to expect.</p>
+    </div>
+    <section>
+      <h2>Your first visit</h2>
+      <p>We review your health history, examine your teeth and gums, take any X-rays you need, and talk through what we find. If you came for a specific treatment, you leave with a written plan and estimate.</p>
+    </section>
+    <section>
+      <h2>Insurance, CDCP and payment</h2>
+      <p>We bill most dental insurance directly and accept patients covered by the Canadian Dental Care Plan. We take major credit cards, debit and cash.</p>
+      {practice.payments.financing && (
+        <p>For larger treatment, monthly financing is available through <a href={practice.payments.financingUrl} rel="noopener">{practice.payments.financing}</a>. Apply online in a few minutes and bring your approval to your consultation, or ask our team to walk you through it.</p>
+      )}
+    </section>
+    <section>
+      <h2>Nervous about the dentist?</h2>
+      <p>Tell us, and we will go at your pace. Sleep dentistry (sedation and general anaesthesia) is coming soon; <a href="/services/sleep-dentistry/">join the waitlist</a>.</p>
+    </section>
+    <section>
+      <h2>Referred by a friend?</h2>
+      <p>Referrals are the best compliment we can get. Mention who sent you when you book.</p>
+      <div class="actions">
+        <a class="btn" href={bookingHref}>{bookingLabel}</a>
+        <a class="btn secondary" href={`tel:${practice.phoneE164}`}>Call {practice.phone}</a>
+      </div>
+    </section>
+  </div>
+</Base>

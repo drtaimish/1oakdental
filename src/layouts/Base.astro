@@ -1,0 +1,199 @@
+---
+import '../styles/global.css';
+import { practice, bookingHref, bookingLabel, hoursRows, openingHoursSpecification } from '../data/practice.js';
+import { neighbourhoods } from '../data/seo.js';
+
+interface Props {
+  title: string;
+  description: string;
+  schema?: object;
+}
+const { title, description, schema } = Astro.props;
+const canonical = new URL(Astro.url.pathname, practice.url).href;
+const fullTitle = title.includes(practice.name) ? title : `${title} | ${practice.name}`;
+
+const dentist = {
+  '@context': 'https://schema.org',
+  '@type': 'Dentist',
+  '@id': `${practice.url}/#dentist`,
+  name: practice.name,
+  legalName: practice.legalName,
+  url: practice.url + '/',
+  telephone: practice.phoneE164,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: practice.street,
+    addressLocality: practice.city,
+    addressRegion: practice.region,
+    postalCode: practice.postalCode,
+    addressCountry: 'CA',
+  },
+  areaServed: [{ '@type': 'City', name: 'Toronto' }, ...neighbourhoods.map((n) => ({ '@type': 'Place', name: n.replace(/^the /, '') + ', Toronto' }))],
+  image: `${practice.url}/og.png`,
+  priceRange: '$$',
+  isAcceptingNewPatients: true,
+  currenciesAccepted: 'CAD',
+  paymentAccepted: 'Cash, Debit, Credit Card, Insurance',
+  sameAs: [practice.instagram, practice.linkedin, practice.googleProfileUrl].filter(Boolean),
+  ...(openingHoursSpecification.length ? { openingHoursSpecification } : {}),
+};
+---
+<!doctype html>
+<html lang="en-CA" class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <script is:inline>document.documentElement.classList.remove("no-js")</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    {Astro.url.pathname.startsWith("/thank-you") && <meta name="robots" content="noindex" />}
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={`${practice.url}/og.png`} />
+    <meta property="og:locale" content="en_CA" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif&display=swap" />
+    <script type="application/ld+json" set:html={JSON.stringify(dentist)} />
+    {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site">
+      <div class="wrap">
+        <a class="logo" href="/">{practice.name}</a>
+        <nav class="main" aria-label="Main">
+          <a href="/patients/">For patients</a>
+          <a href="/referring-dentists/">For referring dentists</a>
+          <a href="/team/">Team</a>
+          <a href="/contact/">Contact</a>
+        </nav>
+        <div class="header-ctas">
+          <div class="cta">
+            <span class="cta-label">For patients</span>
+            <a class="btn" href={bookingHref}>{bookingLabel}</a>
+          </div>
+          <div class="cta">
+            <span class="cta-label">For dental offices</span>
+            <a class="btn secondary" href="/referring-dentists/#refer">Refer a patient</a>
+          </div>
+        </div>
+        <a class="header-phone" href={`tel:${practice.phoneE164}`}>Call {practice.phone}</a>
+      </div>
+    </header>
+    <main id="main">
+      <slot />
+    </main>
+    <footer class="site">
+      <div class="wrap grid">
+        <div>
+          <strong>{practice.name}</strong><br />
+          {practice.street}<br />
+          {practice.city}, {practice.region} {practice.postalCode}<br />
+          <a href={`tel:${practice.phoneE164}`}>{practice.phone}</a><br />
+          <a href={practice.mapsUrl}>Get directions</a>
+          {practice.googleProfileUrl && <><br /><a href={practice.googleProfileUrl} rel="noopener">Find us on Google</a></>}
+        </div>
+        <div>
+          <strong>Services</strong><br />
+          <a href="/services/general-dentistry/">Family dentistry</a><br />
+          <a href="/services/sleep-dentistry/">Sleep dentistry</a><br />
+          <a href="/services/childrens-dentistry/">Children's dentistry</a><br />
+          <a href="/services/emergency-dentist/">Emergency care</a><br />
+          <a href="/services/invisalign/">Invisalign</a><br />
+          <a href="/services/dental-implants/">Dental implants</a><br />
+          <a href="/services/dentures/">Dentures</a><br />
+          <a href="/services/root-canal/">Root canals</a><br />
+          <a href="/services/veneers/">Veneers and whitening</a><br />
+          <a href="/services/tooth-extractions/">Extractions</a><br />
+          <a href="/services/wisdom-teeth-removal/">Wisdom teeth</a><br />
+          <a href="/services/all-on-4-dental-implants/">Full-arch implants</a><br />
+          <a href="/tooth-replacement-options/">Tooth replacement options</a><br />
+          <a href="/technology/">Our technology</a>
+        </div>
+        <div>
+          <strong>Book or refer</strong><br />
+          <a href={bookingHref}>{bookingLabel}</a><br />
+          <a href="/referring-dentists/">Refer a patient</a><br />
+          <a href="/new-patients/">New patients</a><br />
+          <a href="/insurance-and-fees/">Insurance and fees</a><br />
+          <a href="/patient-info/">Before and after your visit</a><br />
+          <a href="/blog/">Patient guides</a><br /><br />
+          <strong>Hours</strong><br />
+          {hoursRows.length
+            ? <dl class="hours">{hoursRows.map((r) => <><dt>{r.day}</dt><dd>{r.text}</dd></>)}</dl>
+            : <span>Call us for today's hours.</span>}
+        </div>
+      </div>
+      <div class="wrap"><p class="muted">© {new Date().getFullYear()} {practice.legalName}</p></div>
+    </footer>
+    <div class="sticky-bar">
+      <a class="btn" href={bookingHref}><small>For patients</small>{bookingLabel}</a>
+      <a class="btn secondary" href="/referring-dentists/#refer"><small>For dental offices</small>Refer a patient</a>
+    </div>
+    <script>
+      // Progressive motion. Everything below is cosmetic: without JS (or with reduced motion) the page
+      // is simply shown fully drawn and still.
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // 1. Service illustrations draw in when they come into view.
+      const arts = document.querySelectorAll('svg.art');
+      if (arts.length) {
+        const io = new IntersectionObserver((entries) => {
+          for (const e of entries) if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        }, { threshold: 0.4 });
+        arts.forEach((a) => io.observe(a));
+      }
+
+      // 2. Scroll reveal for sections and cards (not the hero, so the first paint stays fast).
+      //    Siblings in a grid are staggered slightly. Mark-up is untouched; the class is added here.
+      const targets = document.querySelectorAll('main section, main .grid > *, main .panels > *, main .steps > li, main .member, main .ladder > li');
+      if (!reduce && targets.length) {
+        targets.forEach((el) => { if (!el.closest('.hero')) el.classList.add('reveal'); });
+        const parents = new Map();
+        document.querySelectorAll('.reveal').forEach((el) => {
+          const sibs = parents.get(el.parentElement) || (parents.set(el.parentElement, []), parents.get(el.parentElement));
+          if (el.parentElement.matches('.grid, .panels, .steps')) el.style.transitionDelay = `${Math.min(sibs.length, 5) * 70}ms`;
+          sibs.push(el);
+        });
+        const ro = new IntersectionObserver((entries) => {
+          for (const e of entries) if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); }
+        }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+        document.querySelectorAll('.reveal').forEach((el) => ro.observe(el));
+        // Safety net: anything still hidden after a few seconds (observer edge cases) is shown.
+        setTimeout(() => document.querySelectorAll('.reveal:not(.in)').forEach((el) => el.classList.add('in')), 4000);
+      }
+
+      // 3. Subtle parallax on hero media (service photo, clip or illustration), desktop only.
+      const px = document.querySelectorAll('.hero-art > .hero-photo, .hero-art > svg.art');
+      if (!reduce && px.length && window.innerWidth > 640) {
+        px.forEach((el) => el.classList.add('parallax'));
+        let ticking = false;
+        const move = () => {
+          const y = Math.min(window.scrollY, 600) * 0.12;
+          px.forEach((el) => { el.style.transform = `translate3d(0, ${y}px, 0)`; });
+          ticking = false;
+        };
+        window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(move); } }, { passive: true });
+      }
+
+      // 4. Looping clips in the media slot: load and play only while on screen, never with reduced motion.
+      const clips = document.querySelectorAll('video.hero-photo');
+      if (clips.length && !reduce) {
+        const vo = new IntersectionObserver((entries) => {
+          for (const e of entries) {
+            const v = e.target;
+            if (e.isIntersecting) { if (!v.src && v.dataset.src) v.src = v.dataset.src; v.play().catch(() => {}); }
+            else v.pause();
+          }
+        }, { threshold: 0.25 });
+        clips.forEach((v) => vo.observe(v));
+      }
+    </script>
+  </body>
+</html>

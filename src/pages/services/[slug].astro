@@ -1,0 +1,165 @@
+---
+import Base from '../../layouts/Base.astro';
+import { services, practice, technology, waitlistHref } from '../../data/practice.js';
+import { serviceContent } from '../../data/serviceContent.js';
+import ServiceArt from '../../components/ServiceArt.astro';
+import VideoEmbed from '../../components/VideoEmbed.astro';
+import ReplacementLadder from '../../components/ReplacementLadder.astro';
+import { media } from '../../data/media.js';
+import { serviceSeo, serviceBadges, serviceSteps, serviceExtra, serviceAftercare, serviceCta, serviceFinance } from '../../data/seo.js';
+import { patientInfo } from '../../data/patientInfo.js';
+
+export function getStaticPaths() {
+  return services.map((s) => ({ params: { slug: s.slug }, props: { service: s } }));
+}
+const { service } = Astro.props;
+const c = serviceContent[service.slug];
+const m = media[service.slug] || {};
+const seo = serviceSeo[service.slug] || { faqs: [], related: [] };
+const related = services.filter((x) => seo.related.includes(x.slug));
+const badges = serviceBadges[service.slug] || [];
+const steps = serviceSteps[service.slug] || [];
+const extra = serviceExtra[service.slug] || [];
+const tech = technology.filter((t) => t.usedFor.includes(service.slug));
+const showFinance = serviceFinance.includes(service.slug);
+const showLadder = ['dentures', 'dental-implants', 'all-on-4-dental-implants'].includes(service.slug);
+const aftercare = (serviceAftercare[service.slug] || []).map((id) => patientInfo.find((p) => p.slug === id)).filter(Boolean);
+const breadcrumbs = {
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: practice.url + '/' },
+    { '@type': 'ListItem', position: 2, name: 'Services', item: practice.url + '/services/' },
+    { '@type': 'ListItem', position: 3, name: service.title, item: `${practice.url}/services/${service.slug}/` },
+  ],
+};
+const video = m.video && {
+  '@type': 'VideoObject',
+  name: m.video.title,
+  description: c.description,
+  thumbnailUrl: `https://i.ytimg.com/vi/${m.video.youtubeId}/hqdefault.jpg`,
+  uploadDate: m.video.uploadDate,
+  duration: m.video.duration,
+  embedUrl: `https://www.youtube-nocookie.com/embed/${m.video.youtubeId}`,
+  transcript: m.video.transcript,
+};
+const procedure = {
+  '@type': 'MedicalProcedure',
+  name: seo.procedure || service.title,
+  url: `${practice.url}/services/${service.slug}/`,
+  description: c.description,
+  provider: { '@id': `${practice.url}/#dentist` },
+};
+const faq = seo.faqs.length && {
+  '@type': 'FAQPage',
+  mainEntity: seo.faqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+};
+const schema = { '@context': 'https://schema.org', '@graph': [breadcrumbs, procedure, faq, video].filter(Boolean) };
+---
+<Base title={c.metaTitle} description={c.description} schema={schema}>
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <a href="/services/">Services</a> › <span>{service.title}</span></nav>
+    <div class="hero hero-art">
+      <div>
+        <p class="eyebrow">{practice.neighbourhood}</p>
+        {service.comingSoon && <p class="badge-soon">Coming soon</p>}
+        <h1>{c.h1}</h1>
+        <p class="lead">{c.intro}</p>
+        {badges.length > 0 && <ul class="trust compact" aria-label="Key facts">{badges.map((b) => <li>{b}</li>)}</ul>}
+        <div class="actions">
+          {service.comingSoon
+            ? <a class="btn" href={waitlistHref}>Join the waitlist</a>
+            : <a class="btn" href={`/contact/?service=${service.slug}`}>{serviceCta[service.slug] || 'Book a free consultation'}</a>}
+          <a class="btn secondary" href={`tel:${practice.phoneE164}`}>Call {practice.phone}</a>
+        </div>
+      </div>
+      {m.clip
+        ? <figure class="hero-fig"><video class="hero-photo" muted loop playsinline preload="none" poster={m.clip.poster} data-src={m.clip.src} width="1600" height="900" aria-label={m.clip.alt}></video>{m.clip.label && <figcaption class="muted">{m.clip.label}</figcaption>}</figure>
+        : m.photo
+        ? <img class="hero-photo" src={m.photo.src} alt={m.photo.alt} width="1600" height="1200" />
+        : <ServiceArt slug={service.slug} size={112} />}
+    </div>
+    {m.video && (
+      <section>
+        <h2>Dr. Taimish explains</h2>
+        <VideoEmbed youtubeId={m.video.youtubeId} title={m.video.title} transcript={m.video.transcript} />
+      </section>
+    )}
+    {c.sections.map(([h, p]) => (
+      <section>
+        <h2>{h}</h2>
+        <p>{p}</p>
+      </section>
+    ))}
+    {steps.length > 0 && (
+      <section>
+        <h2>What happens, step by step</h2>
+        <ol class="steps">
+          {steps.map(([h, p]) => <li><h3>{h}</h3><p>{p}</p></li>)}
+        </ol>
+      </section>
+    )}
+    {extra.map(([h, p]) => (
+      <section><h2>{h}</h2><p>{p}</p></section>
+    ))}
+    {showLadder && (
+      <section>
+        <h2>Where this fits among your options</h2>
+        <p class="muted">Every way to replace missing teeth, simplest to most permanent. <a href="/tooth-replacement-options/">See the full comparison with pros and cons.</a></p>
+        <ReplacementLadder compact />
+      </section>
+    )}
+    {tech.length > 0 && (
+      <section class="tech-strip">
+        <h2>Technology for this treatment</h2>
+        <ul class="tech">
+          {tech.map((t) => <li><a href={`/technology/#${t.id}`}><strong>{t.title}</strong></a><span class="muted"> · {t.short}</span></li>)}
+        </ul>
+      </section>
+    )}
+    {showFinance && (
+      <section class="card tint">
+        <h2>Payment plans and financing</h2>
+        <p>We put the full fee in writing before anything starts, bill your insurance directly, and offer monthly financing through {practice.payments.financing}. Payment plans can spread larger treatments over time. Ask at your consultation and we will walk you through the options.</p>
+        <a class="btn secondary" href="/insurance-and-fees/#payment-plans">Ask about payment plans</a>
+      </section>
+    )}
+    {aftercare.length > 0 && (
+      <section class="card tint">
+        <h2>Before and after your appointment</h2>
+        <ul class="related">{aftercare.map((a) => <li><a href={`/patient-info/${a.slug}/`}>{a.title}</a><span class="muted"> · {a.summary}</span></li>)}</ul>
+      </section>
+    )}
+    {seo.faqs.length > 0 && (
+      <section class="faq">
+        <h2>Common questions</h2>
+        {seo.faqs.map(([q, a]) => (
+          <details><summary>{q}</summary><p>{a}</p></details>
+        ))}
+      </section>
+    )}
+    {related.length > 0 && (
+      <section>
+        <h2>Related care</h2>
+        <ul class="related">
+          {related.map((r) => <li><a href={`/services/${r.slug}/`}>{r.title}</a><span class="muted"> · {r.summary}</span></li>)}
+        </ul>
+      </section>
+    )}
+    {service.comingSoon ? (
+      <section class="card">
+        <h2>Be first to know</h2>
+        <p>Join the waitlist and we will email you when sleep dentistry appointments open. In the meantime, every treatment is available under local anaesthetic, and we are happy to go slowly.</p>
+        <div class="actions">
+          <a class="btn" href={waitlistHref}>Join the waitlist</a>
+          <a class="btn secondary" href="/contact/">Request an appointment</a>
+        </div>
+      </section>
+    ) : (
+      <section class="card">
+        <h2>Talk to Dr. Taimish</h2>
+        <p>Your first consultation is free. You will leave with a clear plan and a written estimate.</p>
+        <a class="btn" href="/contact/">Request your consultation</a>
+      </section>
+    )}
+  </div>
+</Base>
