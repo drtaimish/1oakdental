@@ -72,7 +72,17 @@ const dentist = {
           <a href="/team/">Team</a>
           <a href="/contact/">Contact</a>
         </nav>
-        <a class="btn header-call" href={bookingHref}>{bookingLabel}</a>
+        <div class="header-ctas">
+          <div class="cta">
+            <span class="cta-label">For patients</span>
+            <a class="btn" href={bookingHref}>{bookingLabel}</a>
+          </div>
+          <div class="cta">
+            <span class="cta-label">For dental offices</span>
+            <a class="btn secondary" href="/referring-dentists/#refer">Refer a patient</a>
+          </div>
+        </div>
+        <a class="header-phone" href={`tel:${practice.phoneE164}`}>Call {practice.phone}</a>
       </div>
     </header>
     <main id="main">
@@ -120,7 +130,10 @@ const dentist = {
       </div>
       <div class="wrap"><p class="muted">© {new Date().getFullYear()} {practice.legalName}</p></div>
     </footer>
-    <a class="btn sticky-call" href={`tel:${practice.phoneE164}`}>Call {practice.phone}</a>
+    <div class="sticky-bar">
+      <a class="btn" href={bookingHref}><small>For patients</small>{bookingLabel}</a>
+      <a class="btn secondary" href="/referring-dentists/#refer"><small>For dental offices</small>Refer a patient</a>
+    </div>
     <script>
       // Progressive motion. Everything below is cosmetic: without JS (or with reduced motion) the page
       // is simply shown fully drawn and still.
