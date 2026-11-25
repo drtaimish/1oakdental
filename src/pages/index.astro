@@ -74,7 +74,7 @@ const patientLinks = [
       <h2>Find us</h2>
       <p>{practice.street}, {practice.city}, {practice.region} {practice.postalCode}. In {practice.neighbourhood}.</p>
       <div class="actions">
-        <a class="btn secondary" href={practice.mapsUrl}>Get directions</a>
+        <a class="btn secondary" href={practice.googleProfileUrl || practice.mapsUrl} rel="noopener">Get directions</a>
         <a class="btn secondary" href={`tel:${practice.phoneE164}`}>Call {practice.phone}</a>
       </div>
     </section>

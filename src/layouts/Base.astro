@@ -75,6 +75,7 @@ const dentist = {
           {practice.city}, {practice.region} {practice.postalCode}<br />
           <a href={`tel:${practice.phoneE164}`}>{practice.phone}</a><br />
           <a href={practice.mapsUrl}>Get directions</a>
+          {practice.googleProfileUrl && <><br /><a href={practice.googleProfileUrl} rel="noopener">Find us on Google</a></>}
         </div>
         <div>
           <strong>Services</strong><br />

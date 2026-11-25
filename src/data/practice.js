@@ -22,8 +22,7 @@ export const practice = {
   // Short line for the homepage trust strip, e.g. 'Open evenings and Saturdays'. Hidden while null.
   hoursSummary: null,
   // Google Business Profile exists ("1 Oak Dental", managed by Ammar, no reviews yet as of 2026-11-25).
-  // TODO(Ammar): paste the Share link from Google Maps.
-  googleProfileUrl: null,
+  googleProfileUrl: 'https://maps.app.goo.gl/qjbzAwdicXifV1SC6',
   // Google review count and rating for this office only. Hidden while null.
   // TODO(Ammar): pull from the 1 Oak St Google Business Profile.
   reviewCount: null,

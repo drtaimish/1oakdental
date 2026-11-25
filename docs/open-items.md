@@ -9,7 +9,7 @@ Facts to confirm with Ammar (the old 416dentist.com had conflicting or missing v
 - [ ] Online booking link from Akitu One (`bookingUrl`). Every "Request an appointment" button becomes "Book online" once set
 - [ ] Prices to show, if any. The old site listed All-on-4 at $19,995, $22,995 and $24,995 per arch on different pages; aligner prices $2,995 to $4,995. This draft shows no prices.
 - [ ] Direct billing and CDCP: confirm both are accepted for all patients, not only children's orthodontics
-- [ ] Google Business Profile share link (profile exists, managed by Ammar, 0 reviews, no hours or website set as of 2026-11-25). Add to `googleProfileUrl`. Ammar to add hours + website on the profile too
+- [x] Google Business Profile link added (0 reviews, no hours or website set as of 2026-11-25; Ammar to add hours + website on the profile)
 - [ ] Where consultation requests should go (`FORM_WEBHOOK_URL`)
 - [x] Booking tool: Akitu One (practice software, Ammar 2026-11-25)
 - [ ] Real photos: office, team, Dr. Taimish, before/after cases with consent
