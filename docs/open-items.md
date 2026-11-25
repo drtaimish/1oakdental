@@ -1,0 +1,38 @@
+# Open items before launch
+
+Facts to confirm with Ammar (the old 416dentist.com had conflicting or missing values):
+
+- [ ] Office hours (not published anywhere today)
+- [ ] Prices to show, if any. The old site listed All-on-4 at $19,995, $22,995 and $24,995 per arch on different pages; aligner prices $2,995 to $4,995. This draft shows no prices.
+- [ ] Direct billing and CDCP: confirm both are accepted for all patients, not only children's orthodontics
+- [ ] Google Business Profile link for 1 Oak St (add to `googleProfileUrl`)
+- [ ] Where consultation requests should go (`FORM_WEBHOOK_URL`)
+- [ ] Booking tool, if any (depends on the office's practice software)
+- [ ] Real photos: office, team, Dr. Taimish, before/after cases with consent
+- [ ] Reviews from this office only
+- [ ] Ad tracking tags to keep (Google Tag Manager, Google Ads call tracking, Meta pixel)
+
+# Redirects from 416dentist.com (apply only when 1oakdental.ca is live)
+
+Old URL -> new URL, all 301:
+
+| 416dentist.com | 1oakdental.ca |
+| --- | --- |
+| / | / |
+| /dental-implants/ | /services/dental-implants/ |
+| /dental-implants/all-on-4-implant-dentures/ | /services/all-on-4-dental-implants/ |
+| /dental-implants/overdenture/ | /services/all-on-4-dental-implants/ |
+| /dental-implants/dentures/ | /services/all-on-4-dental-implants/ |
+| /dental-implants/periodontics/ | /services/general-dentistry/ |
+| /orthodontics/ and all /orthodontics/* | /services/invisalign/ |
+| /oral-surgery/ and /oral-surgery/wisdom-teeth-extraction/ | /services/wisdom-teeth-removal/ |
+| /general-dentistry/dental-emergency/ | /services/emergency-dentist/ |
+| /general-dentistry/ and other /general-dentistry/* | /services/general-dentistry/ |
+| /cosmetic-dentistry/* , /improve-your-smile/ | /services/ |
+| /new-patients/ and /new-patients/* | /new-patients/ |
+| /ammar-taimish-dds/ | /dr-ammar-taimish/ |
+| /contact/ , /toronto-on/ | /contact/ |
+| /barrie-on/ , /vaughan-on/ | https://vaughansmileclinic.com/ |
+| /blog/* | / (until the blog is rebuilt) |
+
+torontodentist.com: every URL -> https://1oakdental.ca/ (301).

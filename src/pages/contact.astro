@@ -1,0 +1,44 @@
+---
+import Base from '../layouts/Base.astro';
+import { practice, services } from '../data/practice.js';
+---
+<Base title="Book a Free Consultation" description="Request a free consultation or appointment at 1 Oak Dental, 1 Oak St, Toronto. Call (437) 466-5151 or send us your details.">
+  <div class="wrap">
+    <div class="hero">
+      <h1>Book a free consultation</h1>
+      <p class="lead">Call us at <a href={`tel:${practice.phoneE164}`}>{practice.phone}</a>, or send your details and we will call you back.</p>
+    </div>
+    <section>
+      <form class="consult" method="post" action="/api/consultation">
+        <label>First name <input name="first_name" required autocomplete="given-name" /></label>
+        <label>Last name <input name="last_name" required autocomplete="family-name" /></label>
+        <label>Phone <input name="phone" type="tel" required autocomplete="tel" /></label>
+        <label>Email <input name="email" type="email" autocomplete="email" /></label>
+        <label>What are you interested in?
+          <select name="treatment">
+            <option value="">Choose one</option>
+            {services.map((s) => <option value={s.title}>{s.title}</option>)}
+            <option value="Other">Something else</option>
+          </select>
+        </label>
+        <label>Interested in financing?
+          <select name="financing">
+            <option value="">Not sure</option>
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </label>
+        <label>How did you hear about us? <input name="referral_source" placeholder="Friend, Google, referral pad..." /></label>
+        <label>Anything else? <textarea name="message" rows="4"></textarea></label>
+        <div class="hp" aria-hidden="true"><label>Leave this empty <input name="company" tabindex="-1" autocomplete="off" /></label></div>
+        <button class="btn" type="submit">Send my request</button>
+        <p class="muted">We use these details only to contact you about your appointment.</p>
+      </form>
+    </section>
+    <section>
+      <h2>Visit us</h2>
+      <p>{practice.street}<br />{practice.city}, {practice.region} {practice.postalCode}</p>
+      <a class="btn secondary" href={practice.mapsUrl}>Get directions</a>
+    </section>
+  </div>
+</Base>

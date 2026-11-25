@@ -1,0 +1,35 @@
+---
+import Base from '../layouts/Base.astro';
+import { practice } from '../data/practice.js';
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Dr. Ammar Taimish',
+  honorificSuffix: 'DDS',
+  jobTitle: 'Dentist',
+  alumniOf: 'New York University College of Dentistry',
+  worksFor: { '@id': `${practice.url}/#dentist` },
+  sameAs: [practice.linkedin, practice.instagram],
+};
+---
+<Base title="Dr. Ammar Taimish, DDS" description="Meet Dr. Ammar Taimish, DDS, of 1 Oak Dental in Toronto: implant dentistry, full-arch implants and oral surgery." schema={schema}>
+  <div class="wrap">
+    <div class="hero">
+      <h1>Dr. Ammar Taimish, DDS</h1>
+      <p class="lead">A general dentist who focuses his practice on oral surgery and implant dentistry.</p>
+    </div>
+    <section>
+      <h2>Training</h2>
+      <p>Dr. Taimish earned his DDS at New York University College of Dentistry, then trained in the Department of Surgery at a Syracuse university hospital, with a focus on surgical head and neck anatomy.</p>
+    </section>
+    <section>
+      <h2>What he does</h2>
+      <p>His work centres on wisdom teeth and surgical extractions, dental implants, bone grafting, sedation dentistry and full-arch implants. He also lectures and teaches implant courses to other dentists.</p>
+    </section>
+    <section>
+      <h2>His approach</h2>
+      <p>He treats children, teens and adults, and takes time to explain every option before treatment starts.</p>
+      <a class="btn" href="/contact/">Book a consultation with Dr. Taimish</a>
+    </section>
+  </div>
+</Base>

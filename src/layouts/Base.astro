@@ -1,0 +1,94 @@
+---
+import '../styles/global.css';
+import { practice } from '../data/practice.js';
+
+interface Props {
+  title: string;
+  description: string;
+  schema?: object;
+}
+const { title, description, schema } = Astro.props;
+const canonical = new URL(Astro.url.pathname, practice.url).href;
+const fullTitle = title.includes(practice.name) ? title : `${title} | ${practice.name}, Toronto`;
+
+const dentist = {
+  '@context': 'https://schema.org',
+  '@type': 'Dentist',
+  '@id': `${practice.url}/#dentist`,
+  name: practice.name,
+  legalName: practice.legalName,
+  url: practice.url + '/',
+  telephone: practice.phoneE164,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: practice.street,
+    addressLocality: practice.city,
+    addressRegion: practice.region,
+    postalCode: practice.postalCode,
+    addressCountry: 'CA',
+  },
+  areaServed: { '@type': 'City', name: 'Toronto' },
+  sameAs: [practice.instagram, practice.linkedin, practice.googleProfileUrl].filter(Boolean),
+};
+---
+<!doctype html>
+<html lang="en-CA">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    {Astro.url.pathname.startsWith("/thank-you") && <meta name="robots" content="noindex" />}
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script type="application/ld+json" set:html={JSON.stringify(dentist)} />
+    {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site">
+      <div class="wrap">
+        <a class="logo" href="/">{practice.name}</a>
+        <nav class="main" aria-label="Main">
+          <a href="/services/">Services</a>
+          <a href="/dr-ammar-taimish/">Dr. Taimish</a>
+          <a href="/new-patients/">New patients</a>
+          <a href="/contact/">Contact</a>
+        </nav>
+        <a class="btn header-call" href={`tel:${practice.phoneE164}`}>Call {practice.phone}</a>
+      </div>
+    </header>
+    <main id="main">
+      <slot />
+    </main>
+    <footer class="site">
+      <div class="wrap grid">
+        <div>
+          <strong>{practice.name}</strong><br />
+          {practice.street}<br />
+          {practice.city}, {practice.region} {practice.postalCode}<br />
+          <a href={`tel:${practice.phoneE164}`}>{practice.phone}</a><br />
+          <a href={practice.mapsUrl}>Get directions</a>
+        </div>
+        <div>
+          <strong>Services</strong><br />
+          <a href="/services/dental-implants/">Dental implants</a><br />
+          <a href="/services/all-on-4-dental-implants/">Full-arch implants</a><br />
+          <a href="/services/wisdom-teeth-removal/">Wisdom teeth</a><br />
+          <a href="/services/invisalign/">Invisalign</a><br />
+          <a href="/services/emergency-dentist/">Emergency care</a>
+        </div>
+        <div>
+          <strong>Hours</strong><br />
+          {practice.hours ? practice.hours : <span>Call us for today's hours.</span>}
+        </div>
+      </div>
+      <div class="wrap"><p class="muted" style="color:#b9c2be">© {new Date().getFullYear()} {practice.legalName}</p></div>
+    </footer>
+    <a class="btn sticky-call" href={`tel:${practice.phoneE164}`}>Call {practice.phone}</a>
+  </body>
+</html>

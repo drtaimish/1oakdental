@@ -1,0 +1,43 @@
+---
+import Base from '../../layouts/Base.astro';
+import { services, practice } from '../../data/practice.js';
+import { serviceContent } from '../../data/serviceContent.js';
+
+export function getStaticPaths() {
+  return services.map((s) => ({ params: { slug: s.slug }, props: { service: s } }));
+}
+const { service } = Astro.props;
+const c = serviceContent[service.slug];
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: practice.url + '/' },
+    { '@type': 'ListItem', position: 2, name: 'Services', item: practice.url + '/services/' },
+    { '@type': 'ListItem', position: 3, name: service.title, item: `${practice.url}/services/${service.slug}/` },
+  ],
+};
+---
+<Base title={c.metaTitle} description={c.description} schema={schema}>
+  <div class="wrap">
+    <div class="hero">
+      <h1>{c.h1}</h1>
+      <p class="lead">{c.intro}</p>
+      <div class="actions">
+        <a class="btn" href="/contact/">Book a free consultation</a>
+        <a class="btn secondary" href={`tel:${practice.phoneE164}`}>Call {practice.phone}</a>
+      </div>
+    </div>
+    {c.sections.map(([h, p]) => (
+      <section>
+        <h2>{h}</h2>
+        <p>{p}</p>
+      </section>
+    ))}
+    <section class="card">
+      <h2>Talk to Dr. Taimish</h2>
+      <p>Your first consultation is free. You will leave with a clear plan and a written estimate.</p>
+      <a class="btn" href="/contact/">Request your consultation</a>
+    </section>
+  </div>
+</Base>
