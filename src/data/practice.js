@@ -3,8 +3,10 @@ export const practice = {
   name: '1 Oak Dental',
   legalName: 'Ammar Taimish Dentistry Professional Corporation',
   url: 'https://1oakdental.ca',
-  phone: '(437) 466-5151',
-  phoneE164: '+14374665151',
+  // Main number = the one on the Google Business Profile (checked 2026-11-25), so Google and the site match.
+  // The old 416dentist.com showed (437) 466-5151; keep that line live and forwarding if it still rings.
+  phone: '(416) 214-0003',
+  phoneE164: '+14162140003',
   // From the referral pads (Nov 2026).
   email: 'info@1oakdental.ca',
   urgentPhone: '416-214-0003',
@@ -19,7 +21,8 @@ export const practice = {
   hours: null,
   // Short line for the homepage trust strip, e.g. 'Open evenings and Saturdays'. Hidden while null.
   hoursSummary: null,
-  // TODO(Ammar): add the Google Business Profile link once it exists.
+  // Google Business Profile exists ("1 Oak Dental", managed by Ammar, no reviews yet as of 2026-11-25).
+  // TODO(Ammar): paste the Share link from Google Maps.
   googleProfileUrl: null,
   // Google review count and rating for this office only. Hidden while null.
   // TODO(Ammar): pull from the 1 Oak St Google Business Profile.
