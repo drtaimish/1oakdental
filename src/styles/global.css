@@ -111,3 +111,8 @@ form.consult .check input { width: 22px; height: 22px; }
 .case { margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
 .case img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 10px; }
 .case figcaption { grid-column: 1 / -1; font-size: 0.9rem; color: var(--muted); }
+
+/* Hours list in the footer */
+dl.hours { display: grid; grid-template-columns: auto 1fr; gap: 2px 12px; margin: 4px 0 0; font-size: 0.95rem; }
+dl.hours dt { font-weight: 500; }
+dl.hours dd { margin: 0; color: var(--muted); }

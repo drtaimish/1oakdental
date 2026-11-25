@@ -17,10 +17,18 @@ export const practice = {
   postalCode: 'M5A 0A1',
   neighbourhood: 'Regent Park, downtown Toronto',
   mapsUrl: 'https://www.google.com/maps/search/?api=1&query=1+Oak+St+%233+Toronto+ON+M5A+0A1',
-  // TODO(Ammar): confirm hours. Not published on the old site.
-  hours: null,
-  // Short line for the homepage trust strip, e.g. 'Open evenings and Saturdays'. Hidden while null.
-  hoursSummary: null,
+  // From the Google Business Profile (Ammar, 2026-11-25). Keep Google and this list identical.
+  hours: [
+    { days: 'Monday', open: '09:00', close: '17:00' },
+    { days: 'Tuesday', open: '09:00', close: '17:00' },
+    { days: 'Wednesday', open: '11:00', close: '19:00' },
+    { days: 'Thursday', open: '11:00', close: '19:00' },
+    { days: 'Friday', open: '09:00', close: '15:00' },
+    { days: 'Saturday', open: '09:00', close: '14:00' },
+    { days: 'Sunday', open: null, close: null },
+  ],
+  // Short line for the homepage trust strip.
+  hoursSummary: 'Evenings Wed & Thu, open Saturdays',
   // Google Business Profile exists ("1 Oak Dental", managed by Ammar, no reviews yet as of 2026-11-25).
   googleProfileUrl: 'https://maps.app.goo.gl/qjbzAwdicXifV1SC6',
   // Google review count and rating for this office only. Hidden while null.
@@ -174,3 +182,18 @@ export const trustItems = [
   practice.payments.financing ? { text: `Monthly financing with ${practice.payments.financing}`, href: '/new-patients/' } : null,
   { text: 'Physician anaesthesiologist on the team', href: '/services/sleep-dentistry/' },
 ].filter(Boolean);
+
+// '09:00' -> '9 am', '17:00' -> '5 pm', '14:30' -> '2:30 pm'
+export function fmtTime(t) {
+  const [h, m] = t.split(':').map(Number);
+  const suffix = h >= 12 ? 'pm' : 'am';
+  const hour = ((h + 11) % 12) + 1;
+  return m ? `${hour}:${String(m).padStart(2, '0')} ${suffix}` : `${hour} ${suffix}`;
+}
+export const hoursRows = (practice.hours || []).map((h) => ({
+  day: h.days,
+  text: h.open ? `${fmtTime(h.open)} to ${fmtTime(h.close)}` : 'Closed',
+}));
+export const openingHoursSpecification = (practice.hours || [])
+  .filter((h) => h.open)
+  .map((h) => ({ '@type': 'OpeningHoursSpecification', dayOfWeek: h.days, opens: h.open, closes: h.close }));

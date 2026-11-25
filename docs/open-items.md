@@ -2,7 +2,7 @@
 
 Facts to confirm with Ammar (the old 416dentist.com had conflicting or missing values):
 
-- [ ] Office hours (not published anywhere today). Also a one-line `hoursSummary` for the homepage strip, e.g. "Open evenings and Saturdays"
+- [x] Office hours (from the Google profile, 2026-11-25)
 - [ ] Google review count and rating for 1 Oak St (`reviewCount`, `reviewRating`). Shown in the homepage trust strip once set
 - [x] Financing: Beautifi (Ammar, 2026-11-25)
 - [ ] Before/after cases with consent (`gallery` in practice.js). The homepage section appears once there is at least one pair

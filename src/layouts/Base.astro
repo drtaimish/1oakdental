@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { practice, bookingHref, bookingLabel } from '../data/practice.js';
+import { practice, bookingHref, bookingLabel, hoursRows, openingHoursSpecification } from '../data/practice.js';
 
 interface Props {
   title: string;
@@ -29,6 +29,7 @@ const dentist = {
   },
   areaServed: { '@type': 'City', name: 'Toronto' },
   sameAs: [practice.instagram, practice.linkedin, practice.googleProfileUrl].filter(Boolean),
+  ...(openingHoursSpecification.length ? { openingHoursSpecification } : {}),
 };
 ---
 <!doctype html>
@@ -92,7 +93,9 @@ const dentist = {
           <a href={bookingHref}>{bookingLabel}</a><br />
           <a href="/referring-dentists/">Refer a patient</a><br /><br />
           <strong>Hours</strong><br />
-          {practice.hours ? practice.hours : <span>Call us for today's hours.</span>}
+          {hoursRows.length
+            ? <dl class="hours">{hoursRows.map((r) => <><dt>{r.day}</dt><dd>{r.text}</dd></>)}</dl>
+            : <span>Call us for today's hours.</span>}
         </div>
       </div>
       <div class="wrap"><p class="muted">© {new Date().getFullYear()} {practice.legalName}</p></div>
