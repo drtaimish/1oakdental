@@ -100,3 +100,14 @@ form.consult .check input { width: 22px; height: 22px; }
 .patient-grid .card { display: grid; gap: 8px; align-content: start; }
 .patient-grid .card h2 { font-size: 1.6rem; margin: 0; }
 .patient-grid .links { display: flex; gap: 16px; flex-wrap: wrap; font-weight: 600; }
+
+/* Homepage trust strip */
+.trust { list-style: none; margin: -8px 0 40px; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 12px; }
+.trust li { background: var(--tint); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; font-size: 0.92rem; color: var(--ink); }
+.trust li a { color: inherit; text-decoration: none; }
+.trust li a:hover { text-decoration: underline; }
+
+/* Before/after cases */
+.case { margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.case img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 10px; }
+.case figcaption { grid-column: 1 / -1; font-size: 0.9rem; color: var(--muted); }

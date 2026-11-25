@@ -17,8 +17,25 @@ export const practice = {
   mapsUrl: 'https://www.google.com/maps/search/?api=1&query=1+Oak+St+%233+Toronto+ON+M5A+0A1',
   // TODO(Ammar): confirm hours. Not published on the old site.
   hours: null,
+  // Short line for the homepage trust strip, e.g. 'Open evenings and Saturdays'. Hidden while null.
+  hoursSummary: null,
   // TODO(Ammar): add the Google Business Profile link once it exists.
   googleProfileUrl: null,
+  // Google review count and rating for this office only. Hidden while null.
+  // TODO(Ammar): pull from the 1 Oak St Google Business Profile.
+  reviewCount: null,
+  reviewRating: null,
+  // Online booking link (practice software widget). While null, buttons go to the contact form.
+  // TODO(Ammar): which booking tool does the office use?
+  bookingUrl: null,
+  payments: {
+    directBilling: true, // confirmed on the old site for most plans
+    cdcp: true,
+    // TODO(Ammar): name the financing provider or set to null to hide the line.
+    financing: null,
+  },
+  // Before/after gallery. Add { before, after, alt } image pairs once consented photos exist.
+  gallery: [],
   instagram: 'https://www.instagram.com/drammar1/',
   linkedin: 'https://ca.linkedin.com/in/ammar-taimish-2383472b',
 };
@@ -139,3 +156,19 @@ export const referralGroups = [
 ];
 
 export const sedationOptions = ['Local anaesthetic only', 'IV sedation', 'Deep sedation', 'General anaesthesia', 'Please discuss with patient'];
+
+// Every "book" button uses this, so switching to an online booking tool is a one-line change.
+export const bookingHref = practice.bookingUrl || '/contact/';
+export const bookingLabel = practice.bookingUrl ? 'Book online' : 'Request an appointment';
+
+// Homepage trust strip. Items with no data are left out, so nothing shows a placeholder live.
+export const trustItems = [
+  practice.reviewCount && practice.reviewRating
+    ? { text: `${practice.reviewRating}★ from ${practice.reviewCount}+ Google reviews`, href: practice.googleProfileUrl }
+    : null,
+  practice.hoursSummary ? { text: practice.hoursSummary, href: '/contact/' } : null,
+  practice.payments.directBilling ? { text: 'Direct insurance billing', href: '/new-patients/' } : null,
+  practice.payments.cdcp ? { text: 'CDCP accepted', href: '/new-patients/' } : null,
+  practice.payments.financing ? { text: `Financing through ${practice.payments.financing}`, href: '/new-patients/' } : null,
+  { text: 'Physician anaesthesiologist on the team', href: '/services/sleep-dentistry/' },
+].filter(Boolean);

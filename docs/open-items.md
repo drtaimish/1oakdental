@@ -2,7 +2,11 @@
 
 Facts to confirm with Ammar (the old 416dentist.com had conflicting or missing values):
 
-- [ ] Office hours (not published anywhere today)
+- [ ] Office hours (not published anywhere today). Also a one-line `hoursSummary` for the homepage strip, e.g. "Open evenings and Saturdays"
+- [ ] Google review count and rating for 1 Oak St (`reviewCount`, `reviewRating`). Shown in the homepage trust strip once set
+- [ ] Financing provider, if any (`payments.financing`). Hidden until named
+- [ ] Before/after cases with consent (`gallery` in practice.js). The homepage section appears once there is at least one pair
+- [ ] Online booking link (`bookingUrl`). Every "Request an appointment" button becomes "Book online" once set
 - [ ] Prices to show, if any. The old site listed All-on-4 at $19,995, $22,995 and $24,995 per arch on different pages; aligner prices $2,995 to $4,995. This draft shows no prices.
 - [ ] Direct billing and CDCP: confirm both are accepted for all patients, not only children's orthodontics
 - [ ] Google Business Profile link for 1 Oak St (add to `googleProfileUrl`)

@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import { practice } from '../data/practice.js';
+import { practice, bookingHref, bookingLabel } from '../data/practice.js';
 ---
 <Base title="New Patients Welcome" description="New patients are welcome at 1 Oak Dental in downtown Toronto. What to expect, insurance, CDCP and payment options.">
   <div class="wrap">
@@ -14,7 +14,7 @@ import { practice } from '../data/practice.js';
     </section>
     <section>
       <h2>Insurance, CDCP and payment</h2>
-      <p>We bill most dental insurance directly and accept patients covered by the Canadian Dental Care Plan. We take major credit cards, debit and cash, and offer monthly financing for larger treatment.</p>
+      <p>We bill most dental insurance directly and accept patients covered by the Canadian Dental Care Plan. We take major credit cards, debit and cash.{practice.payments.financing && ` Monthly financing for larger treatment is available through ${practice.payments.financing}.`}</p>
     </section>
     <section>
       <h2>Nervous about the dentist?</h2>
@@ -24,7 +24,7 @@ import { practice } from '../data/practice.js';
       <h2>Referred by a friend?</h2>
       <p>Referrals are the best compliment we can get. Mention who sent you when you book.</p>
       <div class="actions">
-        <a class="btn" href="/contact/">Request an appointment</a>
+        <a class="btn" href={bookingHref}>{bookingLabel}</a>
         <a class="btn secondary" href={`tel:${practice.phoneE164}`}>Call {practice.phone}</a>
       </div>
     </section>

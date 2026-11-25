@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { practice } from '../data/practice.js';
+import { practice, bookingHref, bookingLabel } from '../data/practice.js';
 
 interface Props {
   title: string;
@@ -61,7 +61,7 @@ const dentist = {
           <a href="/referring-dentists/">For referring dentists</a>
           <a href="/contact/">Contact</a>
         </nav>
-        <a class="btn header-call" href="/contact/">Request an appointment</a>
+        <a class="btn header-call" href={bookingHref}>{bookingLabel}</a>
       </div>
     </header>
     <main id="main">
@@ -88,7 +88,7 @@ const dentist = {
         </div>
         <div>
           <strong>Book or refer</strong><br />
-          <a href="/contact/">Request an appointment</a><br />
+          <a href={bookingHref}>{bookingLabel}</a><br />
           <a href="/referring-dentists/">Refer a patient</a><br /><br />
           <strong>Hours</strong><br />
           {practice.hours ? practice.hours : <span>Call us for today's hours.</span>}
