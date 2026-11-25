@@ -69,6 +69,7 @@ const dentist = {
         <nav class="main" aria-label="Main">
           <a href="/patients/">For patients</a>
           <a href="/referring-dentists/">For referring dentists</a>
+          <a href="/team/">Team</a>
           <a href="/contact/">Contact</a>
         </nav>
         <a class="btn header-call" href={bookingHref}>{bookingLabel}</a>
@@ -95,12 +96,18 @@ const dentist = {
           <a href="/services/emergency-dentist/">Emergency care</a><br />
           <a href="/services/invisalign/">Invisalign</a><br />
           <a href="/services/dental-implants/">Dental implants</a><br />
-          <a href="/services/tooth-extractions/">Extractions</a>
+          <a href="/services/tooth-extractions/">Extractions</a><br />
+          <a href="/services/wisdom-teeth-removal/">Wisdom teeth</a><br />
+          <a href="/services/all-on-4-dental-implants/">Full-arch implants</a>
         </div>
         <div>
           <strong>Book or refer</strong><br />
           <a href={bookingHref}>{bookingLabel}</a><br />
-          <a href="/referring-dentists/">Refer a patient</a><br /><br />
+          <a href="/referring-dentists/">Refer a patient</a><br />
+          <a href="/new-patients/">New patients</a><br />
+          <a href="/insurance-and-fees/">Insurance and fees</a><br />
+          <a href="/patient-info/">Before and after your visit</a><br />
+          <a href="/blog/">Patient guides</a><br /><br />
           <strong>Hours</strong><br />
           {hoursRows.length
             ? <dl class="hours">{hoursRows.map((r) => <><dt>{r.day}</dt><dd>{r.text}</dd></>)}</dl>

@@ -2,6 +2,15 @@
 import Base from '../layouts/Base.astro';
 import { practice, referralGroups, team, trustItems, bookingHref, bookingLabel } from '../data/practice.js';
 import { neighbourhoods, transit } from '../data/seo.js';
+import { articles } from '../data/articles.js';
+const homeFaqs = [
+  ['Are you accepting new patients?', 'Yes. New patients, families and referred patients are all welcome. Book online or call (416) 214-0003.'],
+  ['Do I need a referral?', 'No. Anyone can book directly for wisdom teeth, implants, sedation or general care. Dentists can also refer patients to us for surgery, sedation or pediatric care.'],
+  ['Can I be asleep for my treatment?', 'Yes. IV sedation, deep sedation and general anaesthesia are available in our office, provided by a physician anaesthesiologist.'],
+  ['Do you take my insurance and the CDCP?', 'We bill most insurance plans directly and accept the Canadian Dental Care Plan. Monthly financing is available through Beautifi.'],
+  ['Where are you?', '1 Oak St, Unit 3, at Dundas and Parliament in Regent Park, downtown Toronto. Streetcar 505 stops outside; street parking and paid lots nearby.'],
+];
+const homeSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: homeFaqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) };
 const patientLinks = [
   ['Family and general dentistry', '/services/general-dentistry/'],
   ['Sleep dentistry', '/services/sleep-dentistry/'],
@@ -11,14 +20,15 @@ const patientLinks = [
 ];
 ---
 <Base
-  title="1 Oak Dental | Family Dentist in Downtown Toronto"
-  description="1 Oak Dental at 1 Oak St, downtown Toronto: family and general dentistry, sleep dentistry, Invisalign, extractions and implants. Referring dentists welcome."
+  title="1 Oak Dental | Family Dentist and Oral Surgery in Downtown Toronto"
+  description="Family dentist, pediatric dentist, oral surgery and implants with sedation by a physician anaesthesiologist, at 1 Oak St in downtown Toronto. New patients and referrals welcome."
+  schema={homeSchema}
 >
   <div class="wrap">
     <div class="hero">
-      <p class="eyebrow">Downtown Toronto · 1 Oak St</p>
+      <p class="eyebrow">Downtown Toronto · 1 Oak St · Accepting new patients</p>
       <h1>Family dentist in downtown Toronto. A referral partner for your practice.</h1>
-      <p class="lead">Explore family dentistry, sleep dentistry and surgical care at {practice.name}.</p>
+      <p class="lead">Checkups and kids' dentistry, wisdom teeth and implants, and the option to be asleep for any of it: a surgeon, a pediatric dentist and a physician anaesthesiologist, in one downtown office.</p>
       <div class="actions">
         <a class="btn" href="/patients/">I'm a patient</a>
         <a class="btn secondary" href="/referring-dentists/">I'm referring a patient</a>
@@ -47,7 +57,39 @@ const patientLinks = [
     </section>
 
     <section>
+      <h2>Why patients and dentists choose {practice.name}</h2>
+      <div class="grid why">
+        <div class="card"><h3>Surgery by a surgeon-focused dentist</h3><p>Dr. Taimish limits his practice to oral surgery and implants and does every surgery himself. Other dentists refer their difficult cases to him.</p></div>
+        <div class="card"><h3>Asleep if you want to be</h3><p>IV sedation, deep sedation and general anaesthesia in our office, with a physician anaesthesiologist whose only job is looking after you.</p></div>
+        <div class="card"><h3>A real children's specialist</h3><p>Dr. Alice Dong is a pediatric dentist. Kids get care from someone trained for kids, including sedation when it is the kind choice.</p></div>
+        <div class="card"><h3>No surprises on cost</h3><p>Written, all-inclusive quotes. Direct insurance billing, CDCP accepted, monthly financing through Beautifi.</p></div>
+        <div class="card"><h3>Hours that fit a working week</h3><p>Evenings on Wednesday and Thursday, Saturdays, and same-day time kept for emergencies.</p></div>
+        <div class="card"><h3>Honest advice</h3><p>If a tooth can be saved, we say so. If sedation is not needed, we say that too. You leave every visit knowing your options.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>How a first visit works</h2>
+      <ol class="steps">
+        <li><h3>Book online or call</h3><p>Tell us what is bothering you, or that you just want a checkup. Emergencies: call and we fit you in.</p></li>
+        <li><h3>A proper look</h3><p>Exam, the X-rays or 3D scan you need, and a conversation. For surgery and implants, the consultation is free.</p></li>
+        <li><h3>A plan in writing</h3><p>Options, fees and what your insurance is likely to cover, before anything starts.</p></li>
+        <li><h3>Treatment, your way</h3><p>Awake or asleep. Then written aftercare and a number to call.</p></li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Patient guides</h2>
+      <div class="grid">
+        {articles.map((a) => (
+          <a class="card" href={`/blog/${a.slug}/`} style="text-decoration:none;color:inherit"><h3 style="margin-top:0;font-size:1.15rem">{a.title}</h3><p class="muted" style="margin:0">{a.description}</p></a>
+        ))}
+      </div>
+    </section>
+
+    <section>
       <h2>Our dentists</h2>
+      <p><a href="/team/">Meet the whole team →</a></p>
       <div class="grid">
         {team.map((t) => (
           <div class="card"><h3 style="margin:0">{t.name}</h3><p class="muted" style="margin:4px 0 8px">{t.role}</p><p style="margin:0">{t.blurb}</p></div>
@@ -70,6 +112,11 @@ const patientLinks = [
         </div>
       </section>
     )}
+
+    <section class="faq">
+      <h2>Quick answers</h2>
+      {homeFaqs.map(([q, a]) => <details><summary>{q}</summary><p>{a}</p></details>)}
+    </section>
 
     <section>
       <h2>Find us</h2>

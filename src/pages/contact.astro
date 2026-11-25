@@ -15,11 +15,27 @@ import { transit } from '../data/seo.js';
         <label>Last name <input name="last_name" required autocomplete="family-name" /></label>
         <label>Phone <input name="phone" type="tel" required autocomplete="tel" /></label>
         <label>Email <input name="email" type="email" autocomplete="email" /></label>
+        <label>Are you an existing patient?
+          <select name="existing_patient">
+            <option value="">Select</option>
+            <option>New patient</option>
+            <option>Existing patient</option>
+          </select>
+        </label>
         <label>What are you interested in?
           <select name="treatment" id="treatment">
             <option value="Not sure yet">I'm not sure yet</option>
             {services.map((s) => <option value={s.title} data-slug={s.slug}>{s.title}</option>)}
             <option value="Other">Something else</option>
+          </select>
+        </label>
+        <label>Preferred time
+          <select name="preferred_time">
+            <option value="">No preference</option>
+            <option>Weekday morning</option>
+            <option>Weekday afternoon</option>
+            <option>Wednesday or Thursday evening</option>
+            <option>Saturday</option>
           </select>
         </label>
         <label>Interested in financing?

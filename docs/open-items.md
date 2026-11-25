@@ -17,6 +17,15 @@ Facts to confirm with Ammar (the old 416dentist.com had conflicting or missing v
 - [ ] Reviews: the 1 Oak St profile has none yet. Start asking patients once the site is live; strip shows the count automatically
 - [ ] Ad tracking tags to keep (Google Tag Manager, Google Ads call tracking, Meta pixel)
 
+- [ ] Dr. Taimish credentials line items on /dr-ammar-taimish/ (marked TODO on the page; remove or fill before launch)
+- [ ] Bios for Dr. Dong and Dr. Esufali, and the general dentist's entry (`team` in practice.js)
+- [ ] Languages spoken (`languages` in practice.js)
+- [ ] Review the patient guides (src/data/articles.js) and instructions (src/data/patientInfo.js); set `reviewedBy` on articles once read
+- [ ] Confirm referral promises on /referring-dentists/: seen within a few days, urgent same/next business day, written report after consult and after treatment, two-business-day follow-up rule
+- [ ] Secure radiograph upload (PHIPA): until then referrals say email JPEG/PNG/DICOM to info@
+- [ ] Implant warranty policy, if any (competitors advertise 3-year to lifetime); not mentioned on the site until you decide
+- [ ] Cancellation notice: the insurance page says two business days; confirm
+
 # Redirects from 416dentist.com (apply only when 1oakdental.ca is live)
 
 Old URL -> new URL, all 301:

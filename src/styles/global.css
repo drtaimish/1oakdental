@@ -183,3 +183,14 @@ dl.hours dd { margin: 0; color: var(--muted); }
 .trust.compact { margin: 16px 0 0; }
 .trust.compact li { font-size: .85rem; padding: 4px 12px; }
 .card.tint { background: var(--tint); }
+
+.how-ref .card h3 { margin: 0 0 6px; font-size: 1.1rem; }
+.how-ref .card p { margin: 0; font-size: .97rem; }
+
+.why .card h3 { margin: 0 0 6px; font-size: 1.1rem; }
+.why .card p { margin: 0; color: var(--muted); font-size: .97rem; }
+.steps li > h3, .steps li > p { grid-column: 2; }
+.steps li > h3 { grid-row: 1; }
+.steps li > p { grid-row: 2; }
+.steps li::before { grid-row: 1 / span 2; }
+@media (max-width: 480px) { nav.main a[href="/team/"] { display: none; } }

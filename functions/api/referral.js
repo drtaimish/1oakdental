@@ -11,7 +11,7 @@ export const onRequestPost = ({ request, env }) =>
     fields: [
       'referral_type', 'referral_other', 'sedation', 'teeth', 'radiographs',
       'patient_first_name', 'patient_last_name', 'patient_phone', 'patient_dob', 'insurance',
-      'referrer_name', 'referrer_clinic', 'referrer_phone', 'referrer_email', 'notes',
+      'referrer_name', 'referrer_clinic', 'referrer_phone', 'referrer_email', 'urgent', 'restoration', 'notes',
     ],
     required: ['referrer_name', 'referrer_email', 'patient_first_name', 'patient_phone'],
     multi: ['referral_type'],

@@ -7,6 +7,6 @@ export const onRequestPost = ({ request, env }) =>
     env,
     kind: 'consultation',
     webhookVar: 'FORM_WEBHOOK_URL',
-    fields: ['first_name', 'last_name', 'phone', 'email', 'treatment', 'financing', 'referral_source', 'message'],
+    fields: ['first_name', 'last_name', 'phone', 'email', 'existing_patient', 'treatment', 'preferred_time', 'financing', 'referral_source', 'message'],
     required: ['first_name', 'phone'],
   });

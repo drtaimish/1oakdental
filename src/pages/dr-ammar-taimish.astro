@@ -6,7 +6,8 @@ const schema = {
   '@type': 'Person',
   name: 'Dr. Ammar Taimish',
   honorificSuffix: 'DDS',
-  jobTitle: 'Dentist',
+  jobTitle: 'Dentist, practice limited to oral surgery and implant dentistry',
+  knowsAbout: ['Dental implants', 'Full-arch implant rehabilitation', 'Wisdom teeth removal', 'Oral surgery', 'Sedation dentistry'],
   alumniOf: 'New York University College of Dentistry',
   worksFor: { '@id': `${practice.url}/#dentist` },
   sameAs: [practice.linkedin, practice.instagram],
@@ -27,9 +28,25 @@ const schema = {
       <p>His work centres on wisdom teeth and surgical extractions, dental implants, bone grafting, sedation dentistry and full-arch implants. He also lectures and teaches implant courses to other dentists.</p>
     </section>
     <section>
+      <h2>Credentials and memberships</h2>
+      <ul>
+        <li>Doctor of Dental Surgery, New York University College of Dentistry</li>
+        <li>Surgical training, Department of Surgery, university hospital, Syracuse NY (head and neck anatomy)</li>
+        <li>Licensed by the Royal College of Dental Surgeons of Ontario</li>
+        <li class="muted">TODO(Ammar): sedation permit level, implant fellowships or memberships (e.g. ICOI, AAID), hospital privileges, years in practice, number of implants or full arches placed. I will not publish numbers you have not given me.</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Teaching</h2>
+      <p>Dr. Taimish lectures and teaches hands-on implant courses to other dentists, and accepts referrals from dentists across Toronto and the GTA for surgical extractions, implants, full-arch cases and sedation. <a href="/referring-dentists/">Refer a patient →</a></p>
+    </section>
+    <section>
       <h2>His approach</h2>
-      <p>He treats children, teens and adults, and takes time to explain every option before treatment starts.</p>
-      <a class="btn" href="/contact/">Book a consultation with Dr. Taimish</a>
+      <p>He treats children, teens and adults, explains every option before treatment starts, and tells patients plainly when a tooth can be saved or when sedation is not needed. For surgery, he wants patients to understand exactly what will happen and to have the choice of being awake or asleep.</p>
+      <div class="actions">
+        <a class="btn" href="/contact/">Book a consultation with Dr. Taimish</a>
+        <a class="btn secondary" href="/team/">Meet the team</a>
+      </div>
     </section>
   </div>
 </Base>

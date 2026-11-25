@@ -23,6 +23,37 @@ import { practice, referralGroups, team, sedationOptions } from '../data/practic
       <p class="muted">Dental implants · All-on-X · Extractions and impacted teeth · Orthodontic surgical exposure · IV sedation · Deep sedation · General anaesthesia · CBCT imaging</p>
     </section>
 
+    <section class="how-ref">
+      <h2>How referrals work</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Turnaround</h3>
+          <p>New referrals are seen within a few days. Mark a case urgent, or call {practice.urgentPhone}, and we see the patient the same or next business day. If you have not heard from us within two business days of sending a referral, call us; something went astray.</p>
+        </div>
+        <div class="card">
+          <h3>Radiographs</h3>
+          <p>Email recent PAs, a panoramic or CBCT to <a href={`mailto:${practice.email}`}>{practice.email}</a> as JPEG, PNG or DICOM, with the patient's name and date of birth in the subject line. If you have none, select "Please take" and we will image the patient here. <span class="muted">A secure upload link is coming; until then, please do not send images by text message.</span></p>
+        </div>
+        <div class="card">
+          <h3>Reports back to you</h3>
+          <p>You receive a written report after the consultation with the proposed plan, and again after treatment with what was done and the follow-up arranged. Reports go to the fax or email you give on the form.</p>
+        </div>
+        <div class="card">
+          <h3>Your patient stays your patient</h3>
+          <p>We treat what you refer and send the patient back to you for everything else, including implant restorations if you prefer to restore your own cases. We do not solicit referred patients for general care.</p>
+        </div>
+        <div class="card">
+          <h3>Sedation for your patients</h3>
+          <p>Dr. Esufali, MD, provides IV sedation, deep sedation and general anaesthesia in our office. You can refer for sedation alone: your treatment plan, done here under anaesthesia, and the patient back to you afterwards.</p>
+        </div>
+        <div class="card">
+          <h3>Learn with us</h3>
+          <p>Dr. Taimish teaches implant surgery courses for dentists. Ask on the form or by email to hear about upcoming dates. <span class="muted">(Course page coming.)</span></p>
+        </div>
+      </div>
+      <p class="muted" style="margin-top:12px">Please give the patient a copy of the referral and ask them to bring their insurance details and a medication list.</p>
+    </section>
+
     <div class="ref-layout">
       <div class="directory">
         {referralGroups.map((g) => (
@@ -84,6 +115,14 @@ import { practice, referralGroups, team, sedationOptions } from '../data/practic
           <label>Office <input name="referrer_clinic" required autocomplete="organization" /></label>
           <label>Phone <input name="referrer_phone" type="tel" required /></label>
           <label>Fax or email for the report <input name="referrer_email" required /></label>
+          <label class="check"><input type="checkbox" name="urgent" value="yes" /> Urgent: please see within one business day</label>
+          <label>Implant restoration
+            <select name="restoration">
+              <option>Not applicable</option>
+              <option>Referring dentist will restore</option>
+              <option>1 Oak Dental to restore</option>
+            </select>
+          </label>
           <label>Special instructions <textarea name="notes" rows="3"></textarea></label>
           <div class="hp" aria-hidden="true"><label>Leave this empty <input name="company" tabindex="-1" autocomplete="off" /></label></div>
           <button class="btn" type="submit">Send referral</button>
