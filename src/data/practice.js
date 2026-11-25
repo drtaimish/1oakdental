@@ -25,14 +25,14 @@ export const practice = {
   // TODO(Ammar): pull from the 1 Oak St Google Business Profile.
   reviewCount: null,
   reviewRating: null,
-  // Online booking link (practice software widget). While null, buttons go to the contact form.
-  // TODO(Ammar): which booking tool does the office use?
+  // Online booking link from Akitu One (the office's practice software). While null, buttons go to the contact form.
+  // TODO(Ammar): paste the public online-booking URL from Akitu One.
   bookingUrl: null,
   payments: {
     directBilling: true, // confirmed on the old site for most plans
     cdcp: true,
-    // TODO(Ammar): name the financing provider or set to null to hide the line.
-    financing: null,
+    financing: 'Beautifi', // confirmed by Ammar 2026-11-25
+    financingUrl: 'https://www.beautifi.com/',
   },
   // Before/after gallery. Add { before, after, alt } image pairs once consented photos exist.
   gallery: [],
@@ -169,6 +169,6 @@ export const trustItems = [
   practice.hoursSummary ? { text: practice.hoursSummary, href: '/contact/' } : null,
   practice.payments.directBilling ? { text: 'Direct insurance billing', href: '/new-patients/' } : null,
   practice.payments.cdcp ? { text: 'CDCP accepted', href: '/new-patients/' } : null,
-  practice.payments.financing ? { text: `Financing through ${practice.payments.financing}`, href: '/new-patients/' } : null,
+  practice.payments.financing ? { text: `Monthly financing with ${practice.payments.financing}`, href: '/new-patients/' } : null,
   { text: 'Physician anaesthesiologist on the team', href: '/services/sleep-dentistry/' },
 ].filter(Boolean);

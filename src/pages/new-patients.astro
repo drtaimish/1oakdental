@@ -14,7 +14,10 @@ import { practice, bookingHref, bookingLabel } from '../data/practice.js';
     </section>
     <section>
       <h2>Insurance, CDCP and payment</h2>
-      <p>We bill most dental insurance directly and accept patients covered by the Canadian Dental Care Plan. We take major credit cards, debit and cash.{practice.payments.financing && ` Monthly financing for larger treatment is available through ${practice.payments.financing}.`}</p>
+      <p>We bill most dental insurance directly and accept patients covered by the Canadian Dental Care Plan. We take major credit cards, debit and cash.</p>
+      {practice.payments.financing && (
+        <p>For larger treatment, monthly financing is available through <a href={practice.payments.financingUrl} rel="noopener">{practice.payments.financing}</a>. Apply online in a few minutes and bring your approval to your consultation, or ask our team to walk you through it.</p>
+      )}
     </section>
     <section>
       <h2>Nervous about the dentist?</h2>
