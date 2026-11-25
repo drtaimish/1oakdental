@@ -1,0 +1,85 @@
+---
+import Base from '../layouts/Base.astro';
+import { practice, referralServices } from '../data/practice.js';
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Refer a patient to 1 Oak Dental',
+  about: { '@id': `${practice.url}/#dentist` },
+};
+---
+<Base title="For Referring Dentists: Implants and Oral Surgery" description="Refer implant, full-arch, wisdom teeth and surgical extraction cases to Dr. Ammar Taimish at 1 Oak Dental, downtown Toronto. Your patient comes back to you with a full report." schema={schema}>
+  <div class="wrap">
+    <div class="hero">
+      <h1>For referring dentists</h1>
+      <p class="lead">
+        Send us your surgical and implant cases. Dr. Ammar Taimish treats the case and returns your patient to you,
+        with a report, for all of their ongoing care.
+      </p>
+      <div class="actions">
+        <a class="btn" href="#refer">Send a referral</a>
+        <a class="btn secondary" href={`tel:${practice.phoneE164}`}>Call {practice.phone}</a>
+      </div>
+    </div>
+
+    <section>
+      <h2>What we accept referrals for</h2>
+      <div class="card">
+        <ul>
+          {referralServices.map((s) => <li>{s}</li>)}
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>How it works</h2>
+      <div class="grid">
+        <div class="card"><h3>1. You refer</h3><p>Send the form below or use our referral pad. Include recent X-rays if you have them.</p></div>
+        <div class="card"><h3>2. We see your patient</h3><p>We contact the patient to book, take a CBCT scan if needed, and discuss the plan and cost with them.</p></div>
+        <div class="card"><h3>3. You get a report</h3><p>After treatment, you receive a written report. Your patient returns to you for restorative and hygiene care unless you ask us otherwise.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>About Dr. Taimish</h2>
+      <p>DDS, New York University College of Dentistry, with surgical training in a university hospital department of surgery. He limits his practice to oral surgery and implant dentistry, and teaches implant courses to dentists. <a href="/dr-ammar-taimish/">Read more</a></p>
+    </section>
+
+    <section id="refer">
+      <h2>Send a referral</h2>
+      <form class="consult" method="post" action="/api/referral">
+        <fieldset class="card" style="display:grid;gap:14px">
+          <legend><strong>Your details</strong></legend>
+          <label>Your name <input name="referrer_name" required autocomplete="name" /></label>
+          <label>Clinic name <input name="referrer_clinic" required autocomplete="organization" /></label>
+          <label>Clinic phone <input name="referrer_phone" type="tel" required /></label>
+          <label>Email for the report <input name="referrer_email" type="email" required autocomplete="email" /></label>
+        </fieldset>
+        <fieldset class="card" style="display:grid;gap:14px">
+          <legend><strong>Patient</strong></legend>
+          <label>Patient name <input name="patient_name" required /></label>
+          <label>Patient phone <input name="patient_phone" type="tel" required /></label>
+          <label>Treatment requested
+            <select name="treatment" required>
+              <option value="">Choose one</option>
+              {referralServices.map((s) => <option value={s}>{s}</option>)}
+              <option value="Consultation only">Consultation only</option>
+              <option value="Other">Other</option>
+            </select>
+          </label>
+          <label>How soon?
+            <select name="urgency">
+              <option>Routine</option>
+              <option>Soon (pain or infection)</option>
+              <option>Urgent, please call me</option>
+            </select>
+          </label>
+          <label>Notes for Dr. Taimish <textarea name="notes" rows="4"></textarea></label>
+        </fieldset>
+        <div class="hp" aria-hidden="true"><label>Leave this empty <input name="company" tabindex="-1" autocomplete="off" /></label></div>
+        <button class="btn" type="submit">Send referral</button>
+        <p class="muted">We will confirm by email and tell you how to send X-rays and scans securely.</p>
+      </form>
+    </section>
+  </div>
+</Base>

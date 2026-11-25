@@ -3,24 +3,24 @@ import Base from '../layouts/Base.astro';
 import { practice, services } from '../data/practice.js';
 ---
 <Base
-  title="1 Oak Dental | Dentist in Regent Park, Downtown Toronto"
-  description="1 Oak Dental is a family and implant dental office at 1 Oak St in Regent Park, downtown Toronto. Implants, wisdom teeth, Invisalign and emergency care. Free consultations."
+  title="1 Oak Dental | Family Dentist in Regent Park, Downtown Toronto"
+  description="1 Oak Dental is a full-service family dentist at 1 Oak St in Regent Park, downtown Toronto. Checkups, kids, emergencies, Invisalign and implants. CDCP and insurance accepted."
 >
   <div class="wrap">
     <div class="hero">
-      <h1>Your dentist in Regent Park, downtown Toronto</h1>
+      <h1>Your family dentist in Regent Park, downtown Toronto</h1>
       <p class="lead">
-        1 Oak Dental cares for families and individuals at 1 Oak St. Dr. Ammar Taimish focuses on dental implants,
-        full-arch implants and oral surgery, and our team handles everything from checkups to emergencies.
+        Checkups and cleanings for the whole family, gentle care for kids, fast help for emergencies, and
+        advanced treatment like implants under one roof at 1 Oak St.
       </p>
       <div class="actions">
-        <a class="btn" href="/contact/">Book a free consultation</a>
+        <a class="btn" href="/contact/">Book an appointment</a>
         <a class="btn secondary" href={`tel:${practice.phoneE164}`}>Call {practice.phone}</a>
       </div>
     </div>
 
     <section>
-      <h2>What we do</h2>
+      <h2>Care for every age</h2>
       <div class="grid">
         {services.map((s) => (
           <a class="card" href={`/services/${s.slug}/`} style="text-decoration:none;color:inherit">
@@ -32,11 +32,11 @@ import { practice, services } from '../data/practice.js';
     </section>
 
     <section>
-      <h2>Why patients choose us</h2>
+      <h2>Why families choose us</h2>
       <div class="grid">
-        <div class="card"><h3>Implant and surgery focus</h3><p>Dr. Taimish limits his practice to oral surgery and implant dentistry, and teaches implant courses to other dentists.</p></div>
-        <div class="card"><h3>Free consultation</h3><p>Meet the dentist, get your questions answered and leave with a written plan and estimate.</p></div>
-        <div class="card"><h3>Insurance, CDCP and financing</h3><p>We bill most insurance directly, accept the Canadian Dental Care Plan, and offer monthly payment plans.</p></div>
+        <div class="card"><h3>New patients welcome</h3><p>Adults, teens and kids. Tell us if you are nervous and we will go at your pace.</p></div>
+        <div class="card"><h3>Insurance and CDCP</h3><p>We bill most insurance directly and accept the Canadian Dental Care Plan. Monthly payment plans for larger treatment.</p></div>
+        <div class="card"><h3>Specialist-level surgery in-house</h3><p>Dr. Taimish focuses on implants and oral surgery, so wisdom teeth and implants rarely mean a trip somewhere else.</p></div>
       </div>
     </section>
 
@@ -44,6 +44,12 @@ import { practice, services } from '../data/practice.js';
       <h2>Find us</h2>
       <p>{practice.street}, {practice.city}, {practice.region} {practice.postalCode}. In {practice.neighbourhood}.</p>
       <a class="btn secondary" href={practice.mapsUrl}>Get directions</a>
+    </section>
+
+    <section class="card">
+      <h2>Are you a dentist?</h2>
+      <p>We accept referrals for implants, full-arch cases, wisdom teeth and surgical extractions, and send your patient back to you with a full report.</p>
+      <a class="btn secondary" href="/referrals/">Refer a patient</a>
     </section>
   </div>
 </Base>

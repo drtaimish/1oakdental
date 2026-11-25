@@ -55,8 +55,10 @@ const dentist = {
         <a class="logo" href="/">{practice.name}</a>
         <nav class="main" aria-label="Main">
           <a href="/services/">Services</a>
-          <a href="/dr-ammar-taimish/">Dr. Taimish</a>
+          <a href="/services/childrens-dentistry/">Kids</a>
           <a href="/new-patients/">New patients</a>
+          <a href="/dr-ammar-taimish/">Dr. Taimish</a>
+          <a href="/referrals/">For dentists</a>
           <a href="/contact/">Contact</a>
         </nav>
         <a class="btn header-call" href={`tel:${practice.phoneE164}`}>Call {practice.phone}</a>
@@ -76,18 +78,21 @@ const dentist = {
         </div>
         <div>
           <strong>Services</strong><br />
-          <a href="/services/dental-implants/">Dental implants</a><br />
-          <a href="/services/all-on-4-dental-implants/">Full-arch implants</a><br />
-          <a href="/services/wisdom-teeth-removal/">Wisdom teeth</a><br />
+          <a href="/services/general-dentistry/">Checkups and cleanings</a><br />
+          <a href="/services/childrens-dentistry/">Children's dentistry</a><br />
+          <a href="/services/emergency-dentist/">Emergency care</a><br />
           <a href="/services/invisalign/">Invisalign</a><br />
-          <a href="/services/emergency-dentist/">Emergency care</a>
+          <a href="/services/dental-implants/">Dental implants</a><br />
+          <a href="/services/wisdom-teeth-removal/">Wisdom teeth</a>
         </div>
         <div>
+          <strong>For dentists</strong><br />
+          <a href="/referrals/">Refer a patient</a><br /><br />
           <strong>Hours</strong><br />
           {practice.hours ? practice.hours : <span>Call us for today's hours.</span>}
         </div>
       </div>
-      <div class="wrap"><p class="muted" style="color:#b9c2be">© {new Date().getFullYear()} {practice.legalName}</p></div>
+      <div class="wrap"><p class="muted">© {new Date().getFullYear()} {practice.legalName}</p></div>
     </footer>
     <a class="btn sticky-call" href={`tel:${practice.phoneE164}`}>Call {practice.phone}</a>
   </body>

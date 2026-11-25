@@ -19,9 +19,9 @@ npm run dev
 
 - Build command: `npm run build`
 - Output directory: `dist`
-- Environment variable: `FORM_WEBHOOK_URL` = where consultation requests are sent (CRM, Teraleads or Zapier webhook)
+- Environment variables: `FORM_WEBHOOK_URL` (patient consultation requests) and `REFERRAL_WEBHOOK_URL` (dentist referrals; falls back to the first)
 
-The consultation form posts to `functions/api/consultation.js`, which forwards each request to that webhook. Nothing is stored on the site.
+The forms post to `functions/api/consultation.js` and `functions/api/referral.js`, which forward each submission to its webhook. Nothing is stored on the site.
 
 ## Open items
 

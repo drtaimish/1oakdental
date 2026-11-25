@@ -36,3 +36,10 @@ Old URL -> new URL, all 301:
 | /blog/* | / (until the blog is rebuilt) |
 
 torontodentist.com: every URL -> https://1oakdental.ca/ (301).
+
+# Referrals section (/referrals/)
+
+- [ ] Where referrals should go (`REFERRAL_WEBHOOK_URL`) and who answers them
+- [ ] A secure way for dentists to send X-rays and CBCT scans (patient health information, so PHIPA applies). The form promises we will explain this by email.
+- [ ] Confirm the list of procedures accepted, and whether a written report goes back after every case
+- [ ] Downloadable referral pad PDF to match the printed one

@@ -58,6 +58,18 @@ export const serviceContent = {
       ['When to go to hospital', 'If swelling is spreading to your eye or neck, or you have trouble breathing or swallowing, go to the nearest emergency room.'],
     ],
   },
+  'childrens-dentistry': {
+    metaTitle: "Children's Dentist in Downtown Toronto",
+    description: 'Gentle checkups, cleanings and first visits for children at 1 Oak Dental in Regent Park, downtown Toronto. CDCP accepted.',
+    h1: "Children's dentistry",
+    intro: 'We see kids from their first tooth onward. Short, friendly visits help children feel at home in the dental chair, so checkups never become something to fear.',
+    sections: [
+      ['Your child\'s first visit', 'Bring your child in by their first birthday, or within six months of the first tooth. We count teeth, check the gums and bite, and show you how to brush at home.'],
+      ['Checkups and cleanings', 'Regular visits every six months, with fluoride and sealants when they help protect new teeth from cavities.'],
+      ['Braces and aligners for kids', 'We check how teeth and jaws are growing and tell you if and when treatment makes sense. Through the Canadian Dental Care Plan, eligible children and teens may have orthodontic treatment covered when it is medically necessary.'],
+      ['CDCP and insurance', 'We accept children covered by the Canadian Dental Care Plan and bill most insurance directly. Call us and we will check your coverage.'],
+    ],
+  },
   'general-dentistry': {
     metaTitle: 'Dental Checkups and Cleanings in Downtown Toronto',
     description: 'Exams, cleanings and fillings for the whole family at 1 Oak Dental in Regent Park, downtown Toronto. We bill insurance and CDCP.',

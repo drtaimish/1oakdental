@@ -19,7 +19,28 @@ export const practice = {
   linkedin: 'https://ca.linkedin.com/in/ammar-taimish-2383472b',
 };
 
+// Order matters: patients see family care first; implants and surgery follow.
 export const services = [
+  {
+    slug: 'general-dentistry',
+    title: 'Checkups and Cleanings',
+    summary: 'Exams, cleanings and fillings to keep the whole family healthy.',
+  },
+  {
+    slug: 'childrens-dentistry',
+    title: "Children's Dentistry",
+    summary: 'Gentle first visits, checkups and cleanings for kids of all ages.',
+  },
+  {
+    slug: 'emergency-dentist',
+    title: 'Emergency Dental Care',
+    summary: 'Toothache, a broken tooth or swelling? Call us for the soonest appointment.',
+  },
+  {
+    slug: 'invisalign',
+    title: 'Invisalign and Clear Aligners',
+    summary: 'Straighten crowded or spaced teeth with clear, removable aligners.',
+  },
   {
     slug: 'dental-implants',
     title: 'Dental Implants',
@@ -35,19 +56,14 @@ export const services = [
     title: 'Wisdom Teeth Removal',
     summary: 'Gentle removal of impacted or painful wisdom teeth, with sedation if you need it.',
   },
-  {
-    slug: 'invisalign',
-    title: 'Invisalign and Clear Aligners',
-    summary: 'Straighten crowded or spaced teeth with clear, removable aligners.',
-  },
-  {
-    slug: 'emergency-dentist',
-    title: 'Emergency Dental Care',
-    summary: 'Toothache, a broken tooth or swelling? Call us for the soonest appointment.',
-  },
-  {
-    slug: 'general-dentistry',
-    title: 'Checkups and Cleanings',
-    summary: 'Exams, cleanings and fillings to keep your teeth healthy for life.',
-  },
+];
+
+// What referring dentists can send us.
+export const referralServices = [
+  'Single and multiple dental implants',
+  'Full-arch implants (All-on-4 and All-on-6), including zirconia final teeth',
+  'Impacted wisdom teeth and surgical extractions',
+  'Bone grafting and socket preservation',
+  'Implant-retained overdentures',
+  'Sedation for anxious patients',
 ];
