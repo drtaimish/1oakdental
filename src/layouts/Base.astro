@@ -121,13 +121,62 @@ const dentist = {
     </footer>
     <a class="btn sticky-call" href={`tel:${practice.phoneE164}`}>Call {practice.phone}</a>
     <script>
-      // Draw service illustrations when they come into view. Without JS the CSS shows them fully drawn.
+      // Progressive motion. Everything below is cosmetic: without JS (or with reduced motion) the page
+      // is simply shown fully drawn and still.
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // 1. Service illustrations draw in when they come into view.
       const arts = document.querySelectorAll('svg.art');
       if (arts.length) {
         const io = new IntersectionObserver((entries) => {
           for (const e of entries) if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
         }, { threshold: 0.4 });
         arts.forEach((a) => io.observe(a));
+      }
+
+      // 2. Scroll reveal for sections and cards (not the hero, so the first paint stays fast).
+      //    Siblings in a grid are staggered slightly. Mark-up is untouched; the class is added here.
+      const targets = document.querySelectorAll('main section, main .grid > *, main .panels > *, main .steps > li, main .member');
+      if (!reduce && targets.length) {
+        targets.forEach((el) => { if (!el.closest('.hero')) el.classList.add('reveal'); });
+        const parents = new Map();
+        document.querySelectorAll('.reveal').forEach((el) => {
+          const sibs = parents.get(el.parentElement) || (parents.set(el.parentElement, []), parents.get(el.parentElement));
+          if (el.parentElement.matches('.grid, .panels, .steps')) el.style.transitionDelay = `${Math.min(sibs.length, 5) * 70}ms`;
+          sibs.push(el);
+        });
+        const ro = new IntersectionObserver((entries) => {
+          for (const e of entries) if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); }
+        }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+        document.querySelectorAll('.reveal').forEach((el) => ro.observe(el));
+        // Safety net: anything still hidden after a few seconds (observer edge cases) is shown.
+        setTimeout(() => document.querySelectorAll('.reveal:not(.in)').forEach((el) => el.classList.add('in')), 4000);
+      }
+
+      // 3. Subtle parallax on hero media (service photo, clip or illustration), desktop only.
+      const px = document.querySelectorAll('.hero-art > .hero-photo, .hero-art > svg.art');
+      if (!reduce && px.length && window.innerWidth > 640) {
+        px.forEach((el) => el.classList.add('parallax'));
+        let ticking = false;
+        const move = () => {
+          const y = Math.min(window.scrollY, 600) * 0.12;
+          px.forEach((el) => { el.style.transform = `translate3d(0, ${y}px, 0)`; });
+          ticking = false;
+        };
+        window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(move); } }, { passive: true });
+      }
+
+      // 4. Looping clips in the media slot: load and play only while on screen, never with reduced motion.
+      const clips = document.querySelectorAll('video.hero-photo');
+      if (clips.length && !reduce) {
+        const vo = new IntersectionObserver((entries) => {
+          for (const e of entries) {
+            const v = e.target;
+            if (e.isIntersecting) { if (!v.src && v.dataset.src) v.src = v.dataset.src; v.play().catch(() => {}); }
+            else v.pause();
+          }
+        }, { threshold: 0.25 });
+        clips.forEach((v) => vo.observe(v));
       }
     </script>
   </body>

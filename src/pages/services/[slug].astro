@@ -65,7 +65,9 @@ const schema = { '@context': 'https://schema.org', '@graph': [breadcrumbs, proce
           <a class="btn secondary" href={`tel:${practice.phoneE164}`}>Call {practice.phone}</a>
         </div>
       </div>
-      {m.photo
+      {m.clip
+        ? <video class="hero-photo" muted loop playsinline preload="none" poster={m.clip.poster} data-src={m.clip.src} width="1600" height="1200" aria-label={m.clip.alt}></video>
+        : m.photo
         ? <img class="hero-photo" src={m.photo.src} alt={m.photo.alt} width="1600" height="1200" />
         : <ServiceArt slug={service.slug} size={112} />}
     </div>

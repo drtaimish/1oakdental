@@ -194,3 +194,19 @@ dl.hours dd { margin: 0; color: var(--muted); }
 .steps li > p { grid-row: 2; }
 .steps li::before { grid-row: 1 / span 2; }
 @media (max-width: 480px) { nav.main a[href="/team/"] { display: none; } }
+
+/* Scroll reveal: sections and cards fade and slide in as they enter the viewport.
+   Transform and opacity only, so nothing moves in layout and there is no layout shift.
+   Hidden only once JS has run (html without .no-js); reduced motion and no-JS show everything at once. */
+html:not(.no-js) .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+html:not(.no-js) .reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  html:not(.no-js) .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* Parallax: hero media drifts a little slower than the page. Transform only. */
+.parallax { will-change: transform; }
+@media (prefers-reduced-motion: reduce) { .parallax { transform: none !important; } }
+
+/* Service page clip: a short muted loop in the photo slot (poster shows until it plays) */
+video.hero-photo { background: var(--tint); display: block; }
