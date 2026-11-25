@@ -1,55 +1,62 @@
 ---
 import Base from '../layouts/Base.astro';
-import { practice, services } from '../data/practice.js';
+import { practice, referralGroups, team } from '../data/practice.js';
+const patientLinks = [
+  ['Family and general dentistry', '/services/general-dentistry/'],
+  ['Sleep dentistry', '/services/sleep-dentistry/'],
+  ['Invisalign clear aligners', '/services/invisalign/'],
+  ['Tooth extractions', '/services/tooth-extractions/'],
+  ['Dental implants', '/services/dental-implants/'],
+];
 ---
 <Base
-  title="1 Oak Dental | Family Dentist in Regent Park, Downtown Toronto"
-  description="1 Oak Dental is a full-service family dentist at 1 Oak St in Regent Park, downtown Toronto. Checkups, kids, emergencies, Invisalign and implants. CDCP and insurance accepted."
+  title="1 Oak Dental | Family Dentist in Downtown Toronto"
+  description="1 Oak Dental at 1 Oak St, downtown Toronto: family and general dentistry, sleep dentistry, Invisalign, extractions and implants. Referring dentists welcome."
 >
   <div class="wrap">
     <div class="hero">
-      <h1>Your family dentist in Regent Park, downtown Toronto</h1>
-      <p class="lead">
-        Checkups and cleanings for the whole family, gentle care for kids, fast help for emergencies, and
-        advanced treatment like implants under one roof at 1 Oak St.
-      </p>
+      <p class="eyebrow">Downtown Toronto · 1 Oak St</p>
+      <h1>Family dentist in downtown Toronto. A referral partner for your practice.</h1>
+      <p class="lead">Explore family dentistry, sleep dentistry and surgical care at {practice.name}.</p>
       <div class="actions">
-        <a class="btn" href="/contact/">Book an appointment</a>
-        <a class="btn secondary" href={`tel:${practice.phoneE164}`}>Call {practice.phone}</a>
+        <a class="btn" href="/patients/">I'm a patient</a>
+        <a class="btn secondary" href="/referring-dentists/">I'm referring a patient</a>
       </div>
     </div>
 
-    <section>
-      <h2>Care for every age</h2>
-      <div class="grid">
-        {services.map((s) => (
-          <a class="card" href={`/services/${s.slug}/`} style="text-decoration:none;color:inherit">
-            <h3>{s.title}</h3>
-            <p class="muted">{s.summary}</p>
-          </a>
-        ))}
+    <section class="panels" aria-label="Choose your path">
+      <div class="panel patients">
+        <h2>Explore your care options</h2>
+        <ul>
+          {patientLinks.map(([t, h]) => <li><a href={h}>{t}</a></li>)}
+        </ul>
+        <a class="btn" href="/contact/">Request an appointment</a>
+      </div>
+      <div class="panel dentists">
+        <h2>Refer to {practice.name}</h2>
+        <ul>
+          {referralGroups.map((g) => <li><a href={`/referring-dentists/#${g.id}`}>{g.title}</a></li>)}
+        </ul>
+        <a class="btn" style="background:#fff;color:var(--brand)" href="/referring-dentists/#refer">Start a referral</a>
       </div>
     </section>
 
     <section>
-      <h2>Why families choose us</h2>
+      <h2>Our dentists</h2>
       <div class="grid">
-        <div class="card"><h3>New patients welcome</h3><p>Adults, teens and kids. Tell us if you are nervous and we will go at your pace.</p></div>
-        <div class="card"><h3>Insurance and CDCP</h3><p>We bill most insurance directly and accept the Canadian Dental Care Plan. Monthly payment plans for larger treatment.</p></div>
-        <div class="card"><h3>Specialist-level surgery in-house</h3><p>Dr. Taimish focuses on implants and oral surgery, so wisdom teeth and implants rarely mean a trip somewhere else.</p></div>
+        {team.map((t) => (
+          <div class="card"><h3 style="margin:0">{t.name}</h3><p class="muted" style="margin:4px 0 8px">{t.role}</p><p style="margin:0">{t.blurb}</p></div>
+        ))}
       </div>
     </section>
 
     <section>
       <h2>Find us</h2>
       <p>{practice.street}, {practice.city}, {practice.region} {practice.postalCode}. In {practice.neighbourhood}.</p>
-      <a class="btn secondary" href={practice.mapsUrl}>Get directions</a>
-    </section>
-
-    <section class="card">
-      <h2>Are you a dentist?</h2>
-      <p>We accept referrals for implants, full-arch cases, wisdom teeth and surgical extractions, and send your patient back to you with a full report.</p>
-      <a class="btn secondary" href="/referrals/">Refer a patient</a>
+      <div class="actions">
+        <a class="btn secondary" href={practice.mapsUrl}>Get directions</a>
+        <a class="btn secondary" href={`tel:${practice.phoneE164}`}>Call {practice.phone}</a>
+      </div>
     </section>
   </div>
 </Base>

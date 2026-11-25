@@ -58,22 +58,45 @@ export const serviceContent = {
       ['When to go to hospital', 'If swelling is spreading to your eye or neck, or you have trouble breathing or swallowing, go to the nearest emergency room.'],
     ],
   },
+  'sleep-dentistry': {
+    metaTitle: 'Sleep Dentistry and Sedation in Downtown Toronto',
+    description: 'Nervous about the dentist? 1 Oak Dental in downtown Toronto offers sedation options so you can get care comfortably.',
+    h1: 'Sleep dentistry',
+    intro: 'If dental visits make you anxious, you are not alone. Sedation can help you relax through a checkup, a filling or a longer procedure like wisdom teeth or implants.',
+    sections: [
+      ['Is it right for me?', 'Sedation can help if you feel very anxious at the dentist, have a strong gag reflex, find it hard to sit still, or need a long procedure done in one visit.'],
+      ['Your options', 'Depending on your needs, we offer IV sedation, deep sedation and general anaesthesia, provided in our office by Dr. Zakir Esufali, MD, an anaesthesiologist. We recommend the lightest option that will keep you comfortable, and you can ask questions before you decide.'],
+      ['On the day', 'Depending on the type of sedation, you may need to skip eating beforehand and have someone drive you home. We give you clear written instructions before your visit.'],
+    ],
+  },
+  'tooth-extractions': {
+    metaTitle: 'Tooth Extractions in Downtown Toronto',
+    description: 'Simple and surgical tooth extractions at 1 Oak Dental in downtown Toronto, with sedation available and implant options to replace the tooth.',
+    h1: 'Tooth extractions',
+    intro: 'Sometimes a tooth cannot be saved because of deep decay, a crack, gum disease or crowding. Dr. Taimish focuses on oral surgery, so extractions are done gently and carefully.',
+    sections: [
+      ['Before we take a tooth out', 'We first look at whether the tooth can be saved. If it cannot, we explain why and talk about what replaces it, such as an implant or bridge.'],
+      ['Comfort', 'Extractions are done under local anaesthetic. Sedation is available if you are anxious or need several teeth removed.'],
+      ['Saving the space', 'If you plan an implant later, a bone graft placed at the time of extraction can help keep the bone ready for it.'],
+    ],
+  },
   'childrens-dentistry': {
     metaTitle: "Children's Dentist in Downtown Toronto",
     description: 'Gentle checkups, cleanings and first visits for children at 1 Oak Dental in Regent Park, downtown Toronto. CDCP accepted.',
     h1: "Children's dentistry",
-    intro: 'We see kids from their first tooth onward. Short, friendly visits help children feel at home in the dental chair, so checkups never become something to fear.',
+    intro: 'Dr. Alice Dong, our pediatric dentist, sees kids from their first tooth onward. Short, friendly visits help children feel at home in the dental chair, so checkups never become something to fear.',
     sections: [
       ['Your child\'s first visit', 'Bring your child in by their first birthday, or within six months of the first tooth. We count teeth, check the gums and bite, and show you how to brush at home.'],
       ['Checkups and cleanings', 'Regular visits every six months, with fluoride and sealants when they help protect new teeth from cavities.'],
       ['Braces and aligners for kids', 'We check how teeth and jaws are growing and tell you if and when treatment makes sense. Through the Canadian Dental Care Plan, eligible children and teens may have orthodontic treatment covered when it is medically necessary.'],
+      ['Sedation for kids', 'Some children need more help to get through treatment. With our in-office anaesthesiologist, children can have sedation or general anaesthesia right here when it is the safest choice.'],
       ['CDCP and insurance', 'We accept children covered by the Canadian Dental Care Plan and bill most insurance directly. Call us and we will check your coverage.'],
     ],
   },
   'general-dentistry': {
-    metaTitle: 'Dental Checkups and Cleanings in Downtown Toronto',
+    metaTitle: 'Family Dentist in Downtown Toronto: Checkups and Cleanings',
     description: 'Exams, cleanings and fillings for the whole family at 1 Oak Dental in Regent Park, downtown Toronto. We bill insurance and CDCP.',
-    h1: 'Checkups, cleanings and family dentistry',
+    h1: 'Family and general dentistry',
     intro: 'Regular visits catch problems early, when they are simpler and cheaper to treat. We recommend a checkup and cleaning every six months for most people.',
     sections: [
       ['At your visit', 'An exam of your teeth, gums and bite, a cleaning by our hygienist, and X-rays when needed. We explain what we see and what, if anything, needs doing.'],

@@ -1,11 +1,13 @@
 // Shared helper for the site's forms. Forwards a submission as JSON to a webhook
 // set in Cloudflare Pages settings. Nothing is stored on the site.
-export async function forward({ request, env, webhookVar, fields, required, kind }) {
+export async function forward({ request, env, webhookVar, fields, required, kind, multi = [] }) {
   const form = await request.formData();
   if (form.get('company')) {
     return Response.redirect(new URL('/thank-you/', request.url), 303); // honeypot: bot
   }
-  const data = Object.fromEntries(fields.map((f) => [f, String(form.get(f) || '').slice(0, 2000)]));
+  const data = Object.fromEntries(
+    fields.map((f) => [f, (multi.includes(f) ? form.getAll(f).join('; ') : String(form.get(f) || '')).slice(0, 2000)]),
+  );
   if (required.some((f) => !data[f])) {
     return new Response('Please fill in all required fields.', { status: 400 });
   }

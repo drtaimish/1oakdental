@@ -41,5 +41,7 @@ torontodentist.com: every URL -> https://1oakdental.ca/ (301).
 
 - [ ] Where referrals should go (`REFERRAL_WEBHOOK_URL`) and who answers them
 - [ ] A secure way for dentists to send X-rays and CBCT scans (patient health information, so PHIPA applies). The form promises we will explain this by email.
-- [ ] Confirm the list of procedures accepted, and whether a written report goes back after every case
-- [ ] Downloadable referral pad PDF to match the printed one
+- [x] Procedure list, doctors, email and urgent line now match the printed referral pads (Nov 2026)
+- [ ] Name of the general dentist, if not Dr. Taimish
+- [ ] Main phone: old site uses (437) 466-5151, the pads use 416-214-0003 for urgent cases. Which goes in the header?
+- [x] Referral pad PDFs are downloadable from /referring-dentists/

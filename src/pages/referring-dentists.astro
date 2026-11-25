@@ -1,0 +1,111 @@
+---
+import Base from '../layouts/Base.astro';
+import { practice, referralGroups, team, sedationOptions } from '../data/practice.js';
+---
+<Base title="For Referring Dentists: Oral Surgery, Implants, Pediatrics and Sleep Dentistry" description="Refer oral surgery, implant, pediatric and sleep dentistry cases to 1 Oak Dental in downtown Toronto. IV sedation, deep sedation and general anaesthesia in office. New referrals seen within a few days.">
+  <div class="wrap">
+    <div class="hero" style="padding-bottom:24px">
+      <p class="eyebrow">For referring dentists</p>
+      <h1>Refer a patient to {practice.name}</h1>
+      <p class="lead">New referrals are seen within a few days. Your patient returns to you with a written report.</p>
+      <div class="actions">
+        <a class="btn" href="#refer">Start a referral</a>
+        <a class="btn secondary" href={`tel:${practice.urgentPhoneE164}`}>Urgent cases: {practice.urgentPhone}</a>
+      </div>
+    </div>
+
+    <section style="padding-top:0">
+      <div class="grid">
+        {team.map((t) => (
+          <div class="card"><h3 style="margin:0">{t.name}</h3><p class="muted" style="margin:4px 0 0">{t.role}</p></div>
+        ))}
+      </div>
+      <p class="muted">Dental implants · All-on-X · Extractions and impacted teeth · Orthodontic surgical exposure · IV sedation · Deep sedation · General anaesthesia · CBCT imaging</p>
+    </section>
+
+    <div class="ref-layout">
+      <div class="directory">
+        {referralGroups.map((g) => (
+          <div id={g.id}>
+            <h3>{g.title}</h3>
+            <p class="muted" style="margin:0 0 8px">{g.provider}</p>
+            <ul>
+              {g.items.map((i) => (
+                <li><a href={`?service=${i.id}#refer`} data-service={i.id}>{i.label}<span>Refer</span></a></li>
+              ))}
+            </ul>
+          </div>
+        ))}
+        <div class="card">
+          <h3 style="margin-top:0">Prefer the paper form?</h3>
+          <p>Print a referral pad, fill it in and email it to <a href={`mailto:${practice.email}`}>{practice.email}</a>.</p>
+          <div class="links" style="display:grid;gap:8px">
+            <a href="/referral-pads/1-Oak-Dental-Referral-Pad.pdf">Oral surgery and implants referral pad (PDF)</a>
+            <a href="/referral-pads/1-Oak-Dental-Pediatric-Sleep-Referral-Pad.pdf">Pediatric and sleep dentistry referral pad (PDF)</a>
+          </div>
+        </div>
+      </div>
+
+      <aside class="ref-form card" id="refer">
+        <h2 style="font-size:1.6rem">Referral details</h2>
+        <p class="preview-note">Online referrals are being set up. Until then, email your referral pad to <a href={`mailto:${practice.email}`}>{practice.email}</a> or call {practice.urgentPhone} for urgent cases.</p>
+        <form class="consult" method="post" action="/api/referral">
+          <fieldset style="border:0;padding:0;display:grid;gap:8px">
+            <legend><strong>Referral type</strong> (select all that apply)</legend>
+            {referralGroups.map((g) => (
+              <div style="display:grid;gap:6px">
+                <span class="muted" style="font-weight:600">{g.title}</span>
+                {g.items.map((i) => (
+                  <label class="check"><input type="checkbox" name="referral_type" value={i.label} data-id={i.id} /> {i.label}</label>
+                ))}
+              </div>
+            ))}
+            <label>Other <input name="referral_other" /></label>
+          </fieldset>
+          <label>Sedation / anaesthesia
+            <select name="sedation">
+              {sedationOptions.map((o) => <option>{o}</option>)}
+            </select>
+          </label>
+          <label>Teeth involved (FDI) <input name="teeth" placeholder="e.g. 38, 48" /></label>
+          <label>Radiographs
+            <select name="radiographs">
+              <option>Emailed</option>
+              <option>Please take</option>
+              <option>Given to patient</option>
+            </select>
+          </label>
+          <label>Patient first name <input name="patient_first_name" required /></label>
+          <label>Patient last name <input name="patient_last_name" required /></label>
+          <label>Patient mobile <input name="patient_phone" type="tel" required /></label>
+          <label>Date of birth <input name="patient_dob" type="date" /></label>
+          <label>Insurance (if known) <input name="insurance" /></label>
+          <label>Referring doctor <input name="referrer_name" required autocomplete="name" /></label>
+          <label>Office <input name="referrer_clinic" required autocomplete="organization" /></label>
+          <label>Phone <input name="referrer_phone" type="tel" required /></label>
+          <label>Fax or email for the report <input name="referrer_email" required /></label>
+          <label>Special instructions <textarea name="notes" rows="3"></textarea></label>
+          <div class="hp" aria-hidden="true"><label>Leave this empty <input name="company" tabindex="-1" autocomplete="off" /></label></div>
+          <button class="btn" type="submit">Send referral</button>
+        </form>
+      </aside>
+    </div>
+  </div>
+  <script is:inline>
+    (function () {
+      function pick(id) {
+        var box = id && document.querySelector('input[data-id="' + id.replace(/[^a-z0-9-]/g, '') + '"]');
+        if (box) { box.checked = true; return box; }
+      }
+      pick(new URLSearchParams(location.search).get('service'));
+      document.querySelectorAll('[data-service]').forEach(function (a) {
+        a.addEventListener('click', function (e) {
+          e.preventDefault();
+          var box = pick(a.dataset.service);
+          document.getElementById('refer').scrollIntoView({ behavior: 'smooth' });
+          if (box) box.focus({ preventScroll: true });
+        });
+      });
+    })();
+  </script>
+</Base>
