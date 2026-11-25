@@ -58,7 +58,7 @@ import { practice, referralGroups, team, sedationOptions } from '../data/practic
       <p class="muted" style="margin-top:12px">Please give the patient a copy of the referral and ask them to bring their insurance details and a medication list.</p>
     </section>
 
-    <div class="ref-layout">
+    <div class="ref-layout" id="refer">
       <div class="directory" id="directory">
         <h2 style="font-size:1.6rem;margin-top:0">What are you referring for?</h2>
         <p class="muted" style="margin:0 0 14px">Pick one to open the referral form for it.</p>
@@ -84,13 +84,12 @@ import { practice, referralGroups, team, sedationOptions } from '../data/practic
         </div>
       </div>
 
-      <aside class="ref-form card" id="refer">
+      <aside class="ref-form card" id="ref-form">
         <p class="ref-picked" id="ref-picked" hidden><span>Referring for <strong id="ref-picked-title"></strong></span> <button type="button" class="linklike" id="ref-change">Change</button></p>
         <h2 style="font-size:1.6rem">Referral details</h2>
         <form class="consult" method="post" action="/api/referral">
           <fieldset style="border:0;padding:0;display:grid;gap:8px">
-            <legend><strong>Referral type</strong> (select all that apply)</legend>
-            <p class="muted ref-hint" id="ref-hint" hidden style="margin:0">Pick what you are referring for on the left and the options will appear here.</p>
+            <legend><strong>What does the patient need?</strong> (select all that apply)</legend>
             {referralGroups.map((g) => (
               <div class="ref-group" data-group={g.id}>
                 <span class="muted" style="font-weight:600">{g.title}</span>
@@ -140,51 +139,47 @@ import { practice, referralGroups, team, sedationOptions } from '../data/practic
   </div>
   <script is:inline>
     (function () {
-      var layout = document.querySelector('.ref-layout');
+      var layout = document.getElementById('refer');
       var groups = Array.prototype.slice.call(document.querySelectorAll('.ref-group'));
       var picked = document.getElementById('ref-picked');
       var pickedTitle = document.getElementById('ref-picked-title');
       function clean(v) { return (v || '').replace(/[^a-z0-9-]/g, ''); }
-      function groupOf(serviceId) {
-        var box = serviceId && document.querySelector('input[data-id="' + clean(serviceId) + '"]');
-        return box ? box.closest('.ref-group') : null;
+      function toTop() {
+        // jump first so the form is in view at once, even where smooth scrolling is unsupported
+        var y = layout.getBoundingClientRect().top + window.pageYOffset - 12;
+        window.scrollTo(0, y);
       }
-      var hint = document.getElementById('ref-hint');
-      function unpicked() {
+      function unpick() {
         groups.forEach(function (el) { el.hidden = true; });
-        hint.hidden = false;
+        picked.hidden = true;
+        layout.classList.remove('picked');
         layout.classList.add('unpicked');
       }
+      // Step 2: hide the four categories and show only the picked one's form in their place.
       function choose(groupId, serviceId, scroll) {
         var g = document.querySelector('.ref-group[data-group="' + clean(groupId) + '"]');
         if (!g) return;
-        groups.forEach(function (el) { el.hidden = el !== g; });
-        hint.hidden = true;
-        layout.classList.remove('unpicked');
+        groups.forEach(function (el) {
+          el.hidden = el !== g;
+          if (el !== g) el.querySelectorAll('input').forEach(function (i) { i.checked = false; });
+        });
         pickedTitle.textContent = g.querySelector('span').textContent;
         picked.hidden = false;
+        layout.classList.remove('unpicked');
         layout.classList.add('picked');
         var box = serviceId && g.querySelector('input[data-id="' + clean(serviceId) + '"]');
         if (box) box.checked = true;
-        if (scroll) document.getElementById('refer').scrollIntoView({ behavior: 'smooth', block: 'start' });
-        var first = box || g.querySelector('input');
-        if (first) first.focus({ preventScroll: true });
+        if (scroll) toTop();
       }
-      function reset() {
-        unpicked();
-        picked.hidden = true;
-        layout.classList.remove('picked');
-        document.getElementById('directory').scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-      document.querySelectorAll('[data-group]').forEach(function (a) {
-        if (a.tagName !== 'A') return;
+      document.querySelectorAll('a[data-group]').forEach(function (a) {
         a.addEventListener('click', function (e) { e.preventDefault(); choose(a.dataset.group, null, true); });
       });
-      document.getElementById('ref-change').addEventListener('click', reset);
-      unpicked();
+      document.getElementById('ref-change').addEventListener('click', function () { unpick(); toTop(); });
+      unpick();
       var q = new URLSearchParams(location.search);
+      var box = q.get('service') && document.querySelector('input[data-id="' + clean(q.get('service')) + '"]');
       if (q.get('group')) choose(q.get('group'), null, false);
-      else if (q.get('service')) { var g = groupOf(q.get('service')); if (g) choose(g.dataset.group, q.get('service'), false); }
+      else if (box) choose(box.closest('.ref-group').dataset.group, q.get('service'), false);
     })();
   </script>
 </Base>
