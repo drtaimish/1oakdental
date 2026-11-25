@@ -237,3 +237,16 @@ video.hero-photo { background: var(--tint); display: block; }
   .rung:nth-child(even) .rung-media { order: 0; }
   .pros-cons { grid-template-columns: 1fr; }
 }
+
+/* Staff cards (team page) and strip (home) */
+.staffer { display: grid; gap: 6px; align-content: start; }
+.staffer img, .staffer .avatar { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; background: var(--tint); color: var(--brand); display: grid; place-items: center; font-family: var(--serif); font-size: 1.6rem; margin-bottom: 6px; }
+.staffer h3 { margin: 0; font-size: 1.15rem; }
+.staffer .role { margin: 0; color: var(--brand); font-weight: 600; font-size: 0.95rem; }
+.staffer p { margin: 0; }
+.staffer .langs { font-size: 0.9rem; }
+.todo { color: var(--muted); font-weight: 500; font-style: italic; }
+.staff-strip { list-style: none; padding: 0; margin: 0; display: flex; gap: 20px 28px; flex-wrap: wrap; }
+.staff-strip li { display: flex; align-items: center; gap: 10px; }
+.staff-strip img, .staff-strip .avatar { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; background: var(--tint); color: var(--brand); display: grid; place-items: center; flex: none; }
+.staff-strip .who { font-size: 0.95rem; }

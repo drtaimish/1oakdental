@@ -19,6 +19,7 @@ Facts to confirm with Ammar (the old 416dentist.com had conflicting or missing v
 
 - [ ] Dr. Taimish credentials line items on /dr-ammar-taimish/ (marked TODO on the page; remove or fill before launch)
 - [ ] Bios for Dr. Dong and Dr. Esufali, and the general dentist's entry (`team` in practice.js)
+- [ ] Staff names, roles, one line each, languages and photos (`staff` in practice.js; six placeholder cards now: treatment coordinator, two hygienists, two assistants, front desk)
 - [ ] Languages spoken (`languages` in practice.js)
 - [ ] Review the patient guides (src/data/articles.js) and instructions (src/data/patientInfo.js); set `reviewedBy` on articles once read
 - [ ] Confirm referral promises on /referring-dentists/: seen within a few days, urgent same/next business day, written report after consult and after treatment, two-business-day follow-up rule

@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import { practice, team, languages } from '../data/practice.js';
+import { practice, team, staff, languages } from '../data/practice.js';
 const initials = (n) => n.replace('Dr. ', '').split(' ').map((w) => w[0]).join('').slice(0, 2);
 const schema = {
   '@context': 'https://schema.org',
@@ -36,6 +36,23 @@ const schema = {
         </article>
       ))}
     </div>
+    <section>
+      <h2>The rest of the team</h2>
+      <p class="muted">The people who book you in, clean your teeth, set up your surgery and hold your hand through it.</p>
+      <div class="grid staff">
+        {staff.map((s) => (
+          <article class="card staffer" id={s.id}>
+            {s.photo
+              ? <img src={s.photo} alt={s.name || s.role} width="400" height="400" loading="lazy" />
+              : <div class="avatar" aria-hidden="true">{s.name ? initials(s.name) : '·'}</div>}
+            <h3>{s.name || s.role}</h3>
+            <p class="role">{s.name ? s.role : <span class="todo">Name to come</span>}</p>
+            <p>{s.line}</p>
+            {s.languages.length > 0 && <p class="muted langs">Speaks {s.languages.join(', ')}</p>}
+          </article>
+        ))}
+      </div>
+    </section>
     {languages.length > 1 && (
       <section><h2>Languages</h2><p>Our team speaks {languages.join(', ')}.</p></section>
     )}

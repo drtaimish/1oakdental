@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import { practice, referralGroups, team, trustItems, bookingHref, bookingLabel } from '../data/practice.js';
+import { practice, referralGroups, team, staff, trustItems, bookingHref, bookingLabel } from '../data/practice.js';
 import { neighbourhoods, transit } from '../data/seo.js';
 import { articles } from '../data/articles.js';
 const homeFaqs = [
@@ -99,6 +99,19 @@ const patientLinks = [
           <div class="card"><h3 style="margin:0">{t.name}</h3><p class="muted" style="margin:4px 0 8px">{t.role}</p><p style="margin:0">{t.blurb}</p></div>
         ))}
       </div>
+    </section>
+
+    <section>
+      <h2>And the people you'll actually see most</h2>
+      <ul class="staff-strip" aria-label="Our staff">
+        {staff.map((s) => (
+          <li>
+            {s.photo ? <img src={s.photo} alt={s.name || s.role} width="160" height="160" loading="lazy" /> : <span class="avatar" aria-hidden="true">·</span>}
+            <span class="who"><strong>{s.name || s.role}</strong>{s.name && <span class="muted"> · {s.role}</span>}</span>
+          </li>
+        ))}
+      </ul>
+      <p class="muted"><a href="/team/#coordinator">Meet everyone →</a></p>
     </section>
 
     {practice.gallery.length > 0 && (

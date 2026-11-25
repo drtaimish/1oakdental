@@ -169,6 +169,18 @@ export const team = [
 ];
 
 // Languages spoken in the office. TODO(Ammar): confirm; shown on the homepage and contact page once the list has more than one entry.
+// Staff beyond the dentists. All placeholders until Ammar sends names, roles, a line each and languages.
+// photo: public/images/team/<id>.jpg (square, about 800x800). Keep name: null until the real name is known;
+// the card then shows the role as its title and "name to come".
+export const staff = [
+  { id: 'coordinator', name: null, role: 'Treatment coordinator', line: 'Walks you through your plan, your insurance and your financing options, and answers the questions you think of after you leave.', languages: [], photo: null },
+  { id: 'hygienist-1', name: null, role: 'Registered dental hygienist', line: 'Cleanings, gum care and the honest word on how your brushing is going.', languages: [], photo: null },
+  { id: 'hygienist-2', name: null, role: 'Registered dental hygienist', line: 'Gentle with nervous patients and with kids on their first visit.', languages: [], photo: null },
+  { id: 'assistant-1', name: null, role: 'Dental assistant, surgery', line: 'Sets up every surgery and stays beside you from the first breath of sedation to the ride home.', languages: [], photo: null },
+  { id: 'assistant-2', name: null, role: 'Dental assistant', line: 'Takes your X-rays and scans, and keeps every appointment running on time.', languages: [], photo: null },
+  { id: 'frontdesk', name: null, role: 'Front desk and scheduling', line: 'The voice on the phone. Books your visit, sends your reminders and sorts out your forms.', languages: [], photo: null },
+];
+
 export const languages = ['English'];
 
 // Referral directory. Mirrors the printed referral pads exactly.
