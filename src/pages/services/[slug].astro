@@ -4,6 +4,7 @@ import { services, practice } from '../../data/practice.js';
 import { serviceContent } from '../../data/serviceContent.js';
 import ServiceArt from '../../components/ServiceArt.astro';
 import VideoEmbed from '../../components/VideoEmbed.astro';
+import ReplacementLadder from '../../components/ReplacementLadder.astro';
 import { media } from '../../data/media.js';
 import { serviceSeo, serviceBadges, serviceSteps, serviceExtra, serviceAftercare, serviceCta } from '../../data/seo.js';
 import { patientInfo } from '../../data/patientInfo.js';
@@ -19,6 +20,7 @@ const related = services.filter((x) => seo.related.includes(x.slug));
 const badges = serviceBadges[service.slug] || [];
 const steps = serviceSteps[service.slug] || [];
 const extra = serviceExtra[service.slug] || [];
+const showLadder = ['dentures', 'dental-implants', 'all-on-4-dental-implants'].includes(service.slug);
 const aftercare = (serviceAftercare[service.slug] || []).map((id) => patientInfo.find((p) => p.slug === id)).filter(Boolean);
 const breadcrumbs = {
   '@type': 'BreadcrumbList',
@@ -94,6 +96,13 @@ const schema = { '@context': 'https://schema.org', '@graph': [breadcrumbs, proce
     {extra.map(([h, p]) => (
       <section><h2>{h}</h2><p>{p}</p></section>
     ))}
+    {showLadder && (
+      <section>
+        <h2>Where this fits among your options</h2>
+        <p class="muted">Every way to replace missing teeth, simplest to most permanent. <a href="/tooth-replacement-options/">See the full comparison with pros and cons.</a></p>
+        <ReplacementLadder compact />
+      </section>
+    )}
     {aftercare.length > 0 && (
       <section class="card tint">
         <h2>Before and after your appointment</h2>

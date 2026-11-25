@@ -101,7 +101,8 @@ const dentist = {
           <a href="/services/veneers/">Veneers and whitening</a><br />
           <a href="/services/tooth-extractions/">Extractions</a><br />
           <a href="/services/wisdom-teeth-removal/">Wisdom teeth</a><br />
-          <a href="/services/all-on-4-dental-implants/">Full-arch implants</a>
+          <a href="/services/all-on-4-dental-implants/">Full-arch implants</a><br />
+          <a href="/tooth-replacement-options/">Tooth replacement options</a>
         </div>
         <div>
           <strong>Book or refer</strong><br />
@@ -136,7 +137,7 @@ const dentist = {
 
       // 2. Scroll reveal for sections and cards (not the hero, so the first paint stays fast).
       //    Siblings in a grid are staggered slightly. Mark-up is untouched; the class is added here.
-      const targets = document.querySelectorAll('main section, main .grid > *, main .panels > *, main .steps > li, main .member');
+      const targets = document.querySelectorAll('main section, main .grid > *, main .panels > *, main .steps > li, main .member, main .ladder > li');
       if (!reduce && targets.length) {
         targets.forEach((el) => { if (!el.closest('.hero')) el.classList.add('reveal'); });
         const parents = new Map();

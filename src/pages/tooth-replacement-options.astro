@@ -1,0 +1,52 @@
+---
+import Base from '../layouts/Base.astro';
+import ReplacementLadder from '../components/ReplacementLadder.astro';
+import { replacementOptions, replacementFaqs } from '../data/replacementOptions.js';
+import { practice, bookingHref } from '../data/practice.js';
+const description = 'Every way to replace missing teeth, from a flipper to a full arch on implants: what each one is, who it suits, and the trade-offs. 1 Oak Dental, downtown Toronto.';
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: practice.url + '/' },
+        { '@type': 'ListItem', position: 2, name: 'Tooth replacement options', item: practice.url + '/tooth-replacement-options/' },
+      ],
+    },
+    {
+      '@type': 'ItemList',
+      name: 'Tooth replacement options, simplest to most permanent',
+      itemListOrder: 'https://schema.org/ItemListOrderAscending',
+      itemListElement: replacementOptions.map((o, i) => ({ '@type': 'ListItem', position: i + 1, name: o.title, description: o.tagline, url: `${practice.url}/tooth-replacement-options/#${o.id}` })),
+    },
+    { '@type': 'FAQPage', mainEntity: replacementFaqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
+  ],
+};
+---
+<Base title="Tooth Replacement Options Compared: Dentures to Implants" description={description} schema={schema}>
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <span>Tooth replacement options</span></nav>
+    <div class="hero">
+      <p class="eyebrow">{practice.neighbourhood}</p>
+      <h1>Seven ways to replace a missing tooth, from simplest to most permanent</h1>
+      <p class="lead">Scroll down the ladder. Each step is a little more involved than the one before, and a little closer to natural teeth. Most people land somewhere in the middle, and the right answer depends on your mouth and your priorities, not on the price list.</p>
+      <div class="actions">
+        <a class="btn" href="/contact/?service=dental-implants">Book a free consultation</a>
+        <a class="btn secondary" href={`tel:${practice.phoneE164}`}>Call {practice.phone}</a>
+      </div>
+    </div>
+    <section>
+      <ReplacementLadder />
+    </section>
+    <section class="card tint">
+      <h2>Not sure where you fit?</h2>
+      <p>A free consultation with Dr. Taimish includes a 3D scan, so you see your own bone and the options that fit it. You leave with a written plan and the fees for each option, and no pressure to pick the most expensive one.</p>
+      <a class="btn" href={bookingHref}>Book a free consultation</a>
+    </section>
+    <section class="faq">
+      <h2>Common questions</h2>
+      {replacementFaqs.map(([q, a]) => <details><summary>{q}</summary><p>{a}</p></details>)}
+    </section>
+  </div>
+</Base>

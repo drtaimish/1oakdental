@@ -1,3 +1,7 @@
+/* Fallback fonts sized to match the web fonts, so text does not reflow when DM Sans and
+   Instrument Serif arrive (measured: DM Sans is 4.9% wider than Arial, Instrument Serif 17% narrower than Georgia). */
+@font-face { font-family: "DM Sans Fallback"; src: local("Arial"), local("Helvetica"), local("Liberation Sans"); size-adjust: 104.9%; }
+@font-face { font-family: "Instrument Serif Fallback"; src: local("Georgia"), local("Times New Roman"), local("Liberation Serif"); size-adjust: 83.1%; }
 :root {
   --ink: #252b28;
   --muted: #5b625e;
@@ -8,8 +12,8 @@
   --brand: #193b32;
   --brand-ink: #ffffff;
   --accent: #8fb3a3;
-  --serif: "Instrument Serif", Georgia, "Times New Roman", serif;
-  --sans: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --serif: "Instrument Serif", "Instrument Serif Fallback", Georgia, "Times New Roman", serif;
+  --sans: "DM Sans", "DM Sans Fallback", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --radius: 10px;
   --max: 1080px;
 }
@@ -210,3 +214,26 @@ html:not(.no-js) .reveal.in { opacity: 1; transform: none; }
 
 /* Service page clip: a short muted loop in the photo slot (poster shows until it plays) */
 video.hero-photo { background: var(--tint); display: block; }
+
+/* Tooth replacement ladder */
+.ladder { list-style: none; padding: 0; margin: 0; position: relative; display: grid; gap: 28px; }
+.ladder::before { content: ""; position: absolute; left: 24px; top: 0; bottom: 0; width: 2px; background: var(--line); }
+.rung { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 24px; margin-left: 48px; }
+.rung::before { content: ""; position: absolute; left: -31px; top: 50%; width: 12px; height: 12px; border-radius: 50%; background: var(--brand); transform: translateY(-50%); }
+.rung:nth-child(even) .rung-media { order: 2; }
+.rung-media .hero-photo { max-width: 100%; }
+.rung-art { aspect-ratio: 4 / 3; border-radius: 12px; background: var(--tint); display: grid; place-items: center; }
+.rung-art .art { color: var(--ink); width: 140px; height: 140px; }
+.rung-text h3 { font-family: var(--serif); font-weight: 400; font-size: 1.7rem; margin: 0 0 4px; }
+.rung-text .tagline { color: var(--muted); margin: 0 0 12px; }
+.rung-text p { margin: 0 0 10px; }
+.pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 12px 0; font-size: 0.95rem; }
+.pros-cons ul { margin: 4px 0 0; padding-left: 18px; }
+.pros-cons li { margin: 2px 0; }
+@media (max-width: 720px) {
+  .ladder::before { left: 10px; }
+  .rung { grid-template-columns: 1fr; margin-left: 28px; padding: 18px; }
+  .rung::before { left: -23px; top: 28px; transform: none; }
+  .rung:nth-child(even) .rung-media { order: 0; }
+  .pros-cons { grid-template-columns: 1fr; }
+}
