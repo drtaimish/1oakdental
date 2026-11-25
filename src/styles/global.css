@@ -160,3 +160,16 @@ dl.hours dd { margin: 0; color: var(--muted); }
 .faq details p { margin: 10px 0 0; color: var(--muted); }
 .related { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
 .related a { font-weight: 600; }
+
+/* Articles */
+.prose section p { font-size: 1.08rem; line-height: 1.65; max-width: 72ch; }
+.prose .hero h1 { max-width: 22ch; }
+
+/* Team */
+.team { display: grid; gap: 16px; }
+.member { display: grid; grid-template-columns: 120px 1fr; gap: 20px; align-items: start; }
+.member img, .member .avatar { width: 120px; height: 120px; border-radius: 16px; object-fit: cover; }
+.member .avatar { background: var(--tint); color: var(--brand); display: grid; place-items: center; font-family: var(--serif); font-size: 2rem; }
+.member h2 { margin: 0 0 4px; font-size: 1.4rem; }
+.member .role { color: var(--brand); font-weight: 600; margin: 0 0 8px; }
+@media (max-width: 560px) { .member { grid-template-columns: 1fr; } .member img, .member .avatar { width: 88px; height: 88px; } }

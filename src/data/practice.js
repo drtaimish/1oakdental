@@ -111,11 +111,35 @@ export const services = [
 
 // The clinical team, as printed on the referral pads (Nov 2026).
 // TODO(Ammar): name of the general dentist, if not Dr. Taimish.
+// photo: '/images/team/<id>.jpg' once headshots arrive (square, at least 800x800). null shows initials.
+// bio: TODO(Ammar): confirm each line. Nothing here should be a guess.
 export const team = [
-  { id: 'taimish', name: 'Dr. Ammar Taimish', role: 'General Dentist, practice limited to Oral Surgery and Implant Dentistry', blurb: 'Performs all surgical care: extractions, impacted teeth, orthodontic exposures, implants and All-on-X.' },
-  { id: 'dong', name: 'Dr. Alice Dong', role: 'Pediatric Dentist', blurb: 'Cares for infants, children and teens, including treatment under sedation or general anaesthesia.' },
-  { id: 'esufali', name: 'Dr. Zakir Esufali, MD', role: 'Anaesthesiologist', blurb: 'Provides IV sedation, deep sedation and general anaesthesia in the office.' },
+  {
+    id: 'taimish', name: 'Dr. Ammar Taimish', credentials: 'DDS',
+    role: 'General Dentist, practice limited to Oral Surgery and Implant Dentistry',
+    blurb: 'Performs all surgical care: extractions, impacted teeth, orthodontic exposures, implants and All-on-X.',
+    photo: null, href: '/dr-ammar-taimish/',
+    bio: 'Dr. Taimish earned his DDS at New York University College of Dentistry and trained in surgical head and neck anatomy in a university hospital Department of Surgery. His practice is limited to oral surgery and implant dentistry. He also teaches implant courses to other dentists.',
+  },
+  {
+    id: 'dong', name: 'Dr. Alice Dong', credentials: '',
+    role: 'Pediatric Dentist',
+    blurb: 'Cares for infants, children and teens, including treatment under sedation or general anaesthesia.',
+    photo: null, href: null,
+    bio: null, // TODO(Ammar): two or three lines about Dr. Dong (training, years, approach with kids).
+  },
+  {
+    id: 'esufali', name: 'Dr. Zakir Esufali', credentials: 'MD',
+    role: 'Physician Anaesthesiologist',
+    blurb: 'Provides IV sedation, deep sedation and general anaesthesia in the office.',
+    photo: null, href: null,
+    bio: null, // TODO(Ammar): two or three lines about Dr. Esufali (hospital appointment, years, scope).
+  },
+  // TODO(Ammar): add the general dentist here: { id, name, credentials, role: 'General Dentist', blurb, photo, bio }.
 ];
+
+// Languages spoken in the office. TODO(Ammar): confirm; shown on the homepage and contact page once the list has more than one entry.
+export const languages = ['English'];
 
 // Referral directory. Mirrors the printed referral pads exactly.
 // `id` is used in links (?service=...) and preselects the matching checkbox.

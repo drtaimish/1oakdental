@@ -1,0 +1,21 @@
+---
+import Base from '../../layouts/Base.astro';
+import { articles } from '../../data/articles.js';
+---
+<Base title="Patient Guides: Wisdom Teeth, Implants, Sedation" description="Plain-language guides from 1 Oak Dental in downtown Toronto: wisdom teeth recovery, All-on-4 vs dentures, what sedation feels like, and more.">
+  <div class="wrap">
+    <div class="hero">
+      <p class="eyebrow">Patient guides</p>
+      <h1>Answers before you ask</h1>
+      <p class="lead">Short, honest guides to the questions patients ask us most.</p>
+    </div>
+    <div class="grid">
+      {articles.map((a) => (
+        <a class="card" href={`/blog/${a.slug}/`} style="text-decoration:none;color:inherit">
+          <h2 style="font-size:1.25rem;margin-top:0">{a.title}</h2>
+          <p class="muted">{a.description}</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</Base>

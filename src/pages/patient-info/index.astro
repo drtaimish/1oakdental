@@ -1,0 +1,30 @@
+---
+import Base from '../../layouts/Base.astro';
+import { practice } from '../../data/practice.js';
+import { patientInfo } from '../../data/patientInfo.js';
+---
+<Base title="Patient Information: Before and After Your Visit" description="Pre-op and post-op instructions from 1 Oak Dental, downtown Toronto: sedation preparation, extractions and wisdom teeth, implants and full-arch surgery.">
+  <div class="wrap">
+    <div class="hero">
+      <p class="eyebrow">Patient information</p>
+      <h1>Before and after your visit</h1>
+      <p class="lead">Everything we tell you in the chair, written down. Print it, or come back to it on your phone.</p>
+    </div>
+    <div class="grid">
+      {patientInfo.map((p) => (
+        <a class="card" href={`/patient-info/${p.slug}/`} style="text-decoration:none;color:inherit">
+          <h2 style="font-size:1.2rem;margin-top:0">{p.title}</h2>
+          <p class="muted">{p.summary}</p>
+        </a>
+      ))}
+    </div>
+    <section>
+      <h2>Also useful</h2>
+      <ul class="related">
+        <li><a href="/new-patients/">New patients: your first visit, insurance and payment</a></li>
+        <li><a href="/insurance-and-fees/">Insurance, CDCP, fees and financing</a></li>
+        <li><a href="/blog/">Patient guides</a></li>
+      </ul>
+    </section>
+  </div>
+</Base>

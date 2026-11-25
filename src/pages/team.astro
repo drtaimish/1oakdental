@@ -1,0 +1,48 @@
+---
+import Base from '../layouts/Base.astro';
+import { practice, team, languages } from '../data/practice.js';
+const initials = (n) => n.replace('Dr. ', '').split(' ').map((w) => w[0]).join('').slice(0, 2);
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': team.map((t) => ({
+    '@type': 'Person',
+    name: t.name,
+    ...(t.credentials ? { honorificSuffix: t.credentials } : {}),
+    jobTitle: t.role,
+    worksFor: { '@id': `${practice.url}/#dentist` },
+    ...(t.href ? { url: practice.url + t.href } : {}),
+  })),
+};
+---
+<Base title="Our Team: Surgeon, Pediatric Dentist, Anaesthesiologist" description="Meet the 1 Oak Dental team in downtown Toronto: Dr. Ammar Taimish (oral surgery and implants), Dr. Alice Dong (pediatric dentist) and Dr. Zakir Esufali, MD (anaesthesiologist)." schema={schema}>
+  <div class="wrap">
+    <div class="hero">
+      <p class="eyebrow">Our team</p>
+      <h1>A surgeon, a children's specialist and a physician anaesthesiologist, under one roof</h1>
+      <p class="lead">Most dental offices refer out for surgery, for children who need sedation, and for general anaesthesia. At {practice.name} the people who do that work are on the team.</p>
+    </div>
+    <div class="team">
+      {team.map((t) => (
+        <article class="card member" id={t.id}>
+          {t.photo
+            ? <img src={t.photo} alt={t.name} width="400" height="400" loading="lazy" />
+            : <div class="avatar" aria-hidden="true">{initials(t.name)}</div>}
+          <div>
+            <h2>{t.name}{t.credentials && <span class="muted">, {t.credentials}</span>}</h2>
+            <p class="role">{t.role}</p>
+            <p>{t.bio || t.blurb}</p>
+            {t.href && <a href={t.href}>More about {t.name.split(' ').slice(-1)[0] === 'Taimish' ? 'Dr. Taimish' : t.name} →</a>}
+          </div>
+        </article>
+      ))}
+    </div>
+    {languages.length > 1 && (
+      <section><h2>Languages</h2><p>Our team speaks {languages.join(', ')}.</p></section>
+    )}
+    <section class="card">
+      <h2>Want to meet us first?</h2>
+      <p>Your first consultation is free, in person or by phone.</p>
+      <a class="btn" href="/contact/">Request an appointment</a>
+    </section>
+  </div>
+</Base>
