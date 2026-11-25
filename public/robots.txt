@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /thank-you/
+Disallow: /consent/
 
 Sitemap: https://1oakdental.ca/sitemap-index.xml

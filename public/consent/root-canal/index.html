@@ -1,0 +1,152 @@
+<!DOCTYPE html><html lang="en-CA"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex, nofollow"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><title>Root Canal Consent · 1 Oak Dental</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Montserrat:wght@700;800&display=swap">
+<style>
+:root{--line:#d4d4d1;--muted:#5a5a5a;--tint:#f2f2f0}
+*{box-sizing:border-box} body{margin:0;font:17px/1.55 "DM Sans",system-ui,sans-serif;color:#000;background:var(--tint)}
+.wrap{max-width:720px;margin:0 auto;padding:0 16px 120px}
+header{background:#000;color:#fff} header .in{max-width:720px;margin:0 auto;padding:16px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+header .logo{height:20px;width:auto} header .logo path[fill="#000"]{fill:#fff} header .ph{color:#fff;font-size:.9rem;text-decoration:none}
+h1{font:800 clamp(1.6rem,5vw,2.2rem)/1.1 Montserrat,sans-serif;letter-spacing:-.02em;margin:28px 0 6px}
+.lead{color:var(--muted);margin:0 0 20px}
+.card,.sec{background:#fff;border:1px solid var(--line);padding:20px;margin:0 0 14px}
+h2{font:700 1.05rem/1.3 Montserrat,sans-serif;margin:0 0 10px;display:flex;gap:10px;align-items:center}
+h2 .n{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:#000;color:#fff;font-size:.8rem;flex:none}
+.sec.done h2 .n{background:#fff;color:#000;border:2px solid #000}
+ul{padding-left:20px;margin:0 0 6px} li{margin:0 0 6px} p{margin:0 0 10px}
+label.f{display:grid;gap:4px;font-weight:600;font-size:.92rem;margin:0 0 12px}
+input,textarea,select{font:inherit;border:1px solid #000;border-radius:0;padding:10px;width:100%;background:#fff}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 12px} @media(max-width:520px){.grid2{grid-template-columns:1fr}}
+.checks{display:grid;gap:8px;margin:0 0 12px} .checks label{display:flex;gap:10px;align-items:center} .checks input,.sdm-t input{width:22px;height:22px;accent-color:#000;flex:none}
+.muted{color:var(--muted);font-weight:400}
+.initial{display:flex;align-items:center;gap:12px;margin-top:14px;padding-top:14px;border-top:1px solid #000}
+.initial label{font-weight:700;font-size:.92rem} .initial input{width:96px;text-align:center;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.initial .ok{display:none;font-size:.85rem;font-weight:600} .sec.done .initial .ok{display:inline}
+.sdm-t{display:flex;gap:10px;align-items:center;font-weight:500;margin:0 0 12px} .sdm{display:none} .sdm.on{display:block}
+canvas{display:block;width:100%;height:170px;border:1px solid #000;background:#fff;touch-action:none}
+.sigbar{display:flex;justify-content:space-between;align-items:center;margin:6px 0 0;font-size:.85rem;color:var(--muted)}
+button{font:600 1rem "DM Sans",sans-serif;cursor:pointer} .link{background:none;border:0;text-decoration:underline;padding:0;color:#000}
+.bar{position:fixed;left:0;right:0;bottom:0;background:#000;color:#fff;padding:12px 16px} .bar .in{max-width:720px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.bar .btn{background:#fff;color:#000;border:0;padding:14px 22px;min-height:48px} .bar .btn:disabled{opacity:.35;cursor:not-allowed}
+.prog{font-size:.9rem}
+.done-msg{display:none} body.sent .done-msg{display:block} body.sent form,body.sent .bar{display:none}
+.receipt dt{font-weight:700;font-size:.85rem;margin-top:8px} .receipt dd{margin:0} .receipt img{max-width:280px;border-bottom:1px solid #000}
+:focus-visible{outline:3px solid #000;outline-offset:2px}
+.note{font-size:.88rem;color:var(--muted)}
+.staff{border:2px solid #000}
+.err{background:#000;color:#fff;padding:12px 14px;font-weight:600}
+a{color:#000}
+.modes{display:flex;gap:0;margin:20px 0 0;border:1px solid #000;width:max-content;max-width:100%}
+.modes a{padding:8px 14px;color:#000;text-decoration:none;font-weight:600;font-size:.92rem}
+.modes a.on{background:#000;color:#fff}
+.m-home,.m-office,.m-full{display:none}
+body.home .m-home,body.office .m-office,body.full .m-full{display:block}
+body.home #signcard,body.home #witness{display:none}
+body.office .sec{display:none}
+.code{font:800 2rem Montserrat,sans-serif;letter-spacing:.08em;border:2px solid #000;display:inline-block;padding:6px 16px}
+body.sent.home #done{display:none} body:not(.home) .home-done{display:none!important}
+
+</style></head><body>
+<header><div class="in"><svg class="logo" viewBox="0 0 589.4 64.95" role="img" aria-label="1 Oak Dental"><path fill="#000" d="M237.42,5.31c-5.75-2.12-11.03.42-13.01,6.02-1.23,3.47-.75,7.21.19,10.89l5.55,15.07c-4.27-4.39-7.24-9.69-9.45-15.4-1.73-4.48-1.66-9.38.2-13.62,3-6.82,10.18-9.66,17.09-7.17,4.38,1.58,7.62,4.54,11.36,7.29l8.71,6.43c-7.62-.18-11.93-6.3-20.65-9.51Z"/><path fill="#000" d="M270.76,35.44c2.57-9.08,8.65-21.5,3.62-28.02-3.03-3.93-8.23-3.96-12.54-2.02-3.27,1.47-6.2,3.2-9.87,2.86l9.39-6.24c6.18-4.11,15.01-1.73,18.07,5.14,3.94,8.85-1.92,21.81-8.68,28.28Z"/><path fill="#8a8a8a" d="M231.76,37.02c13.57,4.15,23.55,3.91,36.45,0-.23.62-.81,1.54-1.32,1.93-9.96,7.65-23.91,7.65-33.84-.04-.65-.5-1.22-1.47-1.29-1.89Z"/><path fill="#8a8a8a" d="M267.04,45.43c-9.31,9.25-24.84,9.22-34.14-.01,11.6,2.94,22.5,2.94,34.14.01Z"/><path fill="#8a8a8a" d="M262.94,54.16c-5.19,6.75-20.16,7.09-25.91.05l12.2.8c4.46.29,8.73-.64,13.71-.85Z"/><path fill="#8a8a8a" d="M257.45,61.97c-3.86,4.01-11.02,3.98-15.29-.14l15.29.14Z"/><path fill="#000" d="M10.87,19.17l-8.27,1.96L0,10.62l14.37-4.07h9.89v49.43h-13.39V19.17Z"/><path fill="#000" d="M43.22,31.58v-.14c0-14.09,11.36-25.52,26.51-25.52s26.37,11.29,26.37,25.38v.14c0,14.09-11.36,25.52-26.51,25.52s-26.37-11.29-26.37-25.38ZM82.14,31.58v-.14c0-7.15-5.05-13.25-12.55-13.25s-12.48,6.03-12.48,13.11v.14c0,7.08,5.12,13.25,12.62,13.25s12.41-6.03,12.41-13.11Z"/><path fill="#000" d="M116.92,6.55h13.11l20.9,49.43h-14.59l-3.51-8.84h-19l-3.51,8.84h-14.23L116.92,6.55ZM128.84,36.56l-5.47-13.88-5.54,13.88h11.01Z"/><path fill="#000" d="M155.7,6.9h13.6v19.91l16.9-19.91h16.13l-18.58,21.04,19.21,28.05h-16.27l-12.41-18.23-4.98,5.47v12.76h-13.6V6.9Z"/><path fill="#000" d="M300.71,7.88h19c17.46,0,27.63,10.1,27.63,24.26v.14c0,14.16-10.31,24.68-27.91,24.68h-18.72V7.88ZM314.31,19.87v25.03h5.54c8.2,0,13.6-4.49,13.6-12.41v-.14c0-7.85-5.4-12.48-13.6-12.48h-5.54Z"/><path fill="#000" d="M354.42,7.88h39.48v11.5h-26.01v7.5h23.56v10.73h-23.56v7.78h26.37v11.57h-39.83V7.88Z"/><path fill="#000" d="M401.27,7.88h12.69l20.19,25.94V7.88h13.46v49.08h-11.85l-21.04-26.93v26.93h-13.46V7.88Z"/><path fill="#000" d="M468.3,19.8h-14.65V7.88h42.98v11.92h-14.73v37.16h-13.6V19.8Z"/><path fill="#000" d="M513.25,7.53h13.11l20.9,49.43h-14.58l-3.51-8.84h-19l-3.51,8.84h-14.23l20.83-49.43ZM525.17,37.54l-5.47-13.88-5.54,13.88h11.01Z"/><path fill="#000" d="M552.03,7.88h13.6v37.16h23.77v11.92h-37.37V7.88Z"/></svg><a class="ph" href="tel:+14162140003">(416) 214-0003</a></div></header>
+<div class="wrap">
+<form id="f" novalidate>
+<nav class="modes" aria-label="Where you are completing this"><a href="#home" data-m="home">Before your visit</a><a href="#office" data-m="office">Sign in the office</a></nav>
+<h1>Root canal treatment: consent</h1>
+<p class="lead m-home">Please read each section and type your initials at the end of it. You will sign in the office at your appointment, after your dentist has answered your questions.</p>
+<p class="lead m-office">Confirm the patient, then sign below. A team member witnesses the signature.</p>
+<p class="lead m-full">Read each section, initial it, then sign below with a team member as witness.</p>
+<div class="card"><h2>Your details</h2>
+<div class="grid2"><label class="f">Patient full name<input name="patient_name" required autocomplete="name"></label><label class="f">Date of birth<input name="patient_dob" type="date" required></label></div>
+<div class="grid2"><label class="f">Tooth / teeth (FDI)<input name="teeth" placeholder="Filled in by the office"></label><label class="f">Treating dentist<input name="dentist" placeholder="Filled in by the office"></label></div>
+</div>
+<section class="card m-office" id="online"><h2>Consent completed online</h2>
+<label class="f">Reference code from the patient<input name="ref_code" placeholder="e.g. RC-4K7Q" autocapitalize="characters" autocomplete="off"></label>
+<label class="sdm-t"><input type="checkbox" name="read_online"> I read and initialled the root canal consent before my visit, and my dentist has answered my questions.</label>
+<p class="note">Patient did not complete it online? <a href="#full">Open the full form</a> to read and initial it here.</p>
+</section>
+<section class="sec" data-sec="treatment"><h2><span class="n">1</span>Proposed treatment</h2><p>Your dentist has recommended:</p>
+<div class="checks" id="tx"><label><input type="checkbox" name="tx" value="Root canal treatment"> Root canal treatment</label><label><input type="checkbox" name="tx" value="Retreatment"> Retreatment</label><label><input type="checkbox" name="tx" value="Endodontic surgery"> Endodontic surgery <span class="muted">(separate discussion required)</span></label></div>
+<p>Root canal treatment removes infected or inflamed tissue from inside a tooth, disinfects the canals and seals them to help keep the tooth. Further procedures, including surgery, are sometimes recommended. The outcome cannot be guaranteed.</p>
+<div class="initial"><label for="ini-treatment">Your initials</label><input id="ini-treatment" name="initials_treatment" maxlength="4" autocomplete="off" autocapitalize="characters" inputmode="text" required><span class="ok" aria-hidden="true">Initialled</span></div></section><section class="sec" data-sec="risks"><h2><span class="n">2</span>Possible risks and limitations</h2><ul><li>Temporary pain, sensitivity, swelling, bruising or bleeding; infection, flare-up or delayed healing that needs further care.</li>
+<li>Reactions to local anaesthetic or medication; temporary or, rarely, lasting numbness or altered sensation; jaw soreness or bite discomfort.</li>
+<li>Narrow, curved, calcified or blocked canals may prevent complete treatment. An instrument can separate inside a canal, and a root or tooth may be perforated.</li>
+<li>Existing fillings, crowns, bridges or veneers may be damaged or need replacing. The tooth can weaken or fracture, and may then need to be extracted.</li>
+<li>Infection can persist or return and require retreatment, endodontic surgery or extraction, even when treatment was done correctly.</li>
+<li>A final filling or crown is usually needed soon after to protect and seal the tooth. Delaying it, or losing the temporary seal, raises the risk of failure.</li></ul>
+<div class="initial"><label for="ini-risks">Your initials</label><input id="ini-risks" name="initials_risks" maxlength="4" autocomplete="off" autocapitalize="characters" inputmode="text" required><span class="ok" aria-hidden="true">Initialled</span></div></section><section class="sec" data-sec="alternatives"><h2><span class="n">3</span>Alternatives and medication</h2><p>Alternatives may include monitoring, other restorative options where appropriate, extraction (with or without replacing the tooth), or no treatment. Delaying or declining treatment may lead to infection, pain or tooth loss. Take prescribed medication only as directed. Sedation, if used, needs its own discussion and consent.</p>
+<div class="initial"><label for="ini-alternatives">Your initials</label><input id="ini-alternatives" name="initials_alternatives" maxlength="4" autocomplete="off" autocapitalize="characters" inputmode="text" required><span class="ok" aria-hidden="true">Initialled</span></div></section><section class="sec" data-sec="questions"><h2><span class="n">4</span>Your questions</h2><p>Write anything you would like to ask or discuss with your dentist before treatment (optional).</p><textarea name="questions" rows="3" placeholder="Optional"></textarea>
+<div class="initial"><label for="ini-questions">Your initials</label><input id="ini-questions" name="initials_questions" maxlength="4" autocomplete="off" autocapitalize="characters" inputmode="text" required><span class="ok" aria-hidden="true">Initialled</span></div></section><section class="sec" data-sec="consent"><h2><span class="n">5</span>Consent</h2><p>I have discussed the proposed treatment, its expected benefits, material risks, alternatives, the likely result of no treatment, and the fees and insurance coverage with my dentist. My questions were answered and I understand results cannot be guaranteed. I consent to the treatment above and to local anaesthetic. Any materially different treatment, or sedation, needs further discussion and consent.</p>
+<div class="initial"><label for="ini-consent">Your initials</label><input id="ini-consent" name="initials_consent" maxlength="4" autocomplete="off" autocapitalize="characters" inputmode="text" required><span class="ok" aria-hidden="true">Initialled</span></div></section>
+<section class="card" id="signcard"><h2>Sign</h2>
+<label class="sdm-t"><input type="checkbox" id="sdmbox"> I am signing for the patient (substitute decision-maker)</label>
+<div class="sdm" id="sdm"><div class="grid2"><label class="f">Your full name<input name="sdm_name"></label><label class="f">Relationship / legal authority<input name="sdm_relationship"></label></div></div>
+<p style="font-weight:600;font-size:.92rem;margin-bottom:6px">Signature <span class="muted">(draw with your finger or mouse)</span></p>
+<canvas id="sig" aria-label="Signature pad"></canvas>
+<div class="sigbar"><span id="sigstate">Not signed yet</span><button type="button" class="link" id="clear">Clear</button></div>
+<p class="note" style="margin-top:12px">Date and time are recorded when you submit. A team member will witness your signature. Your dentist countersigns at your appointment.</p>
+</section>
+<section class="card staff" id="witness"><h2>For office staff: witness</h2>
+<p class="note">Hand the tablet back to the team member once you have signed.</p>
+<div class="grid2"><label class="f">Staff member name<input name="witness_name" autocomplete="off"></label>
+<label class="f">Identity confirmed by<select name="witness_id"><option value="">Choose</option><option>Photo ID checked</option><option>Matches chart photo</option><option>Known to staff</option></select></label></div>
+<label class="sdm-t"><input type="checkbox" name="witness_seen"> I confirmed who signed and watched them sign this form</label>
+<label class="f" style="max-width:160px">Staff initials<input name="witness_initials" maxlength="4" autocapitalize="characters" autocomplete="off" style="text-align:center;font-weight:700;text-transform:uppercase"></label>
+</section>
+<div class="hp" aria-hidden="true" style="position:absolute;left:-9999px"><label>Leave this empty <input name="company" tabindex="-1" autocomplete="off"></label></div>
+<p class="err" id="err" role="alert" hidden></p>
+</form>
+<div class="done-msg card home-done" id="homedone"><h2>Thank you. Your initials have been received.</h2><p>At your appointment, show this code at the front desk. You will sign the consent in the office after your dentist answers your questions.</p><p class="code" id="code"></p><p class="note">Your initials have been sent to 1 Oak Dental.</p></div>
+<div class="done-msg card" id="done"><h2>Thank you, your consent has been received</h2><p>Bring any questions to your appointment. You can withdraw consent at any time before treatment by telling us.</p><p class="note">A copy has been sent to 1 Oak Dental for your chart.</p><dl class="receipt" id="receipt"></dl></div>
+</div>
+<div class="bar"><div class="in"><span class="prog" id="prog">0 of 5 sections initialled</span><button class="btn" id="submit" form="f" type="submit" disabled>Submit signed consent</button></div></div>
+<script>
+(function(){
+var form=document.getElementById('f'),secs=[].slice.call(document.querySelectorAll('.sec')),btn=document.getElementById('submit'),prog=document.getElementById('prog');
+var mode='home';
+function setMode(){var h=location.hash.replace('#','');mode=(h==='office'||h==='full')?h:'home';document.body.classList.remove('home','office','full','sent');document.body.classList.add(mode);
+[].forEach.call(document.querySelectorAll('.modes a'),function(a){a.classList.toggle('on',a.dataset.m===mode||(mode==='full'&&a.dataset.m==='office'));});
+btn.textContent=mode==='home'?'Send my initials':'Submit signed consent';if(window._upd)window._upd();if(window._size)window._size();}
+window.addEventListener('hashchange',setMode);
+var q=new URLSearchParams(location.search);
+if(q.get('tooth'))form.teeth.value=q.get('tooth'); if(q.get('dentist'))form.dentist.value=q.get('dentist');
+(q.get('tx')||'').split(',').forEach(function(v){var map={rct:'Root canal treatment',retx:'Retreatment',surg:'Endodontic surgery'};var b=form.querySelector('input[name=tx][value="'+map[v]+'"]');if(b)b.checked=true;});
+var cv=document.getElementById('sig'),ctx=cv.getContext('2d'),drawing=false,signed=false,last=null;
+function size(){var r=cv.getBoundingClientRect(),d=window.devicePixelRatio||1,img=signed?cv.toDataURL():null;cv.width=r.width*d;cv.height=r.height*d;ctx.scale(d,d);ctx.lineWidth=2.2;ctx.lineCap='round';ctx.lineJoin='round';ctx.strokeStyle='#000';if(img){var i=new Image();i.onload=function(){ctx.drawImage(i,0,0,r.width,r.height)};i.src=img;}}
+window._size=size;size();window.addEventListener('resize',size);
+function pt(e){var r=cv.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top}}
+cv.addEventListener('pointerdown',function(e){drawing=true;last=pt(e);cv.setPointerCapture(e.pointerId);});
+cv.addEventListener('pointermove',function(e){if(!drawing)return;var p=pt(e);ctx.beginPath();ctx.moveTo(last.x,last.y);ctx.lineTo(p.x,p.y);ctx.stroke();last=p;if(!signed){signed=true;update();}});
+['pointerup','pointercancel','pointerleave'].forEach(function(t){cv.addEventListener(t,function(){drawing=false})});
+document.getElementById('clear').onclick=function(){ctx.clearRect(0,0,cv.width,cv.height);signed=false;update();};
+var sdmbox=document.getElementById('sdmbox');sdmbox.onchange=function(){document.getElementById('sdm').classList.toggle('on',sdmbox.checked);update();};
+function update(){var n=0;window._upd=update;secs.forEach(function(s){var ok=s.querySelector('.initial input').value.trim().length>=2;s.classList.toggle('done',ok);if(ok)n++;});
+prog.textContent=n+' of '+secs.length+' sections initialled'+(signed?' · signed':'');
+document.getElementById('sigstate').textContent=signed?'Signed':'Not signed yet';
+var wit=form.witness_name.value.trim()&&form.witness_id.value&&form.witness_seen.checked&&form.witness_initials.value.trim().length>=2;
+var details=form.patient_name.value.trim()&&form.patient_dob.value&&(!sdmbox.checked||(form.sdm_name.value.trim()&&form.sdm_relationship.value.trim()));
+var basic=form.patient_name.value.trim()&&form.patient_dob.value;
+if(mode==='home'){btn.disabled=!(n===secs.length&&basic);prog.textContent=n+' of '+secs.length+' sections initialled';}
+else if(mode==='office'){var on=form.read_online.checked;btn.disabled=!(on&&signed&&details&&wit);prog.textContent=(on?'Online consent confirmed':'Confirm online consent')+(signed?' · signed':'')+(wit?' · witnessed':'');}
+else{btn.disabled=!(n===secs.length&&signed&&details&&wit);prog.textContent+=wit?' · witnessed':'';}}
+form.addEventListener('input',update);form.addEventListener('change',update);
+form.addEventListener('submit',function(e){e.preventDefault();if(btn.disabled)return;
+var err=document.getElementById('err');err.hidden=true;
+var ini={};secs.forEach(function(s){ini[s.dataset.sec]=s.querySelector('.initial input').value.trim();});
+var payload={form:'root-canal',mode:mode,patient_name:form.patient_name.value,patient_dob:form.patient_dob.value,teeth:form.teeth.value,dentist:form.dentist.value,
+tx:[].map.call(form.querySelectorAll('input[name=tx]:checked'),function(b){return b.value}),questions:form.questions.value,initials:ini,
+ref_code:form.ref_code.value,read_online:form.read_online.checked,sdm:sdmbox.checked,sdm_name:form.sdm_name.value,sdm_relationship:form.sdm_relationship.value,
+witness_name:form.witness_name.value,witness_id:form.witness_id.value,witness_initials:form.witness_initials.value,witness_seen:form.witness_seen.checked,
+signature:mode==='home'?'':cv.toDataURL('image/png'),company:form.company.value};
+btn.disabled=true;var label=btn.textContent;btn.textContent='Sending…';
+fetch('/api/consent',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(payload)}).then(function(r){return r.json().then(function(j){return{ok:r.ok,j:j}})}).then(function(res){
+btn.textContent=label;
+if(!res.ok||!res.j.ok){err.textContent=(res.j&&res.j.error)||'Sorry, it could not be sent. Please tell the front desk or call (416) 214-0003.';err.hidden=false;update();err.scrollIntoView({block:'center'});return;}
+if(mode==='home'){document.getElementById('code').textContent=res.j.ref;document.body.classList.add('sent');window.scrollTo(0,0);return;}
+var when=new Date(),rows=[].concat(mode==='office'?[['Completed online','Yes, reference '+(form.ref_code.value.toUpperCase()||'not given')]]:[],[['Patient',form.patient_name.value],['Date of birth',form.patient_dob.value],['Tooth / teeth',form.teeth.value||'Not given'],['Treatment',[].map.call(form.querySelectorAll('input[name=tx]:checked'),function(b){return b.value}).join(', ')||'Not selected'],['Initials',mode==='office'?'Done online (see reference)':secs.map(function(s){return s.querySelector('h2').textContent.replace(/^\d+/,'')+': '+s.querySelector('.initial input').value.toUpperCase()}).join(' · ')],['Signed by',sdmbox.checked?form.sdm_name.value+' ('+form.sdm_relationship.value+') for the patient':'The patient'],['Witnessed by',form.witness_name.value+' ('+form.witness_initials.value.toUpperCase()+'), identity: '+form.witness_id.value],['Submitted',when.toLocaleString('en-CA')]]);
+var dl=document.getElementById('receipt');dl.innerHTML='';rows.forEach(function(r){var dt=document.createElement('dt');dt.textContent=r[0];var dd=document.createElement('dd');dd.textContent=r[1];dl.appendChild(dt);dl.appendChild(dd);});
+var dt=document.createElement('dt');dt.textContent='Signature';var dd=document.createElement('dd');var im=new Image();im.alt='Signature';im.src=cv.toDataURL('image/png');dd.appendChild(im);dl.appendChild(dt);dl.appendChild(dd);
+document.body.classList.add('sent');window.scrollTo(0,0);
+}).catch(function(){btn.textContent=label;err.textContent='No connection. Please check the internet and try again, or tell the front desk.';err.hidden=false;update();});
+});
+setMode();update();
+})();
+</script></body></html>
