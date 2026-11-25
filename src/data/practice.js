@@ -152,18 +152,27 @@ export const team = [
     bio: 'Dr. Taimish earned his DDS at New York University College of Dentistry and trained in surgical head and neck anatomy in a university hospital Department of Surgery. His practice is limited to oral surgery and implant dentistry. He also teaches implant courses to other dentists.',
   },
   {
-    id: 'dong', name: 'Dr. Alice Dong', credentials: '',
+    id: 'dong', name: 'Dr. Alice Dong', credentials: 'DDS',
     role: 'Pediatric Dentist',
     blurb: 'Cares for infants, children and teens, including treatment under sedation or general anaesthesia.',
     photo: null, href: null,
-    bio: null, // TODO(Ammar): two or three lines about Dr. Dong (training, years, approach with kids).
+    // DRAFT bio (2026-11-25), written from her public profile at bloorkidsdental.com/about-us/. Facts used: DDS from the
+    // University of Alberta; served rural and First Nations communities in Saskatchewan; pediatric dentistry specialty
+    // training at the University of Rochester; fluent in English and Mandarin. Needs Dr. Dong's approval, and the
+    // "Cert." and RCDSO specialty status confirmed, before launch. Set bioDraft: false once approved.
+    bioDraft: true,
+    bio: 'Dr. Dong earned her Doctor of Dental Surgery at the University of Alberta and began her career caring for rural communities and First Nations patients in Saskatchewan. She then completed specialty training in pediatric dentistry at the University of Rochester in New York before settling in Toronto. She treats infants, children and teens, including under sedation or general anaesthesia, and is fluent in English and Mandarin.',
+    languages: ['English', 'Mandarin'],
   },
   {
     id: 'esufali', name: 'Dr. Zakir Esufali', credentials: 'MD',
     role: 'Physician Anaesthesiologist',
     blurb: 'Provides IV sedation, deep sedation and general anaesthesia in the office.',
     photo: null, href: null,
-    bio: null, // TODO(Ammar): two or three lines about Dr. Esufali (hospital appointment, years, scope).
+    // Bio supplied by Ammar, 2026-11-25, used as written.
+    bio: 'Dr. Zakir Esufali provides IV sedation, deep sedation and general anaesthesia at 1 Oak Dental. During your procedure, he looks after your anaesthesia and monitors you while your dentist focuses on your treatment. Dr. Esufali earned his medical degree at Western University in 1999 and received his specialist certification in anaesthesiology from the Royal College of Physicians and Surgeons of Canada in 2004. Outside the office, he enjoys travelling, discovering new restaurants with his family and golfing with friends.',
+    alumniOf: ['Western University'],
+    certification: 'Specialist certification in anaesthesiology, Royal College of Physicians and Surgeons of Canada (2004)',
   },
   // TODO(Ammar): add the general dentist here: { id, name, credentials, role: 'General Dentist', blurb, photo, bio }.
 ];
@@ -181,7 +190,7 @@ export const staff = [
   { id: 'frontdesk', name: null, role: 'Front desk and scheduling', line: 'The voice on the phone. Books your visit, sends your reminders and sorts out your forms.', languages: [], photo: null },
 ];
 
-export const languages = ['English'];
+export const languages = ['English', 'Mandarin']; // Mandarin via Dr. Dong; add staff languages when known
 
 // Referral directory. Mirrors the printed referral pads exactly.
 // `id` is used in links (?service=...) and preselects the matching checkbox.

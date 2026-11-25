@@ -18,7 +18,9 @@ Facts to confirm with Ammar (the old 416dentist.com had conflicting or missing v
 - [ ] Ad tracking tags to keep (Google Tag Manager, Google Ads call tracking, Meta pixel)
 
 - [ ] Dr. Taimish credentials line items on /dr-ammar-taimish/ (marked TODO on the page; remove or fill before launch)
-- [ ] Bios for Dr. Dong and Dr. Esufali, and the general dentist's entry (`team` in practice.js)
+- [ ] Dr. Dong: draft bio written 2026-11-25 from bloorkidsdental.com/about-us/ (UAlberta DDS, Saskatchewan rural/First Nations, U Rochester pediatric training, English + Mandarin). She must approve it; confirm RCDSO specialty registration and what "Cert." stands for; ask her for a headshot file (do not copy the Bloorkids photo). Set `bioDraft: false` when approved.
+- [x] Dr. Esufali bio (Ammar, 2026-11-25)
+- [ ] General dentist's entry (`team` in practice.js)
 - [ ] Staff names, roles, one line each, languages and photos (`staff` in practice.js; six placeholder cards now: treatment coordinator, two hygienists, two assistants, front desk)
 - [ ] Languages spoken (`languages` in practice.js)
 - [ ] Review the patient guides (src/data/articles.js) and instructions (src/data/patientInfo.js); set `reviewedBy` on articles once read
