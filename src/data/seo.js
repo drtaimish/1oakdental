@@ -159,7 +159,7 @@ export const serviceBadges = {
   'general-dentistry': ['Accepting new patients', 'Direct insurance billing', 'CDCP accepted', 'Evenings and Saturdays'],
   'childrens-dentistry': ['Pediatric dentist on staff', 'CDCP accepted', 'Sedation and GA in office'],
   'sleep-dentistry': ['Physician anaesthesiologist', 'IV, deep sedation and GA', 'In office, not hospital'],
-  'emergency-dentist': ['Call first, we triage by phone', 'You do not need to be a patient', 'Surgeon on site'],
+  'emergency-dentist': ['Call first, we triage by phone', 'You do not need to be a patient', 'Oral surgery done in-house'],
   'invisalign': ['Digital scan, no putty', 'Free consultation', 'Monthly financing'],
   'tooth-extractions': ['Done by an oral surgery dentist', 'Awake or asleep: your choice', 'Referral not needed'],
   'wisdom-teeth-removal': ['Awake or asleep: your choice', 'Referral not needed', 'Written aftercare and a number to call'],
@@ -267,7 +267,7 @@ export const serviceExtra = {
   'emergency-dentist': [
     ['Is it urgent? A quick guide', 'See us today: severe or constant toothache, a broken tooth with pain, a knocked-out adult tooth, a swollen face or gum, bleeding that will not stop, a lost crown or filling that hurts. See us this week: a chipped tooth without pain, a lost filling without pain, mild sensitivity, a broken denture. Go to an emergency department first: swelling that affects breathing or swallowing, swelling spreading to the eye, a facial injury with a possible fracture, uncontrolled bleeding after an injury.'],
     ['What to do before you arrive', 'Toothache: rinse with warm water, floss gently to remove trapped food, take regular pain relief, and do not put aspirin on the gum. Swelling: cold compress on the outside, do not apply heat. Broken tooth: save any pieces in milk, cover a sharp edge with sugar-free gum or dental wax. Lost crown: keep it; it can often be re-cemented.'],
-    ['Why a surgeon helps in an emergency', 'Many dental emergencies end with a tooth that needs to come out, an abscess that needs draining or a wisdom tooth that is infected. Dr. Taimish does this work daily, so you are not referred elsewhere mid-problem.'],
+    ['Why in-house oral surgery helps in an emergency', 'Many dental emergencies end with a tooth that needs to come out, an abscess that needs draining or a wisdom tooth that is infected. Dr. Taimish does this work daily, so you are not referred elsewhere mid-problem.'],
   ],
   'childrens-dentistry': [
     ['Tips for a good first visit', 'Book a morning time when your child is rested. Keep your language neutral: avoid words like hurt, needle or drill, even to say they will not happen. Let us introduce the instruments. Bring a comfort item. If you are nervous yourself, it is fine for the other parent to bring them.'],

@@ -1,48 +1,50 @@
 ---
 import Base from '../layouts/Base.astro';
-import { practice } from '../data/practice.js';
+import { practice, team } from '../data/practice.js';
+const me = team.find((t) => t.id === 'taimish');
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Dr. Ammar Taimish',
   honorificSuffix: 'DDS',
-  jobTitle: 'Dentist, practice limited to oral surgery and implant dentistry',
+  jobTitle: 'General dentist with a practice limited to oral surgery and implant dentistry',
+  description: me.bio[0],
   knowsAbout: ['Dental implants', 'Full-arch implant rehabilitation', 'Wisdom teeth removal', 'Oral surgery', 'Sedation dentistry'],
   alumniOf: 'New York University College of Dentistry',
   worksFor: { '@id': `${practice.url}/#dentist` },
   sameAs: [practice.linkedin, practice.instagram],
 };
 ---
-<Base title="Dr. Ammar Taimish, DDS" description="Meet Dr. Ammar Taimish, DDS, of 1 Oak Dental in Toronto: implant dentistry, full-arch implants and oral surgery." schema={schema}>
+<Base title="Dr. Ammar Taimish, DDS" description="Dr. Ammar Taimish, DDS, is a general dentist with a practice limited to oral surgery and implant dentistry. He practises at Norton Dental in Vaughan and is opening 1 Oak Dental in downtown Toronto." schema={schema}>
   <div class="wrap">
-    <div class="hero">
-      <h1>Dr. Ammar Taimish, DDS</h1>
-      <p class="lead">A general dentist who focuses his practice on oral surgery and implant dentistry.</p>
+    <div class="hero hero-art">
+      <div>
+        <p class="eyebrow">Oral surgery and implant dentistry</p>
+        <h1>Dr. Ammar Taimish, DDS</h1>
+        <p class="lead">General dentist with a practice limited to oral surgery and implant dentistry</p>
+      </div>
+      {me.photo && <img class="hero-photo" src={me.photo} alt="Dr. Ammar Taimish" width="400" height="480" />}
     </div>
-    <section>
-      <h2>Training</h2>
-      <p>Dr. Taimish earned his DDS at New York University College of Dentistry, then trained in the Department of Surgery at a Syracuse university hospital, with a focus on surgical head and neck anatomy.</p>
+    <section class="prose">
+      {me.bio.map((para) => <p>{para}</p>)}
     </section>
     <section>
-      <h2>What he does</h2>
-      <p>His work centres on wisdom teeth and surgical extractions, dental implants, bone grafting, sedation dentistry and full-arch implants. He also lectures and teaches implant courses to other dentists.</p>
-    </section>
-    <section>
-      <h2>Credentials and memberships</h2>
+      <h2>At a glance</h2>
       <ul>
-        <li>Doctor of Dental Surgery, New York University College of Dentistry</li>
-        <li>Surgical training, Department of Surgery, university hospital, Syracuse NY (head and neck anatomy)</li>
-        <li>Licensed by the Royal College of Dental Surgeons of Ontario</li>
-        <li class="muted">TODO(Ammar): sedation permit level, implant fellowships or memberships (e.g. ICOI, AAID), hospital privileges, years in practice, number of implants or full arches placed. I will not publish numbers you have not given me.</li>
+        <li>Doctor of Dental Surgery, New York University College of Dentistry, 2002</li>
+        <li>Surgical training, Department of Surgery, Syracuse, New York (surgical anatomy of the head and neck)</li>
+        <li>Registered as a general dentist in Ontario since 2003</li>
+        <li>Practises at Norton Dental in Vaughan and provides oral surgery at dental offices across Toronto and the surrounding area</li>
+        <li>Implant course director; has taught courses on surgical extractions, impacted wisdom teeth and full-arch implant treatment</li>
       </ul>
     </section>
     <section>
-      <h2>Teaching</h2>
-      <p>Dr. Taimish lectures and teaches hands-on implant courses to other dentists, and accepts referrals from dentists across Toronto and the GTA for surgical extractions, implants, full-arch cases and sedation. <a href="/referring-dentists/">Refer a patient →</a></p>
+      <h2>Referring a patient</h2>
+      <p>Dr. Taimish accepts referrals for surgical extractions, impacted wisdom teeth, bone grafting, implants, full-arch cases and sedation, and coordinates with the referring dentist, including when you plan to restore the implants in your own office. <a href="/referring-dentists/">How referrals work →</a></p>
     </section>
-    <section>
-      <h2>His approach</h2>
-      <p>He treats children, teens and adults, explains every option before treatment starts, and tells patients plainly when a tooth can be saved or when sedation is not needed. For surgery, he wants patients to understand exactly what will happen and to have the choice of being awake or asleep.</p>
+    <section class="card">
+      <h2>Talk to Dr. Taimish</h2>
+      <p>Your first consultation is free. You will leave with a clear plan and a written estimate.</p>
       <div class="actions">
         <a class="btn" href="/contact/">Book a consultation with Dr. Taimish</a>
         <a class="btn secondary" href="/team/">Meet the team</a>

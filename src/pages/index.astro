@@ -32,7 +32,7 @@ const patientLinks = [
     <div class="hero">
       <p class="eyebrow">Downtown Toronto · 1 Oak St · Accepting new patients</p>
       <h1>Family dentist in downtown Toronto. A referral partner for your practice.</h1>
-      <p class="lead">Checkups and kids' dentistry, wisdom teeth and implants, and the option to be asleep for any of it: a surgeon, a pediatric dentist and a physician anaesthesiologist, in one downtown office.</p>
+      <p class="lead">Checkups and kids' dentistry, wisdom teeth and implants, and the option to be asleep for any of it: a dentist who does only oral surgery, a pediatric dentist and a physician anaesthesiologist, in one downtown office.</p>
       <div class="actions">
         <a class="btn" href="/patients/">I'm a patient</a>
         <a class="btn secondary" href="/referring-dentists/">I'm referring a patient</a>
@@ -63,7 +63,7 @@ const patientLinks = [
     <section>
       <h2>Why patients and dentists choose {practice.name}</h2>
       <div class="grid why">
-        <div class="card"><h3>Surgery by a surgeon-focused dentist</h3><p>Dr. Taimish limits his practice to oral surgery and implants and does every surgery himself. Other dentists refer their difficult cases to him.</p></div>
+        <div class="card"><h3>Surgery by a dentist who does only surgery</h3><p>Dr. Taimish is a general dentist with a practice limited to oral surgery and implant dentistry. He performs every surgery himself, and other dentists refer their surgical cases to him.</p></div>
         <div class="card"><h3>Asleep if you want to be</h3><p>IV sedation, deep sedation and general anaesthesia in our office, with a physician anaesthesiologist whose only job is looking after you.</p></div>
         <div class="card"><h3>A real children's specialist</h3><p>Dr. Alice Dong is a pediatric dentist. Kids get care from someone trained for kids, including sedation when it is the kind choice.</p></div>
         <div class="card"><h3>No surprises on cost</h3><p>Written, all-inclusive quotes. Direct insurance billing, CDCP accepted, monthly financing through Beautifi.</p></div>
@@ -96,7 +96,7 @@ const patientLinks = [
       <p><a href="/team/">Meet the whole team →</a></p>
       <div class="grid">
         {team.map((t) => (
-          <div class="card"><h3 style="margin:0">{t.name}</h3><p class="muted" style="margin:4px 0 8px">{t.role}</p><p style="margin:0">{t.blurb}</p></div>
+          <div class="card doc">{t.photo && <img src={t.photo} alt={t.name} width="300" height="360" loading="lazy" />}<h3 style="margin:0">{t.name}</h3><p class="muted" style="margin:4px 0 8px">{t.role}</p><p style="margin:0">{t.blurb}</p></div>
         ))}
       </div>
     </section>

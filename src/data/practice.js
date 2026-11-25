@@ -146,29 +146,34 @@ export const services = [
 export const team = [
   {
     id: 'taimish', name: 'Dr. Ammar Taimish', credentials: 'DDS',
-    role: 'General Dentist, practice limited to Oral Surgery and Implant Dentistry',
-    blurb: 'Performs all surgical care: extractions, impacted teeth, orthodontic exposures, implants and All-on-X.',
+    role: 'General dentist with a practice limited to oral surgery and implant dentistry',
+    blurb: 'Performs all oral surgery: wisdom teeth, surgical extractions, bone grafting, implants and full-arch cases.',
     photo: null, href: '/dr-ammar-taimish/',
-    bio: 'Dr. Taimish earned his DDS at New York University College of Dentistry and trained in surgical head and neck anatomy in a university hospital Department of Surgery. His practice is limited to oral surgery and implant dentistry. He also teaches implant courses to other dentists.',
+    // Bio supplied by Ammar, 2026-11-25, used as written (paragraphs).
+    bio: [
+      'Dr. Ammar Taimish practises at Norton Dental in Vaughan and visits dental offices across Toronto and the surrounding area to provide oral surgery for their patients. He is opening 1 Oak Dental in Regent Park, where patients and referring dentists will have a new downtown Toronto location for surgical and implant care.',
+      'Dr. Taimish followed his father, Dr. Mohamed Taimish, into dentistry. He earned his DDS at New York University College of Dentistry in 2002, then trained in the Department of Surgery in Syracuse, New York, where he studied surgical anatomy of the head and neck. He has been registered as a general dentist in Ontario since 2003.',
+      'At 1 Oak Dental, Dr. Taimish will personally perform all oral surgery, including wisdom teeth removal, surgical extractions, bone grafting and dental implant placement. His approach starts with the questions patients bring to a consultation: Can this tooth be saved? What are my options if it needs to come out? What will recovery look like? For patients considering implants, he explains the options for replacing anything from a single tooth to a full arch.',
+      'Alongside his clinical work, Dr. Taimish teaches other dentists. He has served as an implant course director and taught courses on surgical extractions, impacted wisdom teeth and full-arch implant treatment. He welcomes referrals and coordinates care with the referring dentist, including when the dentist plans to restore the implants in their own office.',
+    ],
+    alumniOf: ['New York University College of Dentistry'],
   },
   {
     id: 'dong', name: 'Dr. Alice Dong', credentials: 'DDS',
     role: 'Pediatric Dentist',
     blurb: 'Cares for infants, children and teens, including treatment under sedation or general anaesthesia.',
-    photo: null, href: null,
-    // DRAFT bio (2026-11-25), written from her public profile at bloorkidsdental.com/about-us/. Facts used: DDS from the
-    // University of Alberta; served rural and First Nations communities in Saskatchewan; pediatric dentistry specialty
-    // training at the University of Rochester; fluent in English and Mandarin. Needs Dr. Dong's approval, and the
-    // "Cert." and RCDSO specialty status confirmed, before launch. Set bioDraft: false once approved.
-    bioDraft: true,
-    bio: 'Dr. Dong earned her Doctor of Dental Surgery at the University of Alberta and began her career caring for rural communities and First Nations patients in Saskatchewan. She then completed specialty training in pediatric dentistry at the University of Rochester in New York before settling in Toronto. She treats infants, children and teens, including under sedation or general anaesthesia, and is fluent in English and Mandarin.',
+    photo: '/images/team/dong.jpg', href: null,
+    // Bio supplied by Ammar, 2026-11-25, used as written.
+    bioDraft: false,
+    bio: 'Dr. Dong cares for children and teens at 1 Oak Dental. She helps children feel comfortable at the dentist by adapting each visit to their needs. Families can speak with her in English or Mandarin. Originally from Calgary, Dr. Dong earned her dental degree at the University of Alberta. She cared for rural communities and First Nations patients in Saskatchewan before completing her pediatric dentistry residency at the University of Rochester in New York. She now calls Toronto home.',
+    alumniOf: ['University of Alberta', 'University of Rochester'],
     languages: ['English', 'Mandarin'],
   },
   {
     id: 'esufali', name: 'Dr. Zakir Esufali', credentials: 'MD',
     role: 'Physician Anaesthesiologist',
     blurb: 'Provides IV sedation, deep sedation and general anaesthesia in the office.',
-    photo: null, href: null,
+    photo: '/images/team/esufali.jpg', href: null,
     // Bio supplied by Ammar, 2026-11-25, used as written.
     bio: 'Dr. Zakir Esufali provides IV sedation, deep sedation and general anaesthesia at 1 Oak Dental. During your procedure, he looks after your anaesthesia and monitors you while your dentist focuses on your treatment. Dr. Esufali earned his medical degree at Western University in 1999 and received his specialist certification in anaesthesiology from the Royal College of Physicians and Surgeons of Canada in 2004. Outside the office, he enjoys travelling, discovering new restaurants with his family and golfing with friends.',
     alumniOf: ['Western University'],

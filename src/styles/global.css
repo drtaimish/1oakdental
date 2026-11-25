@@ -223,7 +223,9 @@ html:not(.no-js) .reveal.in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) { .parallax { transform: none !important; } }
 
 /* Service page clip: a short muted loop in the photo slot (poster shows until it plays) */
-video.hero-photo { background: var(--tint); display: block; }
+video.hero-photo { background: var(--tint); display: block; aspect-ratio: 16 / 9; }
+.hero-fig { margin: 0; }
+.hero-fig figcaption { font-size: 0.8rem; margin-top: 6px; text-align: right; }
 
 /* Tooth replacement ladder */
 .ladder { list-style: none; padding: 0; margin: 0; position: relative; display: grid; gap: 28px; }
@@ -260,3 +262,6 @@ video.hero-photo { background: var(--tint); display: block; }
 .staff-strip li { display: flex; align-items: center; gap: 10px; }
 .staff-strip img, .staff-strip .avatar { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; background: var(--tint); color: var(--brand); display: grid; place-items: center; flex: none; }
 .staff-strip .who { font-size: 0.95rem; }
+
+.card.doc img { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; object-position: top; margin-bottom: 10px; display: block; }
+.member img { object-position: top; }

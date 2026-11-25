@@ -11,18 +11,19 @@ const schema = {
     jobTitle: t.role,
     worksFor: { '@id': `${practice.url}/#dentist` },
     ...(t.href ? { url: practice.url + t.href } : {}),
+    ...(Array.isArray(t.bio) ? { description: t.bio[0] } : {}),
     ...(t.alumniOf ? { alumniOf: t.alumniOf.map((n) => ({ '@type': 'CollegeOrUniversity', name: n })) } : {}),
     ...(t.certification ? { hasCredential: { '@type': 'EducationalOccupationalCredential', credentialCategory: 'certification', name: t.certification } } : {}),
     ...(t.languages?.length ? { knowsLanguage: t.languages } : {}),
   })),
 };
 ---
-<Base title="Our Team: Surgeon, Pediatric Dentist, Anaesthesiologist" description="Meet the 1 Oak Dental team in downtown Toronto: Dr. Ammar Taimish (oral surgery and implants), Dr. Alice Dong (pediatric dentist) and Dr. Zakir Esufali, MD (anaesthesiologist)." schema={schema}>
+<Base title="Our Team: Oral Surgery, Pediatric Dentist, Anaesthesiologist" description="Meet the 1 Oak Dental team in downtown Toronto: Dr. Ammar Taimish (oral surgery and implants), Dr. Alice Dong (pediatric dentist) and Dr. Zakir Esufali, MD (anaesthesiologist)." schema={schema}>
   <div class="wrap">
     <div class="hero">
       <p class="eyebrow">Our team</p>
-      <h1>A surgeon, a children's specialist and a physician anaesthesiologist, under one roof</h1>
-      <p class="lead">Most dental offices refer out for surgery, for children who need sedation, and for general anaesthesia. At {practice.name} the people who do that work are on the team.</p>
+      <h1>A dentist who does only oral surgery, a children's specialist and a physician anaesthesiologist, under one roof</h1>
+      <p class="lead">Most dental offices refer out for oral surgery, for children who need sedation, and for general anaesthesia. At {practice.name} the people who do that work are on the team.</p>
     </div>
     <div class="team">
       {team.map((t) => (
@@ -33,7 +34,7 @@ const schema = {
           <div>
             <h2>{t.name}{t.credentials && <span class="muted">, {t.credentials}</span>}</h2>
             <p class="role">{t.role}</p>
-            <p>{t.bio || t.blurb}</p>
+            {Array.isArray(t.bio) ? t.bio.map((para) => <p>{para}</p>) : <p>{t.bio || t.blurb}</p>}
             {t.languages?.length > 1 && <p class="muted">Speaks {t.languages.join(' and ')}.</p>}
             {t.bioDraft && <p class="todo">Draft bio, awaiting {t.name.split(' ').slice(-1)[0] === 'Dong' ? "Dr. Dong's" : 'approval'} approval.</p>}
             {t.href && <a href={t.href}>More about {t.name.split(' ').slice(-1)[0] === 'Taimish' ? 'Dr. Taimish' : t.name} →</a>}

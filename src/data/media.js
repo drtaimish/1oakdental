@@ -26,6 +26,6 @@ export const media = {
   'tooth-extractions': { photo: null, clip: null, video: null },
   'wisdom-teeth-removal': { photo: null, clip: null, video: null },
   'dentures': { photo: null, clip: null, video: null },
-  'dental-implants': { photo: null, clip: null, video: null },
+  'dental-implants': { photo: null, clip: { src: '/videos/services/dental-implants.mp4', poster: '/images/services/dental-implants.jpg', alt: 'Illustration of a dental implant: a titanium post in the jawbone with a crown on top', label: 'Illustration' }, video: null },
   'all-on-4-dental-implants': { photo: null, clip: null, video: null },
 };
