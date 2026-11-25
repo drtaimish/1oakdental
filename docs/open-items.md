@@ -12,7 +12,8 @@ Facts to confirm with Ammar (the old 416dentist.com had conflicting or missing v
 - [x] Google Business Profile link added (0 reviews, no hours or website set as of 2026-11-25; Ammar to add hours + website on the profile)
 - [ ] Where consultation requests should go (`FORM_WEBHOOK_URL`)
 - [x] Booking tool: Akitu One (practice software, Ammar 2026-11-25)
-- [ ] Real photos: office, team, Dr. Taimish, before/after cases with consent
+- [ ] Real photos: office, team, Dr. Taimish, before/after cases with consent. Service-page photos go in public/images/services/<slug>.jpg and src/data/media.js
+- [ ] Short videos of Dr. Taimish explaining each procedure (YouTube, unlisted is fine) + transcript, set in src/data/media.js. Priority: All-on-4, implants, wisdom teeth, sleep dentistry
 - [ ] Reviews: the 1 Oak St profile has none yet. Start asking patients once the site is live; strip shows the count automatically
 - [ ] Ad tracking tags to keep (Google Tag Manager, Google Ads call tracking, Meta pixel)
 

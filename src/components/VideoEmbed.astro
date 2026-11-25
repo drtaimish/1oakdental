@@ -1,0 +1,32 @@
+---
+// YouTube "facade": a thumbnail and play button. The real player (and its scripts) load only on tap,
+// so the page stays fast. The transcript sits underneath for readers and for search engines.
+interface Props { youtubeId: string; title: string; transcript?: string }
+const { youtubeId, title, transcript } = Astro.props;
+const thumb = `https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg`;
+---
+<figure class="video">
+  <button class="video-facade" type="button" data-id={youtubeId} data-title={title} aria-label={`Play video: ${title}`}>
+    <img src={thumb} alt="" width="480" height="360" loading="lazy" />
+    <span class="play" aria-hidden="true"></span>
+  </button>
+  <figcaption>{title}</figcaption>
+  {transcript && (
+    <details class="transcript">
+      <summary>Read the transcript</summary>
+      <p>{transcript}</p>
+    </details>
+  )}
+</figure>
+<script>
+  document.querySelectorAll<HTMLButtonElement>('.video-facade').forEach((b) => {
+    b.addEventListener('click', () => {
+      const f = document.createElement('iframe');
+      f.src = `https://www.youtube-nocookie.com/embed/${b.dataset.id}?autoplay=1&rel=0`;
+      f.title = b.dataset.title || 'Video';
+      f.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
+      f.allowFullscreen = true;
+      b.replaceWith(f);
+    });
+  });
+</script>

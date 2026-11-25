@@ -3,14 +3,16 @@ import Base from '../../layouts/Base.astro';
 import { services, practice } from '../../data/practice.js';
 import { serviceContent } from '../../data/serviceContent.js';
 import ServiceArt from '../../components/ServiceArt.astro';
+import VideoEmbed from '../../components/VideoEmbed.astro';
+import { media } from '../../data/media.js';
 
 export function getStaticPaths() {
   return services.map((s) => ({ params: { slug: s.slug }, props: { service: s } }));
 }
 const { service } = Astro.props;
 const c = serviceContent[service.slug];
-const schema = {
-  '@context': 'https://schema.org',
+const m = media[service.slug] || {};
+const breadcrumbs = {
   '@type': 'BreadcrumbList',
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Home', item: practice.url + '/' },
@@ -18,6 +20,17 @@ const schema = {
     { '@type': 'ListItem', position: 3, name: service.title, item: `${practice.url}/services/${service.slug}/` },
   ],
 };
+const video = m.video && {
+  '@type': 'VideoObject',
+  name: m.video.title,
+  description: c.description,
+  thumbnailUrl: `https://i.ytimg.com/vi/${m.video.youtubeId}/hqdefault.jpg`,
+  uploadDate: m.video.uploadDate,
+  duration: m.video.duration,
+  embedUrl: `https://www.youtube-nocookie.com/embed/${m.video.youtubeId}`,
+  transcript: m.video.transcript,
+};
+const schema = { '@context': 'https://schema.org', '@graph': [breadcrumbs, video].filter(Boolean) };
 ---
 <Base title={c.metaTitle} description={c.description} schema={schema}>
   <div class="wrap">
@@ -30,8 +43,16 @@ const schema = {
           <a class="btn secondary" href={`tel:${practice.phoneE164}`}>Call {practice.phone}</a>
         </div>
       </div>
-      <ServiceArt slug={service.slug} size={112} />
+      {m.photo
+        ? <img class="hero-photo" src={m.photo.src} alt={m.photo.alt} width="1600" height="1200" />
+        : <ServiceArt slug={service.slug} size={112} />}
     </div>
+    {m.video && (
+      <section>
+        <h2>Dr. Taimish explains</h2>
+        <VideoEmbed youtubeId={m.video.youtubeId} title={m.video.title} transcript={m.video.transcript} />
+      </section>
+    )}
     {c.sections.map(([h, p]) => (
       <section>
         <h2>{h}</h2>
