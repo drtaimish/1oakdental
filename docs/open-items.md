@@ -35,14 +35,14 @@ Old URL -> new URL, all 301:
 | / | / |
 | /dental-implants/ | /services/dental-implants/ |
 | /dental-implants/all-on-4-implant-dentures/ | /services/all-on-4-dental-implants/ |
-| /dental-implants/overdenture/ | /services/all-on-4-dental-implants/ |
-| /dental-implants/dentures/ | /services/all-on-4-dental-implants/ |
+| /dental-implants/overdenture/ | /services/dentures/ |
+| /dental-implants/dentures/ | /services/dentures/ |
 | /dental-implants/periodontics/ | /services/general-dentistry/ |
 | /orthodontics/ and all /orthodontics/* | /services/invisalign/ |
 | /oral-surgery/ and /oral-surgery/wisdom-teeth-extraction/ | /services/wisdom-teeth-removal/ |
 | /general-dentistry/dental-emergency/ | /services/emergency-dentist/ |
 | /general-dentistry/ and other /general-dentistry/* | /services/general-dentistry/ |
-| /cosmetic-dentistry/* , /improve-your-smile/ | /services/ |
+| /cosmetic-dentistry/* , /improve-your-smile/ | /services/smile-makeover/ |
 | /new-patients/ and /new-patients/* | /new-patients/ |
 | /ammar-taimish-dds/ | /dr-ammar-taimish/ |
 | /contact/ , /toronto-on/ | /contact/ |

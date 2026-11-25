@@ -5,7 +5,7 @@ import { serviceContent } from '../../data/serviceContent.js';
 import ServiceArt from '../../components/ServiceArt.astro';
 import VideoEmbed from '../../components/VideoEmbed.astro';
 import { media } from '../../data/media.js';
-import { serviceSeo, serviceBadges, serviceSteps, serviceExtra, serviceAftercare } from '../../data/seo.js';
+import { serviceSeo, serviceBadges, serviceSteps, serviceExtra, serviceAftercare, serviceCta } from '../../data/seo.js';
 import { patientInfo } from '../../data/patientInfo.js';
 
 export function getStaticPaths() {
@@ -61,7 +61,7 @@ const schema = { '@context': 'https://schema.org', '@graph': [breadcrumbs, proce
         <p class="lead">{c.intro}</p>
         {badges.length > 0 && <ul class="trust compact" aria-label="Key facts">{badges.map((b) => <li>{b}</li>)}</ul>}
         <div class="actions">
-          <a class="btn" href="/contact/">Book a free consultation</a>
+          <a class="btn" href={`/contact/?service=${service.slug}`}>{serviceCta[service.slug] || 'Book a free consultation'}</a>
           <a class="btn secondary" href={`tel:${practice.phoneE164}`}>Call {practice.phone}</a>
         </div>
       </div>

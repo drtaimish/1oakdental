@@ -26,7 +26,7 @@ export const articles = [
     description: 'How fixed full-arch implants compare with conventional and implant-retained dentures on comfort, eating, bone, maintenance and cost over time.',
     date: '2026-11-25',
     reviewedBy: null,
-    related: ['all-on-4-dental-implants', 'dental-implants'],
+    related: ['all-on-4-dental-implants', 'dentures', 'dental-implants'],
     intro: 'If you are losing most of your teeth or already wear dentures, you have three broad options. None is right for everyone. Here is how they compare in practice.',
     sections: [
       ['The three options', 'A conventional denture rests on the gums and, for the upper jaw, covers the palate. An implant-retained overdenture snaps onto two to four implants, but still comes out at night. A fixed full-arch bridge (All-on-4 and similar) is screwed onto four to six implants and is only removed by the dentist.'],

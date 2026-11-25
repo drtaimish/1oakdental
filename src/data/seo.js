@@ -89,6 +89,58 @@ export const serviceSeo = {
       ['Who places the implants?', 'Dr. Ammar Taimish places all implants at 1 Oak Dental. His practice is limited to oral surgery and implant dentistry, and dentists across Toronto refer implant cases to him.'],
     ],
   },
+  'root-canal': {
+    procedure: 'Root canal treatment (endodontic therapy)',
+    related: ['emergency-dentist', 'tooth-extractions', 'sleep-dentistry'],
+    faqs: [
+      ['Does a root canal hurt?', 'The procedure itself should not. The tooth is fully numbed; the pain people associate with root canals is usually the toothache before treatment, which the root canal relieves.'],
+      ['How long does it take?', 'Usually 60 to 90 minutes. Front teeth are often done in one visit; molars with several canals may need two.'],
+      ['Will I need a crown?', 'On back teeth, usually yes. A root-treated tooth is drier and more brittle, and a crown protects it from cracking. Front teeth can sometimes be restored with a filling.'],
+      ['Can I wait?', 'An infected tooth does not heal on its own, and waiting risks an abscess, swelling, and losing the option to save the tooth. If you are in pain, call us the same day.'],
+    ],
+  },
+  'teeth-whitening': {
+    procedure: 'Professional teeth whitening',
+    related: ['veneers', 'smile-makeover', 'general-dentistry'],
+    faqs: [
+      ['How white will my teeth get?', 'Most people lighten several shades. Yellow tones respond best; grey or banded discolouration lightens less. We show you a shade guide and give an honest estimate before you start.'],
+      ['How long does it last?', 'One to three years, depending on coffee, tea, red wine and smoking. Take-home trays make top-ups easy.'],
+      ['Is whitening safe for enamel?', 'Yes, when dentist-supervised. Professional gels are tested for enamel safety; the risk with unsupervised products is uneven results and gum irritation.'],
+      ['Will it whiten my crowns or fillings?', 'No. Existing restorations keep their colour. If they are on front teeth, we plan whitening first and then replace or adjust them to match.'],
+    ],
+  },
+  'veneers': {
+    procedure: 'Dental veneers',
+    related: ['teeth-whitening', 'smile-makeover', 'invisalign'],
+    faqs: [
+      ['Can I see what my veneers will look like before committing?', 'Yes. You get a digital simulation at the design consultation and then a 3D-printed trial smile placed over your own teeth. Nothing is drilled until you approve the design.'],
+      ['How many veneers do I need?', 'As many as show when you smile and need changing. Some people need one or two; a full smile is usually six to ten on the upper teeth. We design it with you.'],
+      ['Do veneers ruin your teeth?', 'Porcelain veneers remove a thin layer of enamel, so they are a long-term commitment and will eventually be replaced. Composite veneers remove little or none. We only recommend veneers when they are the right tool for the problem.'],
+      ['How long do veneers last?', 'Porcelain, 10 to 15 years or more with good care and a night guard. Composite, five to seven years, and they are easy to repair.'],
+      ['Veneers or Invisalign?', 'If the problem is position (crowding, gaps, rotation) and the teeth themselves are fine, aligners move your own teeth without covering them. If the problem is shape, size or colour, veneers. Often it is aligners first, then fewer veneers.'],
+    ],
+  },
+  'smile-makeover': {
+    procedure: 'Smile design and cosmetic dental rehabilitation',
+    related: ['veneers', 'teeth-whitening', 'invisalign', 'dental-implants'],
+    faqs: [
+      ['How long does a smile makeover take?', 'Whitening and bonding, a few weeks. Veneers, about a month. Add aligners or implants and it is several months to a year, because teeth need time to move and implants need time to heal.'],
+      ['Can I see the result first?', 'Yes. A digital preview from your photos and scan, and for veneers or crowns a trial smile placed over your own teeth so you can see it in the mirror.'],
+      ['Can it be done in stages?', 'Yes. The plan is priced per item and sequenced, so you can do the most important parts first and the rest later, as long as the order makes clinical sense.'],
+      ['Is cosmetic work covered by insurance?', 'Usually not when it is purely cosmetic. Parts of a plan that are functional, such as a crown on a broken tooth or an implant for a missing one, often are. We separate these on your estimate.'],
+    ],
+  },
+  'dentures': {
+    procedure: 'Denture fabrication and implant-supported overdentures',
+    related: ['all-on-4-dental-implants', 'dental-implants', 'tooth-extractions'],
+    faqs: [
+      ['How long do dentures last?', 'Five to ten years is typical. Gums and bone change shape over time, so dentures need relining every few years and eventually remaking to keep them fitting well.'],
+      ['My lower denture moves when I eat. What can be done?', 'This is the most common denture complaint. Two implants with snap attachments usually solve it, and your existing denture can often be adapted to fit them.'],
+      ['Can I sleep in my dentures?', 'Best not to. Taking them out at night lets the gums rest and reduces the risk of fungal infections and bone loss. Implant-supported dentures also come out at night.'],
+      ['Are dentures covered by insurance or the CDCP?', 'Many plans cover a portion of a denture every five years or so. The CDCP covers dentures for eligible patients, sometimes with pre-approval and a co-payment. We check your coverage before you decide.'],
+      ['How many implants do I need to hold a denture?', 'Two for a lower overdenture is the standard minimum; four for an upper, because the bone is softer. More implants, or a fixed bridge, give more stability.'],
+    ],
+  },
   'all-on-4-dental-implants': {
     procedure: 'Full-arch implant rehabilitation (All-on-4)',
     related: ['dental-implants', 'sleep-dentistry', 'tooth-extractions'],
@@ -113,6 +165,11 @@ export const serviceBadges = {
   'wisdom-teeth-removal': ['Awake or asleep: your choice', 'Referral not needed', 'Written aftercare and a number to call'],
   'dental-implants': ['Placed by Dr. Taimish, every case', '3D scan at consultation', 'All-inclusive written quote'],
   'all-on-4-dental-implants': ['Temporary fixed teeth, usually same day', 'Sedation or GA with an anaesthesiologist', 'All-inclusive written quote'],
+  'dentures': ['Full, partial and implant-supported', 'Loose denture fixed with two implants', 'Free consultation'],
+  'root-canal': ['Same-day appointments for pain', 'Usually one or two visits', 'Sedation available'],
+  'teeth-whitening': ['In-office or take-home', 'Dentist-supervised', 'Checkup and cleaning first'],
+  'veneers': ['Digital smile simulation', '3D-printed trial smile you can try on', 'Porcelain or composite'],
+  'smile-makeover': ['Designed before it is built', 'Surgery and cosmetics in one office', 'Priced item by item'],
 };
 
 // Numbered steps: "What happens, step by step".
@@ -123,6 +180,37 @@ export const serviceSteps = {
     ['Implant placement', 'Under local anaesthetic, with sedation if you want it. The visit takes about an hour. Most people return to work the next day.'],
     ['Healing', 'Three to six months while the bone fuses to the implant. A temporary tooth can be worn if the gap shows.'],
     ['Your new tooth', 'A scan of the healed implant, then a custom crown is made and fitted. From then on it is checked and cleaned like any other tooth.'],
+  ],
+  'root-canal': [
+    ['Diagnosis', 'An exam and X-ray confirm which tooth is the problem and whether it can be saved. If you are in pain, this visit also gets you comfortable.'],
+    ['Cleaning the canals', 'Under local anaesthetic, the tooth is isolated and the canals are cleaned, shaped and disinfected.'],
+    ['Sealing', 'The canals are filled and sealed, and the tooth is closed with a temporary or permanent filling.'],
+    ['Protecting the tooth', 'For back teeth, a crown a few weeks later keeps the tooth from cracking.'],
+  ],
+  'teeth-whitening': [
+    ['Checkup and cleaning', 'Cavities are fixed first and plaque is removed so the gel works evenly.'],
+    ['Shade record', 'We photograph your starting shade so you can see the change.'],
+    ['Whitening', 'In office, about an hour. At home, custom trays worn daily for one to two weeks.'],
+    ['Top-ups', 'Keep the trays. A few days of gel every year or two keeps the result.'],
+  ],
+  'veneers': [
+    ['Design consultation', 'Photos, a scan and a conversation about what you want to change. We design the new smile digitally and show you the simulation.'],
+    ['Trial smile', 'The design is 3D printed and placed over your own teeth. You see it in the mirror, take photos, and we adjust until you love it.'],
+    ['Preparation', 'For porcelain, a thin layer of enamel is removed and temporaries are fitted. For composite, the veneer is built directly in one visit.'],
+    ['Try-in and fitting', 'Porcelain veneers are tried in, adjusted and bonded about two weeks later.'],
+    ['Protection', 'A night guard if you clench or grind, and regular hygiene visits.'],
+  ],
+  'smile-makeover': [
+    ['Design consultation', 'Photos, a scan, and what you like and dislike about your smile. We look at the teeth, gums, lips and face together.'],
+    ['Preview and plan', 'A digital preview and a written, sequenced plan with the cost of each item.'],
+    ['Foundation first', 'Any gum treatment, extractions or implants, then alignment if needed.'],
+    ['The finish', 'Whitening, then veneers, bonding or crowns matched to the final shade.'],
+  ],
+  'dentures': [
+    ['Consultation', 'We look at your gums, any remaining teeth and the bone, and talk about what bothers you about your current teeth or denture. If implants are an option, a 3D scan shows where they could go.'],
+    ['Impressions and try-in', 'Moulds of your mouth, then a wax trial version so you can check the look, the bite and your speech before anything is finished.'],
+    ['Fitting', 'Your denture is delivered and adjusted. Sore spots in the first weeks are normal and are fixed with small adjustments.'],
+    ['Implants, if you chose them', 'Implants are placed under local anaesthetic or sedation and left to heal for a few months. Your denture is then fitted with snap attachments.'],
   ],
   'all-on-4-dental-implants': [
     ['Consultation and planning', 'Scan, photos and a conversation about what you want. We plan the implant positions digitally and give you an all-inclusive written quote, including sedation.'],
@@ -185,6 +273,10 @@ export const serviceExtra = {
     ['Tips for a good first visit', 'Book a morning time when your child is rested. Keep your language neutral: avoid words like hurt, needle or drill, even to say they will not happen. Let us introduce the instruments. Bring a comfort item. If you are nervous yourself, it is fine for the other parent to bring them.'],
     ['Brushing at home', 'From the first tooth, twice a day with a soft brush. A rice-grain smear of fluoride toothpaste under age three, a pea-sized amount from three to six. An adult brushes or finishes the job until about age eight.'],
   ],
+  'dentures': [
+    ['Living with a new denture', 'Expect a week or two of adjustment: more saliva at first, practising with soft foods cut small, and reading aloud to settle your speech. Clean the denture daily with a soft brush and denture cleaner, never toothpaste, and brush your gums and tongue too.'],
+    ['Denture, overdenture or fixed teeth?', 'Think of it as three steps up in stability and cost. A conventional denture is the simplest. An overdenture on two to four implants fixes movement and still comes out at night. A fixed bridge on implants is teeth that never come out. Our All-on-4 vs dentures guide walks through the trade-offs.'],
+  ],
   'all-on-4-dental-implants': [
     ['Temporary versus final teeth', 'Your same-day bridge is acrylic, made to let you eat soft food and smile while the implants heal. Your final bridge, made after healing, is built for decades of chewing: zirconia (a very hard ceramic) or acrylic teeth over a titanium frame. We talk through the trade-offs of each and show you examples.'],
     ['Why most patients choose to be asleep', 'Full-arch surgery is longer than a single implant and often includes extractions. With a physician anaesthesiologist in the room, you can have deep sedation or general anaesthesia safely in our office, wake up with your temporary teeth in, and remember nothing of the surgery.'],
@@ -209,7 +301,14 @@ export const serviceAftercare = {
   'wisdom-teeth-removal': ['before-sedation', 'after-extractions', 'after-sedation'],
   'tooth-extractions': ['after-extractions', 'before-sedation'],
   'dental-implants': ['after-implants', 'before-sedation'],
+  'dentures': ['after-implants', 'after-extractions'],
   'all-on-4-dental-implants': ['before-sedation', 'after-full-arch', 'after-sedation'],
   'sleep-dentistry': ['before-sedation', 'after-sedation'],
   'childrens-dentistry': ['before-sedation'],
+};
+
+// Custom call to action for the hero button (defaults to "Book a free consultation").
+export const serviceCta = {
+  'veneers': 'Preview your new smile',
+  'smile-makeover': 'Preview your new smile',
 };

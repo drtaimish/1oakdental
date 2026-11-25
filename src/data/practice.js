@@ -78,6 +78,30 @@ export const services = [
     ask: 'In pain or broke a tooth? Call us first and we will fit you in as soon as we can.',
   },
   {
+    slug: 'root-canal',
+    title: 'Root Canal Treatment',
+    summary: 'Save a badly decayed or infected tooth and stop the pain, usually in one or two visits.',
+    ask: 'Deep toothache or a tooth that hurts with heat? A root canal may save it. Call us first.',
+  },
+  {
+    slug: 'teeth-whitening',
+    title: 'Teeth Whitening',
+    summary: 'In-office and take-home whitening, supervised so it works and stays comfortable.',
+    ask: 'Want a brighter smile for an event or just for you? Ask about in-office or take-home whitening.',
+  },
+  {
+    slug: 'veneers',
+    title: 'Veneers',
+    summary: 'Thin porcelain or composite shells that reshape, lengthen or brighten front teeth.',
+    ask: 'Chipped, worn, gappy or discoloured front teeth? Veneers can change them in a few visits.',
+  },
+  {
+    slug: 'smile-makeover',
+    title: 'Smile Makeover',
+    summary: 'A planned combination of whitening, veneers, aligners, implants or gum reshaping, designed around your face.',
+    ask: 'Want to change more than one thing about your smile? Start with a design consultation.',
+  },
+  {
     slug: 'invisalign',
     title: 'Invisalign Clear Aligners',
     summary: 'Straighten crowded or spaced teeth with clear, removable aligners.',
@@ -94,6 +118,12 @@ export const services = [
     title: 'Wisdom Teeth Removal',
     summary: 'Impacted or painful wisdom teeth removed, with sedation if you need it.',
     ask: 'Pain or swelling at the back of your mouth? Find out whether your wisdom teeth should come out.',
+  },
+  {
+    slug: 'dentures',
+    title: 'Dentures',
+    summary: 'Full and partial dentures, and dentures that snap onto implants so they stay put.',
+    ask: 'Need dentures, or tired of ones that move? See the options, including implant-supported.',
   },
   {
     slug: 'dental-implants',
