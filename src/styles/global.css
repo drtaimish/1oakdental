@@ -291,4 +291,4 @@ video.hero-photo { background: var(--tint); display: block; aspect-ratio: 16 / 9
   .find-us { grid-template-columns: 1fr; }
   .find-us .office-photo { grid-row: auto; grid-column: 1; margin-bottom: 8px; }
 }
-@media (max-width: 760px) { header.site .wordmark { --wm: 21px; } }
+@media (max-width: 760px) { header.site .wordmark { --wm: 20px !important; } }
