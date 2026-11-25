@@ -150,3 +150,13 @@ dl.hours dd { margin: 0; color: var(--muted); }
 .transcript { margin-top: 8px; }
 .transcript summary { cursor: pointer; color: var(--brand); font-weight: 500; }
 .transcript p { white-space: pre-line; }
+
+/* SEO pass: breadcrumb, FAQ, related */
+.crumbs { font-size: .9rem; color: var(--muted); margin: 8px 0 -40px; }
+.crumbs a { color: var(--muted); }
+.faq details { border-top: 1px solid var(--line); padding: 14px 0; }
+.faq details:last-child { border-bottom: 1px solid var(--line); }
+.faq summary { cursor: pointer; font-weight: 600; font-size: 1.05rem; }
+.faq details p { margin: 10px 0 0; color: var(--muted); }
+.related { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.related a { font-weight: 600; }

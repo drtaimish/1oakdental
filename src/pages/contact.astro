@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import { practice, services, hoursRows } from '../data/practice.js';
+import { transit } from '../data/seo.js';
 ---
 <Base title="Request an Appointment" description="Request a free consultation or appointment at 1 Oak Dental, 1 Oak St, Toronto. Call (416) 214-0003 or send us your details.">
   <div class="wrap">
@@ -45,6 +46,7 @@ import { practice, services, hoursRows } from '../data/practice.js';
     <section>
       <h2>Visit us</h2>
       <p>{practice.street}<br />{practice.city}, {practice.region} {practice.postalCode}</p>
+      <p class="muted">{transit} Street parking and paid lots nearby.</p>
       <a class="btn secondary" href={practice.mapsUrl}>Get directions</a>
       {hoursRows.length > 0 && (
         <>

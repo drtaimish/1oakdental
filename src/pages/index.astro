@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import { practice, referralGroups, team, trustItems, bookingHref, bookingLabel } from '../data/practice.js';
+import { neighbourhoods, transit } from '../data/seo.js';
 const patientLinks = [
   ['Family and general dentistry', '/services/general-dentistry/'],
   ['Sleep dentistry', '/services/sleep-dentistry/'],
@@ -72,7 +73,8 @@ const patientLinks = [
 
     <section>
       <h2>Find us</h2>
-      <p>{practice.street}, {practice.city}, {practice.region} {practice.postalCode}. In {practice.neighbourhood}.</p>
+      <p>{practice.street}, {practice.city}, {practice.region} {practice.postalCode}. In {practice.neighbourhood}. {transit}</p>
+      <p class="muted">Patients come to us from {neighbourhoods.slice(0, -1).join(', ')} and {neighbourhoods.at(-1)}, and referring dentists send cases from across the GTA.</p>
       <div class="actions">
         <a class="btn secondary" href={practice.googleProfileUrl || practice.mapsUrl} rel="noopener">Get directions</a>
         <a class="btn secondary" href={`tel:${practice.phoneE164}`}>Call {practice.phone}</a>

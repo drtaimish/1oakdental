@@ -59,7 +59,7 @@ export const serviceContent = {
     ],
   },
   'sleep-dentistry': {
-    metaTitle: 'Sleep Dentistry and Sedation in Downtown Toronto',
+    metaTitle: 'Sleep Dentistry in Downtown Toronto',
     description: 'Nervous about the dentist? 1 Oak Dental in downtown Toronto offers sedation options so you can get care comfortably.',
     h1: 'Sleep dentistry',
     intro: 'If dental visits make you anxious, you are not alone. Sedation can help you relax through a checkup, a filling or a longer procedure like wisdom teeth or implants.',
@@ -94,7 +94,7 @@ export const serviceContent = {
     ],
   },
   'general-dentistry': {
-    metaTitle: 'Family Dentist in Downtown Toronto: Checkups and Cleanings',
+    metaTitle: 'Family Dentist in Downtown Toronto',
     description: 'Exams, cleanings and fillings for the whole family at 1 Oak Dental in Regent Park, downtown Toronto. We bill insurance and CDCP.',
     h1: 'Family and general dentistry',
     intro: 'Regular visits catch problems early, when they are simpler and cheaper to treat. We recommend a checkup and cleaning every six months for most people.',

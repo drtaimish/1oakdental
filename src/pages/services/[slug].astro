@@ -5,6 +5,7 @@ import { serviceContent } from '../../data/serviceContent.js';
 import ServiceArt from '../../components/ServiceArt.astro';
 import VideoEmbed from '../../components/VideoEmbed.astro';
 import { media } from '../../data/media.js';
+import { serviceSeo } from '../../data/seo.js';
 
 export function getStaticPaths() {
   return services.map((s) => ({ params: { slug: s.slug }, props: { service: s } }));
@@ -12,6 +13,8 @@ export function getStaticPaths() {
 const { service } = Astro.props;
 const c = serviceContent[service.slug];
 const m = media[service.slug] || {};
+const seo = serviceSeo[service.slug] || { faqs: [], related: [] };
+const related = services.filter((x) => seo.related.includes(x.slug));
 const breadcrumbs = {
   '@type': 'BreadcrumbList',
   itemListElement: [
@@ -30,12 +33,25 @@ const video = m.video && {
   embedUrl: `https://www.youtube-nocookie.com/embed/${m.video.youtubeId}`,
   transcript: m.video.transcript,
 };
-const schema = { '@context': 'https://schema.org', '@graph': [breadcrumbs, video].filter(Boolean) };
+const procedure = {
+  '@type': 'MedicalProcedure',
+  name: seo.procedure || service.title,
+  url: `${practice.url}/services/${service.slug}/`,
+  description: c.description,
+  provider: { '@id': `${practice.url}/#dentist` },
+};
+const faq = seo.faqs.length && {
+  '@type': 'FAQPage',
+  mainEntity: seo.faqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+};
+const schema = { '@context': 'https://schema.org', '@graph': [breadcrumbs, procedure, faq, video].filter(Boolean) };
 ---
 <Base title={c.metaTitle} description={c.description} schema={schema}>
   <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <a href="/services/">Services</a> › <span>{service.title}</span></nav>
     <div class="hero hero-art">
       <div>
+        <p class="eyebrow">{practice.neighbourhood}</p>
         <h1>{c.h1}</h1>
         <p class="lead">{c.intro}</p>
         <div class="actions">
@@ -59,6 +75,22 @@ const schema = { '@context': 'https://schema.org', '@graph': [breadcrumbs, video
         <p>{p}</p>
       </section>
     ))}
+    {seo.faqs.length > 0 && (
+      <section class="faq">
+        <h2>Common questions</h2>
+        {seo.faqs.map(([q, a]) => (
+          <details><summary>{q}</summary><p>{a}</p></details>
+        ))}
+      </section>
+    )}
+    {related.length > 0 && (
+      <section>
+        <h2>Related care</h2>
+        <ul class="related">
+          {related.map((r) => <li><a href={`/services/${r.slug}/`}>{r.title}</a><span class="muted"> · {r.summary}</span></li>)}
+        </ul>
+      </section>
+    )}
     <section class="card">
       <h2>Talk to Dr. Taimish</h2>
       <p>Your first consultation is free. You will leave with a clear plan and a written estimate.</p>

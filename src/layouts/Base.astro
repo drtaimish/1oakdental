@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { practice, bookingHref, bookingLabel, hoursRows, openingHoursSpecification } from '../data/practice.js';
+import { neighbourhoods } from '../data/seo.js';
 
 interface Props {
   title: string;
@@ -9,7 +10,7 @@ interface Props {
 }
 const { title, description, schema } = Astro.props;
 const canonical = new URL(Astro.url.pathname, practice.url).href;
-const fullTitle = title.includes(practice.name) ? title : `${title} | ${practice.name}, Toronto`;
+const fullTitle = title.includes(practice.name) ? title : `${title} | ${practice.name}`;
 
 const dentist = {
   '@context': 'https://schema.org',
@@ -27,7 +28,11 @@ const dentist = {
     postalCode: practice.postalCode,
     addressCountry: 'CA',
   },
-  areaServed: { '@type': 'City', name: 'Toronto' },
+  areaServed: [{ '@type': 'City', name: 'Toronto' }, ...neighbourhoods.map((n) => ({ '@type': 'Place', name: n.replace(/^the /, '') + ', Toronto' }))],
+  image: `${practice.url}/og.png`,
+  priceRange: '$$',
+  currenciesAccepted: 'CAD',
+  paymentAccepted: 'Cash, Debit, Credit Card, Insurance',
   sameAs: [practice.instagram, practice.linkedin, practice.googleProfileUrl].filter(Boolean),
   ...(openingHoursSpecification.length ? { openingHoursSpecification } : {}),
 };
@@ -46,6 +51,9 @@ const dentist = {
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:type" content="website" />
+    <meta property="og:image" content={`${practice.url}/og.png`} />
+    <meta property="og:locale" content="en_CA" />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
