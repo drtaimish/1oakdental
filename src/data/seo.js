@@ -25,7 +25,7 @@ export const serviceSeo = {
     faqs: [
       ['When should my child first see a dentist?', 'By their first birthday or within six months of the first tooth, whichever comes first. Early visits are short and friendly and help children feel at ease.'],
       ['Do you have a pediatric dentist?', 'Yes. Dr. Alice Dong is a pediatric dentist, a specialist in treating children, and sees patients at 1 Oak Dental.'],
-      ['My child is very anxious. What are the options?', 'Many children do well with a gentle, gradual approach. For those who need it, sedation and general anaesthesia are available in office with a physician anaesthesiologist.'],
+      ['My child is very anxious. What are the options?', 'Many children do well with a gentle, gradual approach. For children who need more, sedation and general anaesthesia with a physician anaesthesiologist are coming soon to our office. Ask us and we will add you to the waitlist.'],
       ['Is children\'s dental care covered by the CDCP?', 'Many children qualify for the Canadian Dental Care Plan. We accept it and can help you check eligibility.'],
     ],
   },
@@ -33,8 +33,9 @@ export const serviceSeo = {
     procedure: 'Dental sedation and general anaesthesia',
     related: ['wisdom-teeth-removal', 'dental-implants', 'childrens-dentistry'],
     faqs: [
+      ['When will sleep dentistry be available?', 'Soon. We are finishing the set-up for in-office sedation and general anaesthesia. Join the waitlist and we will contact you as soon as appointments open.'],
       ['What is sleep dentistry?', 'Dental treatment done while you are sedated, from light IV sedation to deep sedation or general anaesthesia, so you are relaxed or fully asleep and remember little or nothing of the visit.'],
-      ['Who gives the sedation?', 'A physician anaesthesiologist (a medical doctor who specialises in anaesthesia) provides IV sedation, deep sedation and general anaesthesia in our office and monitors you throughout, while your dentist does the treatment.'],
+      ['Who gives the sedation?', 'A physician anaesthesiologist (a medical doctor who specialises in anaesthesia) will provide IV sedation, deep sedation and general anaesthesia in our office and monitor you throughout, while your dentist does the treatment.'],
       ['Can I drive home afterwards?', 'No. After any sedation you need a responsible adult to take you home and stay with you for the rest of the day.'],
       ['Is sedation safe?', 'With a medical anaesthesiologist, monitoring equipment and a health review beforehand, sedation in a dental office is very safe for healthy patients. We review your medical history first and will tell you if a hospital setting is better for you.'],
     ],
@@ -63,7 +64,7 @@ export const serviceSeo = {
     procedure: 'Tooth extraction',
     related: ['dental-implants', 'wisdom-teeth-removal', 'sleep-dentistry'],
     faqs: [
-      ['Does a tooth extraction hurt?', 'The area is fully numbed, so you feel pressure but not pain. Sedation is available if you would rather not be aware of the procedure.'],
+      ['Does a tooth extraction hurt?', 'The area is fully numbed, so you feel pressure but not pain. Sedation for extractions is coming soon; until then, extractions are done under local anaesthetic.'],
       ['How long is recovery?', 'Most people are back to normal routines in a day or two. Keep the clot in place: no smoking, straws or vigorous rinsing for the first 24 hours.'],
       ['Should I replace the tooth?', 'For most teeth, yes. A gap lets neighbouring teeth drift and the bone shrink. An implant can often be placed at the same time as the extraction.'],
       ['Can my dentist refer me to you for an extraction?', 'Yes. Dr. Taimish accepts referrals for difficult and surgical extractions from dentists across Toronto.'],
@@ -74,7 +75,7 @@ export const serviceSeo = {
     related: ['sleep-dentistry', 'tooth-extractions', 'emergency-dentist'],
     faqs: [
       ['Do all wisdom teeth need to come out?', 'No. Wisdom teeth that have fully come through, are easy to clean and are not causing problems can stay. Impacted, infected or crowding teeth are usually removed.'],
-      ['Can I be asleep for wisdom teeth removal?', 'Yes. IV sedation, deep sedation and general anaesthesia are available in office with a physician anaesthesiologist.'],
+      ['Can I be asleep for wisdom teeth removal?', 'Soon. IV sedation, deep sedation and general anaesthesia with a physician anaesthesiologist are coming to our office. Until then, removal is done under local anaesthetic, and you can join the sleep dentistry waitlist.'],
       ['How long does it take to recover?', 'Swelling peaks around day two or three and most people feel back to normal within a week. We give you written instructions and a direct number for questions.'],
       ['What is the best age to have wisdom teeth removed?', 'Late teens to mid-twenties is usually easiest, because the roots are not fully formed and the bone is softer, which means a simpler surgery and faster healing.'],
     ],
@@ -84,7 +85,7 @@ export const serviceSeo = {
     related: ['all-on-4-dental-implants', 'tooth-extractions', 'sleep-dentistry'],
     faqs: [
       ['How long do dental implants last?', 'With good home care and regular checkups, the implant itself can last decades. The crown on top may be replaced after 10 to 15 years of normal wear.'],
-      ['Does getting an implant hurt?', 'The procedure is done under local anaesthetic, with sedation if you prefer. Most patients describe the days after as similar to a tooth extraction and manage with regular pain relief.'],
+      ['Does getting an implant hurt?', 'The procedure is done under local anaesthetic (sedation is coming soon). Most patients describe the days after as similar to a tooth extraction and manage with regular pain relief.'],
       ['How long does the whole process take?', 'From consultation to final crown is usually three to six months, most of which is healing time. In some cases a temporary tooth can be placed the same day.'],
       ['Who places the implants?', 'Dr. Ammar Taimish places all implants at 1 Oak Dental. His practice is limited to oral surgery and implant dentistry, and dentists across Toronto refer implant cases to him.'],
     ],
@@ -147,7 +148,7 @@ export const serviceSeo = {
     faqs: [
       ['What is All-on-4?', 'A full arch of fixed teeth supported by four (sometimes five or six) implants. The back implants are angled to use the bone you have, so bone grafting is often avoided.'],
       ['Can I really get teeth in one day?', 'Usually, yes. Implants are placed and a temporary fixed set of teeth is attached the same day. Your final teeth are made once the implants have healed, typically after three to six months.'],
-      ['Can I be asleep for the surgery?', 'Yes. Most full-arch patients choose deep sedation or general anaesthesia, provided in office by a physician anaesthesiologist.'],
+      ['Can I be asleep for the surgery?', 'Sedation and general anaesthesia with a physician anaesthesiologist are coming soon to our office. Until then, full-arch surgery is done under local anaesthetic, and you can join the sleep dentistry waitlist.'],
       ['How do I care for All-on-4 teeth?', 'Brush as usual and clean under the bridge daily with a water flosser or floss threaders. You will see us for a checkup and professional cleaning at least twice a year.'],
       ['How is this different from dentures?', 'The teeth are screwed to the implants and do not come out. There is no adhesive, no palate covering the roof of your mouth, and you can eat most foods normally.'],
     ],
@@ -157,16 +158,16 @@ export const serviceSeo = {
 // Short badges under the service H1. Keep to true, checkable statements.
 export const serviceBadges = {
   'general-dentistry': ['Accepting new patients', 'Direct insurance billing', 'CDCP accepted', 'Evenings and Saturdays'],
-  'childrens-dentistry': ['Pediatric dentist on staff', 'CDCP accepted', 'Sedation and GA in office'],
-  'sleep-dentistry': ['Physician anaesthesiologist', 'IV, deep sedation and GA', 'In office, not hospital'],
+  'childrens-dentistry': ['Pediatric dentist on staff', 'CDCP accepted', 'Now accepting new patients'],
+  'sleep-dentistry': ['Coming soon', 'Physician anaesthesiologist', 'IV, deep sedation and GA, in office'],
   'emergency-dentist': ['Call first, we triage by phone', 'You do not need to be a patient', 'Oral surgery done in-house'],
   'invisalign': ['Digital scan, no putty', 'Free consultation', 'Monthly financing'],
-  'tooth-extractions': ['Done by an oral surgery dentist', 'Awake or asleep: your choice', 'Referral not needed'],
-  'wisdom-teeth-removal': ['Awake or asleep: your choice', 'Referral not needed', 'Written aftercare and a number to call'],
+  'tooth-extractions': ['Done by an oral surgery dentist', 'CBCT scan when needed', 'Referral not needed'],
+  'wisdom-teeth-removal': ['In-house CBCT nerve mapping', 'Referral not needed', 'Written aftercare and a number to call'],
   'dental-implants': ['Placed by Dr. Taimish, every case', '3D scan at consultation', 'All-inclusive written quote'],
-  'all-on-4-dental-implants': ['Temporary fixed teeth, usually same day', 'Sedation or GA with an anaesthesiologist', 'All-inclusive written quote'],
+  'all-on-4-dental-implants': ['Temporary fixed teeth, usually same day', 'CBCT-planned, guided surgery', 'All-inclusive written quote'],
   'dentures': ['Full, partial and implant-supported', 'Loose denture fixed with two implants', 'Free consultation'],
-  'root-canal': ['Same-day appointments for pain', 'Usually one or two visits', 'Sedation available'],
+  'root-canal': ['Same-day appointments for pain', 'Usually one or two visits', 'CDCP accepted'],
   'teeth-whitening': ['In-office or take-home', 'Dentist-supervised', 'Checkup and cleaning first'],
   'veneers': ['Digital smile simulation', '3D-printed trial smile you can try on', 'Porcelain or composite'],
   'smile-makeover': ['Designed before it is built', 'Surgery and cosmetics in one office', 'Priced item by item'],
@@ -177,7 +178,7 @@ export const serviceSteps = {
   'dental-implants': [
     ['Free consultation and 3D scan', 'We look at the tooth or gap, take a CBCT scan, and show you the bone and nerves on screen. You leave with a written, all-inclusive quote.'],
     ['Any preparation', 'If a tooth needs to come out or the bone needs building up, that is done first, or sometimes at the same visit as the implant.'],
-    ['Implant placement', 'Under local anaesthetic, with sedation if you want it. The visit takes about an hour. Most people return to work the next day.'],
+    ['Implant placement', 'Under local anaesthetic, often with a 3D-printed guide. The visit takes about an hour. Most people return to work the next day.'],
     ['Healing', 'Three to six months while the bone fuses to the implant. A temporary tooth can be worn if the gap shows.'],
     ['Your new tooth', 'A scan of the healed implant, then a custom crown is made and fitted. From then on it is checked and cleaned like any other tooth.'],
   ],
@@ -210,18 +211,18 @@ export const serviceSteps = {
     ['Consultation', 'We look at your gums, any remaining teeth and the bone, and talk about what bothers you about your current teeth or denture. If implants are an option, a 3D scan shows where they could go.'],
     ['Impressions and try-in', 'Moulds of your mouth, then a wax trial version so you can check the look, the bite and your speech before anything is finished.'],
     ['Fitting', 'Your denture is delivered and adjusted. Sore spots in the first weeks are normal and are fixed with small adjustments.'],
-    ['Implants, if you chose them', 'Implants are placed under local anaesthetic or sedation and left to heal for a few months. Your denture is then fitted with snap attachments.'],
+    ['Implants, if you chose them', 'Implants are placed under local anaesthetic and left to heal for a few months. Your denture is then fitted with snap attachments.'],
   ],
   'all-on-4-dental-implants': [
     ['Consultation and planning', 'Scan, photos and a conversation about what you want. We plan the implant positions digitally and give you an all-inclusive written quote, including sedation.'],
-    ['Surgery day', 'Under sedation or general anaesthesia with our anaesthesiologist. Remaining teeth are removed, four to six implants are placed, and a fixed temporary bridge is attached, usually the same day.'],
+    ['Surgery day', 'Under local anaesthetic (sedation and general anaesthesia coming soon). Remaining teeth are removed, four to six implants are placed, and a fixed temporary bridge is attached, usually the same day.'],
     ['Healing with your temporary teeth', 'Three to six months on a soft-to-medium diet while the implants integrate. You come in for checks and adjustments.'],
     ['Your final bridge', 'A scan of the healed implants, a trial fitting, then your final bridge in zirconia or acrylic over titanium, made to your approved shape and shade.'],
     ['Maintenance', 'A checkup and professional cleaning at least every six months, with the bridge removed for a deep clean when needed.'],
   ],
   'wisdom-teeth-removal': [
     ['Consultation', 'A panoramic or 3D X-ray shows where the teeth sit relative to the nerve and sinus. We tell you which teeth need to come out, which can stay, and whether awake or asleep makes more sense for you.'],
-    ['Choose your comfort level', 'Local anaesthetic only, IV sedation, or general anaesthesia with our physician anaesthesiologist. If you choose sedation, you get fasting instructions and need an adult escort.'],
+    ['Choose your comfort level', 'Local anaesthetic, with the option of IV sedation or general anaesthesia once our sleep dentistry service opens. Ask to join the waitlist if you would rather be asleep.'],
     ['The procedure', 'Usually 30 to 60 minutes for all four. Dr. Taimish does every surgery himself.'],
     ['Going home', 'Gauze, ice, written instructions and a direct number. Someone takes you home if you were sedated.'],
     ['Recovery', 'Swelling peaks at day two or three and most people are back to normal within a week. We check on you and see you if anything needs a look.'],
@@ -234,7 +235,7 @@ export const serviceSteps = {
   ],
   'tooth-extractions': [
     ['Assessment', 'X-rays and an exam to confirm the tooth cannot be saved, and to plan how it comes out and what replaces it.'],
-    ['Comfort', 'Local anaesthetic, with sedation if you prefer. You should feel pressure, never pain.'],
+    ['Comfort', 'Local anaesthetic. You should feel pressure, never pain.'],
     ['Extraction', 'Simple or surgical, depending on the tooth. If you are planning an implant, a bone graft can be placed in the socket at the same time.'],
     ['Aftercare', 'Gauze, instructions and a number to call. Most people are back to normal in a day or two.'],
   ],
@@ -279,16 +280,17 @@ export const serviceExtra = {
   ],
   'all-on-4-dental-implants': [
     ['Temporary versus final teeth', 'Your same-day bridge is acrylic, made to let you eat soft food and smile while the implants heal. Your final bridge, made after healing, is built for decades of chewing: zirconia (a very hard ceramic) or acrylic teeth over a titanium frame. We talk through the trade-offs of each and show you examples.'],
-    ['Why most patients choose to be asleep', 'Full-arch surgery is longer than a single implant and often includes extractions. With a physician anaesthesiologist in the room, you can have deep sedation or general anaesthesia safely in our office, wake up with your temporary teeth in, and remember nothing of the surgery.'],
+    ['Being asleep for surgery: coming soon', 'Full-arch surgery is longer than a single implant and often includes extractions. We are setting up in-office deep sedation and general anaesthesia with a physician anaesthesiologist. Join the sleep dentistry waitlist if you would rather be asleep for your surgery.'],
     ['Questions to ask any office', 'Who places the implants, and how many full arches have they done? Is the quote all-inclusive? What is the final bridge made of? Who provides the sedation, and what are their qualifications? What happens if an implant fails? Ask us all of these.'],
   ],
   'dental-implants': [
     ['Who places your implant matters', 'Implant placement is surgery. Dr. Taimish limits his practice to oral surgery and implants, places every implant at 1 Oak Dental himself, and teaches implant courses to other dentists. General dentists across Toronto refer their implant cases to him.'],
-    ['Technology we use', 'A CBCT (3D) scan before every implant, digital planning, and guided surgery when it improves precision. Implants from established manufacturers with long published track records.'],
+    ['Technology we use', 'A CBCT 3D scan and a TRIOS digital scan before every implant, digital planning, and a 3D-printed surgical guide when it improves precision. Implants from established manufacturers with long published track records.'],
   ],
   'sleep-dentistry': [
+    ['Coming soon', 'We are finishing the set-up for in-office sedation and general anaesthesia with a physician anaesthesiologist. Join the waitlist and we will contact you when appointments open. Until then, every treatment is done under local anaesthetic, and we are happy to go slowly with nervous patients.'],
     ['Levels of sedation, plainly', 'IV sedation: deeply relaxed, drowsy, little memory, still breathing on your own and able to respond. Deep sedation: asleep, not easily roused. General anaesthesia: fully unconscious with breathing supported. We recommend the lightest level that will let you have your treatment comfortably.'],
-    ['Why a physician anaesthesiologist', 'Many offices offer sedation given by the dentist who is also doing the procedure. At 1 Oak Dental, a physician anaesthesiologist, a medical doctor specialising in anaesthesia, does nothing but monitor and look after you while the dentistry is done by someone else. That is the same separation of roles you would have in a hospital.'],
+    ['Why a physician anaesthesiologist', 'Many offices offer sedation given by the dentist who is also doing the procedure. At 1 Oak Dental, a physician anaesthesiologist, a medical doctor specialising in anaesthesia, will do nothing but monitor and look after you while the dentistry is done by someone else. That is the same separation of roles you would have in a hospital.'],
   ],
   'wisdom-teeth-removal': [
     ['Keep them or remove them?', 'Not every wisdom tooth needs to come out. Fully erupted teeth that you can clean and that are not damaging the neighbour can stay and be watched. Partially erupted teeth that trap food and get infected, impacted teeth pressing on the second molar, and teeth with cysts or decay are the usual reasons for removal. We show you your X-ray and explain which applies.'],
@@ -308,6 +310,10 @@ export const serviceAftercare = {
 };
 
 // Custom call to action for the hero button (defaults to "Book a free consultation").
+// Which services show a "Technology for this treatment" strip (built from practice.technology.usedFor) and
+// which show a "Payment plans and financing" card.
+export const serviceFinance = ['dental-implants', 'all-on-4-dental-implants', 'veneers', 'smile-makeover', 'dentures', 'invisalign'];
+
 export const serviceCta = {
   'veneers': 'Preview your new smile',
   'smile-makeover': 'Preview your new smile',

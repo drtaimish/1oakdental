@@ -1,0 +1,51 @@
+---
+import Base from '../layouts/Base.astro';
+import { practice, technology, services, bookingHref, bookingLabel } from '../data/practice.js';
+const description = 'The technology we use at 1 Oak Dental in downtown Toronto: CBCT 3D imaging, 3Shape TRIOS digital scanning and in-office 3D printing for implant guides, models and trial smiles.';
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: practice.url + '/' },
+    { '@type': 'ListItem', position: 2, name: 'Technology', item: practice.url + '/technology/' },
+  ],
+};
+const titleOf = (slug) => services.find((s) => s.slug === slug)?.title || slug;
+---
+<Base title="Our Technology: CBCT, TRIOS Scanning and 3D Printing" description={description} schema={schema}>
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <span>Technology</span></nav>
+    <div class="hero">
+      <p class="eyebrow">In our office</p>
+      <h1>What we use, and what it does for you</h1>
+      <p class="lead">Three tools that change how surgery and cosmetic work are planned: a 3D X-ray, a digital scanner instead of impression putty, and a 3D printer. Each is here so we can see more before we start, show you the plan, and fit things right the first time.</p>
+    </div>
+    <div class="grid">
+      {technology.map((t) => (
+        <section class="card" id={t.id}>
+          <h2 style="font-size:1.5rem">{t.title}</h2>
+          <p><strong>{t.short}</strong></p>
+          <p>{t.body}</p>
+          <p class="muted" style="margin:0">Used for: {t.usedFor.map((slug, i) => <><a href={`/services/${slug}/`}>{titleOf(slug)}</a>{i < t.usedFor.length - 1 ? ', ' : ''}</>)}</p>
+        </section>
+      ))}
+    </div>
+    <section>
+      <h2>How they work together for implants</h2>
+      <ol class="steps">
+        <li><h3>Scan</h3><p>A CBCT scan shows your bone and nerves in 3D. A TRIOS scan captures your teeth and gums in detail.</p></li>
+        <li><h3>Plan</h3><p>The two scans are combined on screen, and the implant position is chosen for the bone you have and the tooth you need. You see the plan before anything happens.</p></li>
+        <li><h3>Print</h3><p>A surgical guide is printed in the office. On the day, it fits over your teeth and steers the implant to the planned spot.</p></li>
+      </ol>
+    </section>
+    <section>
+      <h2>And for your smile</h2>
+      <p>For veneers and smile makeovers, the TRIOS scan becomes a digital design, and the design becomes a 3D-printed trial smile you can try in your own mouth and take home to think about. Nothing is done to your teeth until you have seen it and said yes. <a href="/services/veneers/">More about veneers →</a></p>
+    </section>
+    <section class="card">
+      <h2>See it for yourself</h2>
+      <p>Your first consultation is free and includes the imaging you need.</p>
+      <a class="btn" href={bookingHref}>{bookingLabel}</a>
+    </section>
+  </div>
+</Base>

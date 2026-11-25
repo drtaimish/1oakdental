@@ -10,7 +10,7 @@ import ServiceArt from '../../components/ServiceArt.astro';
       {services.map((s) => (
         <a class="card" href={`/services/${s.slug}/`} style="text-decoration:none;color:inherit">
           <ServiceArt slug={s.slug} size={56} />
-          <h2 style="font-size:1.2rem;margin-top:0">{s.title}</h2>
+          <h2 style="font-size:1.2rem;margin-top:0">{s.title}{s.comingSoon && <span class="tag-soon">Coming soon</span>}</h2>
           <p class="muted">{s.summary}</p>
         </a>
       ))}

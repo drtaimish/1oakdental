@@ -10,7 +10,7 @@ Facts to confirm with Ammar (the old 416dentist.com had conflicting or missing v
 - [ ] Prices to show, if any. The old site listed All-on-4 at $19,995, $22,995 and $24,995 per arch on different pages; aligner prices $2,995 to $4,995. This draft shows no prices.
 - [ ] Direct billing and CDCP: confirm both are accepted for all patients, not only children's orthodontics
 - [x] Google Business Profile link added (0 reviews, no hours or website set as of 2026-11-25; Ammar to add hours + website on the profile)
-- [ ] Where consultation requests should go (`FORM_WEBHOOK_URL`)
+- [x] Consultation requests and referrals email info@1oakdental.ca (Ammar, 2026-11-25) via Cloudflare Email Service; needs the domain onboarded and info@ verified in Cloudflare (see README)
 - [x] Booking tool: Akitu One (practice software, Ammar 2026-11-25)
 - [ ] Real photos: office, team, Dr. Taimish, before/after cases with consent. Service-page photos go in public/images/services/<slug>.jpg and src/data/media.js
 - [ ] Short videos of Dr. Taimish explaining each procedure (YouTube, unlisted is fine) + transcript, set in src/data/media.js. Priority: All-on-4, implants, wisdom teeth, sleep dentistry
@@ -28,6 +28,11 @@ Facts to confirm with Ammar (the old 416dentist.com had conflicting or missing v
 - [ ] Secure radiograph upload (PHIPA): until then referrals say email JPEG/PNG/DICOM to info@
 - [ ] Implant warranty policy, if any (competitors advertise 3-year to lifetime); not mentioned on the site until you decide
 - [ ] Cancellation notice: the insurance page says two business days; confirm
+
+- [x] Sleep dentistry marked coming soon with waitlist (Ammar, 2026-11-25); flip `comingSoon` on the service, the referral group, sedationOptions and the wording in seo.js/serviceContent.js/index.astro when it opens
+- [x] Technology page: CBCT, 3Shape TRIOS, 3D printing (Ammar, 2026-11-25)
+- [ ] Payment plan details (terms, minimums) if Ammar wants them stated; page is general for now
+- [ ] Dr. Taimish headshot
 
 # Redirects from 416dentist.com (apply only when 1oakdental.ca is live)
 
@@ -56,7 +61,7 @@ torontodentist.com: every URL -> https://1oakdental.ca/ (301).
 
 # Referrals section (/referrals/)
 
-- [ ] Where referrals should go (`REFERRAL_WEBHOOK_URL`) and who answers them
+- [x] Referrals go to info@1oakdental.ca (Ammar, 2026-11-25)
 - [ ] A secure way for dentists to send X-rays and CBCT scans (patient health information, so PHIPA applies). The form promises we will explain this by email.
 - [x] Procedure list, doctors, email and urgent line now match the printed referral pads (Nov 2026)
 - [ ] Name of the general dentist, if not Dr. Taimish

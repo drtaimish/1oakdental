@@ -68,8 +68,9 @@ export const services = [
   {
     slug: 'sleep-dentistry',
     title: 'Sleep Dentistry',
-    summary: 'Sedation options for anxious patients and longer procedures.',
-    ask: 'If dental visits make you anxious, talk with us about options for your appointment.',
+    summary: 'Coming soon: IV sedation, deep sedation and general anaesthesia with a physician anaesthesiologist.',
+    ask: 'Coming soon. Join the waitlist and we will tell you when sedation appointments open.',
+    comingSoon: true,
   },
   {
     slug: 'emergency-dentist',
@@ -116,7 +117,7 @@ export const services = [
   {
     slug: 'wisdom-teeth-removal',
     title: 'Wisdom Teeth Removal',
-    summary: 'Impacted or painful wisdom teeth removed, with sedation if you need it.',
+    summary: 'Impacted or painful wisdom teeth removed by a dentist who does only oral surgery.',
     ask: 'Pain or swelling at the back of your mouth? Find out whether your wisdom teeth should come out.',
   },
   {
@@ -161,7 +162,7 @@ export const team = [
   {
     id: 'dong', name: 'Dr. Alice Dong', credentials: 'DDS',
     role: 'Pediatric Dentist',
-    blurb: 'Cares for infants, children and teens, including treatment under sedation or general anaesthesia.',
+    blurb: 'Cares for infants, children and teens, from first visits to treatment.',
     photo: '/images/team/dong.jpg', href: null,
     // Bio supplied by Ammar, 2026-11-25, used as written.
     bioDraft: false,
@@ -172,7 +173,7 @@ export const team = [
   {
     id: 'esufali', name: 'Dr. Zakir Esufali', credentials: 'MD',
     role: 'Physician Anaesthesiologist',
-    blurb: 'Provides IV sedation, deep sedation and general anaesthesia in the office.',
+    blurb: 'Will provide IV sedation, deep sedation and general anaesthesia in the office when sleep dentistry opens.',
     photo: '/images/team/esufali.jpg', href: null,
     // Bio supplied by Ammar, 2026-11-25, used as written.
     bio: 'Dr. Zakir Esufali provides IV sedation, deep sedation and general anaesthesia at 1 Oak Dental. During your procedure, he looks after your anaesthesia and monitors you while your dentist focuses on your treatment. Dr. Esufali earned his medical degree at Western University in 1999 and received his specialist certification in anaesthesiology from the Royal College of Physicians and Surgeons of Canada in 2004. Outside the office, he enjoys travelling, discovering new restaurants with his family and golfing with friends.',
@@ -229,13 +230,14 @@ export const referralGroups = [
       { id: 'peds-comprehensive', label: 'Pediatrics: comprehensive treatment' },
       { id: 'peds-specific', label: 'Pediatrics: specific treatment' },
       { id: 'peds-emergency', label: 'Pediatrics: emergency treatment' },
-      { id: 'peds-sedation', label: 'Pediatrics: sedation' },
+      { id: 'peds-sedation', label: 'Pediatrics: sedation (coming soon)' },
     ],
   },
   {
     id: 'sleep',
-    title: 'Sleep dentistry and general anaesthesia',
-    provider: 'Dr. Zakir Esufali, MD, Anaesthesiologist',
+    title: 'Sleep dentistry and general anaesthesia (coming soon)',
+    provider: 'Physician anaesthesiologist',
+    comingSoon: true,
     items: [
       { id: 'sleep-comprehensive', label: 'Sleep dentistry: comprehensive treatment' },
       { id: 'sleep-specific', label: 'Sleep dentistry: specific treatment' },
@@ -245,7 +247,35 @@ export const referralGroups = [
   },
 ];
 
-export const sedationOptions = ['Local anaesthetic only', 'IV sedation', 'Deep sedation', 'General anaesthesia', 'Please discuss with patient'];
+// Sleep dentistry waitlist: a mailto until the booking tool has a waitlist.
+export const waitlistHref = `mailto:${'info@1oakdental.ca'}?subject=${encodeURIComponent('Sleep dentistry waitlist')}&body=${encodeURIComponent('Please add me to the waitlist for sedation / sleep dentistry.\n\nName:\nPhone:\nWhat I need done:\n')}`;
+
+// In-office technology. Factual descriptions only; no superlatives (RCDSO advertising rules).
+export const technology = [
+  {
+    id: 'cbct',
+    title: 'CBCT 3D imaging',
+    short: 'A 3D X-ray of your jaws, taken in the office in under a minute.',
+    body: 'Cone beam CT (CBCT) is a low-dose 3D X-ray. It shows the bone, the nerve canal, the sinuses and the roots of every tooth from any angle. We use it to plan implants, to see exactly where a wisdom tooth sits against the nerve, and to check bone before grafting. Referring dentists receive the relevant images with the report.',
+    usedFor: ['dental-implants', 'all-on-4-dental-implants', 'wisdom-teeth-removal', 'tooth-extractions', 'dentures', 'root-canal'],
+  },
+  {
+    id: 'trios',
+    title: '3Shape TRIOS digital scanning',
+    short: 'Digital impressions with a small camera instead of a tray of putty.',
+    body: 'The TRIOS intraoral scanner photographs your teeth and builds a 3D model in a few minutes. No impression trays, no gagging, and the model is ready to send to the lab straight away. We use it for Invisalign, crowns, veneers and dentures, and combine it with the CBCT scan to plan implants.',
+    usedFor: ['invisalign', 'veneers', 'smile-makeover', 'dentures', 'dental-implants', 'all-on-4-dental-implants', 'general-dentistry'],
+  },
+  {
+    id: 'printing',
+    title: '3D printing',
+    short: 'Surgical guides, models and trial smiles printed in the office.',
+    body: 'From the digital scans we print surgical guides that fit over your teeth and show the exact implant position planned on the CBCT, models for planning and checking fit, and the trial smile you can wear home before committing to veneers or a smile makeover.',
+    usedFor: ['dental-implants', 'all-on-4-dental-implants', 'veneers', 'smile-makeover', 'dentures'],
+  },
+];
+
+export const sedationOptions = ['Local anaesthetic only', 'IV sedation (coming soon)', 'Deep sedation (coming soon)', 'General anaesthesia (coming soon)', 'Please discuss with patient'];
 
 // Every "book" button uses this, so switching to an online booking tool is a one-line change.
 export const bookingHref = practice.bookingUrl || '/contact/';
@@ -260,7 +290,7 @@ export const trustItems = [
   practice.payments.directBilling ? { text: 'Direct insurance billing', href: '/new-patients/' } : null,
   practice.payments.cdcp ? { text: 'CDCP accepted', href: '/new-patients/' } : null,
   practice.payments.financing ? { text: `Monthly financing with ${practice.payments.financing}`, href: '/new-patients/' } : null,
-  { text: 'Physician anaesthesiologist on the team', href: '/services/sleep-dentistry/' },
+  { text: 'Sleep dentistry coming soon', href: '/services/sleep-dentistry/' },
 ].filter(Boolean);
 
 // '09:00' -> '9 am', '17:00' -> '5 pm', '14:30' -> '2:30 pm'

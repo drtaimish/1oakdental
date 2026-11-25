@@ -31,6 +31,7 @@ const dentist = {
   areaServed: [{ '@type': 'City', name: 'Toronto' }, ...neighbourhoods.map((n) => ({ '@type': 'Place', name: n.replace(/^the /, '') + ', Toronto' }))],
   image: `${practice.url}/og.png`,
   priceRange: '$$',
+  isAcceptingNewPatients: true,
   currenciesAccepted: 'CAD',
   paymentAccepted: 'Cash, Debit, Credit Card, Insurance',
   sameAs: [practice.instagram, practice.linkedin, practice.googleProfileUrl].filter(Boolean),
@@ -112,7 +113,8 @@ const dentist = {
           <a href="/services/tooth-extractions/">Extractions</a><br />
           <a href="/services/wisdom-teeth-removal/">Wisdom teeth</a><br />
           <a href="/services/all-on-4-dental-implants/">Full-arch implants</a><br />
-          <a href="/tooth-replacement-options/">Tooth replacement options</a>
+          <a href="/tooth-replacement-options/">Tooth replacement options</a><br />
+          <a href="/technology/">Our technology</a>
         </div>
         <div>
           <strong>Book or refer</strong><br />

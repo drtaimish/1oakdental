@@ -14,10 +14,10 @@ import ServiceArt from '../components/ServiceArt.astro';
       {services.map((s) => (
         <div class="card">
           <ServiceArt slug={s.slug} size={56} />
-          <h2>{s.title}</h2>
+          <h2>{s.title}{s.comingSoon && <span class="tag-soon">Coming soon</span>}</h2>
           <p class="muted">{s.ask}</p>
           <div class="links">
-            <a href={`/contact/?service=${s.slug}`}>Request a visit</a>
+            {s.comingSoon ? <a href="/services/sleep-dentistry/">Join the waitlist</a> : <a href={`/contact/?service=${s.slug}`}>Request a visit</a>}
             <a href={`/services/${s.slug}/`}>Learn more</a>
           </div>
         </div>

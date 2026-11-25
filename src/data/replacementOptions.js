@@ -104,5 +104,5 @@ export const replacementFaqs = [
   ['Can I start with a denture and move to implants later?', 'Yes, and many patients do. Bone shrinks over time without teeth, so if implants are the long-term plan it is usually better not to wait too many years. We can also plan a denture now so it converts to an implant overdenture later.'],
   ['What is the difference between All-on-4 and All-on-X?', 'All-on-X simply means a full fixed arch on however many implants your case needs, usually four to six. All-on-4 is the best-known version. We use the number that gives your bridge the best support.'],
   ['Does insurance cover these?', 'Most plans cover dentures and partial dentures in part. Implant coverage varies and is often capped. We bill your plan directly and show you the expected coverage in writing before you decide.'],
-  ['Can I be asleep for the surgery?', 'Yes. IV sedation, deep sedation and general anaesthesia are available in our office with a physician anaesthesiologist.'],
+  ['Can I be asleep for the surgery?', 'Soon. IV sedation, deep sedation and general anaesthesia with a physician anaesthesiologist are coming to our office. Join the sleep dentistry waitlist if you would rather be asleep.'],
 ];

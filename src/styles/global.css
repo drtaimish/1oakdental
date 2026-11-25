@@ -265,3 +265,10 @@ video.hero-photo { background: var(--tint); display: block; aspect-ratio: 16 / 9
 
 .card.doc img { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; object-position: top; margin-bottom: 10px; display: block; }
 .member img { object-position: top; }
+
+/* Badges and tags */
+.badge-new { display: inline-block; background: var(--brand); color: #fff; border-radius: 999px; padding: 6px 14px; font-size: 0.85rem; font-weight: 600; margin: 0 0 14px; }
+.badge-soon { display: inline-block; background: #f3e6c8; color: #5a4300; border-radius: 999px; padding: 4px 12px; font-size: 0.8rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; margin: 0 0 10px; }
+.tag-soon { display: inline-block; vertical-align: middle; margin-left: 8px; background: #f3e6c8; color: #5a4300; border-radius: 999px; padding: 2px 9px; font-size: 0.7rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+.tech { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.tech li { padding: 10px 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--tint); }

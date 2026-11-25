@@ -19,7 +19,8 @@ npm run dev
 
 - Build command: `npm run build`
 - Output directory: `dist`
-- Environment variables: `FORM_WEBHOOK_URL` (patient consultation requests) and `REFERRAL_WEBHOOK_URL` (dentist referrals; falls back to the first)
+- Forms: submissions are emailed to `MAIL_TO` (info@1oakdental.ca) by the Worker's `EMAIL` send binding (Cloudflare Email Service). One-time setup in the Cloudflare dashboard: Compute > Email Service > Email Sending > Onboard domain (1oakdental.ca), and Email Routing > Destination addresses > add and verify info@1oakdental.ca. Optional `FORM_WEBHOOK_URL` / `REFERRAL_WEBHOOK_URL` also post each submission as JSON.
+- Hosting: Cloudflare Workers with static assets (`wrangler.toml`): `npm run build && npx wrangler deploy`, or connect the GitHub repo under Workers > Create > Import a repository (build `npm run build`, deploy `npx wrangler deploy`). The `functions/` folder keeps the same handlers working on Cloudflare Pages if that is ever used instead.
 
 The forms post to `functions/api/consultation.js` and `functions/api/referral.js`, which forward each submission to its webhook. Nothing is stored on the site.
 
