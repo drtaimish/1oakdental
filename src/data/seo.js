@@ -34,7 +34,7 @@ export const serviceSeo = {
     related: ['wisdom-teeth-removal', 'dental-implants', 'childrens-dentistry'],
     faqs: [
       ['What is sleep dentistry?', 'Dental treatment done while you are sedated, from light IV sedation to deep sedation or general anaesthesia, so you are relaxed or fully asleep and remember little or nothing of the visit.'],
-      ['Who gives the sedation?', 'Dr. Zakir Esufali, a physician anaesthesiologist (MD), provides IV sedation, deep sedation and general anaesthesia in our office and monitors you throughout.'],
+      ['Who gives the sedation?', 'A physician anaesthesiologist (a medical doctor who specialises in anaesthesia) provides IV sedation, deep sedation and general anaesthesia in our office and monitors you throughout, while your dentist does the treatment.'],
       ['Can I drive home afterwards?', 'No. After any sedation you need a responsible adult to take you home and stay with you for the rest of the day.'],
       ['Is sedation safe?', 'With a medical anaesthesiologist, monitoring equipment and a health review beforehand, sedation in a dental office is very safe for healthy patients. We review your medical history first and will tell you if a hospital setting is better for you.'],
     ],
@@ -288,7 +288,7 @@ export const serviceExtra = {
   ],
   'sleep-dentistry': [
     ['Levels of sedation, plainly', 'IV sedation: deeply relaxed, drowsy, little memory, still breathing on your own and able to respond. Deep sedation: asleep, not easily roused. General anaesthesia: fully unconscious with breathing supported. We recommend the lightest level that will let you have your treatment comfortably.'],
-    ['Why a physician anaesthesiologist', 'Many offices offer sedation given by the dentist who is also doing the procedure. At 1 Oak Dental, Dr. Esufali, a medical doctor specialising in anaesthesia, does nothing but monitor and look after you while the dentistry is done by someone else. That is the same separation of roles you would have in a hospital.'],
+    ['Why a physician anaesthesiologist', 'Many offices offer sedation given by the dentist who is also doing the procedure. At 1 Oak Dental, a physician anaesthesiologist, a medical doctor specialising in anaesthesia, does nothing but monitor and look after you while the dentistry is done by someone else. That is the same separation of roles you would have in a hospital.'],
   ],
   'wisdom-teeth-removal': [
     ['Keep them or remove them?', 'Not every wisdom tooth needs to come out. Fully erupted teeth that you can clean and that are not damaging the neighbour can stay and be watched. Partially erupted teeth that trap food and get infected, impacted teeth pressing on the second molar, and teeth with cysts or decay are the usual reasons for removal. We show you your X-ray and explain which applies.'],

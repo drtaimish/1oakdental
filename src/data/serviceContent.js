@@ -130,7 +130,7 @@ export const serviceContent = {
     intro: 'If dental visits make you anxious, you are not alone. Sedation can help you relax through a checkup, a filling or a longer procedure like wisdom teeth or implants.',
     sections: [
       ['Is it right for me?', 'Sedation can help if you feel very anxious at the dentist, have a strong gag reflex, find it hard to sit still, or need a long procedure done in one visit.'],
-      ['Your options', 'Depending on your needs, we offer IV sedation, deep sedation and general anaesthesia, provided in our office by Dr. Zakir Esufali, MD, a Royal College certified anaesthesiologist who looks after your anaesthesia and monitors you while your dentist focuses on the treatment. We recommend the lightest option that will keep you comfortable, and you can ask questions before you decide.'],
+      ['Your options', 'Depending on your needs, we offer IV sedation, deep sedation and general anaesthesia, provided in our office by a physician anaesthesiologist, a medical doctor certified in anaesthesia, who looks after your anaesthesia and monitors you while your dentist focuses on the treatment. We recommend the lightest option that will keep you comfortable, and you can ask questions before you decide.'],
       ['On the day', 'Depending on the type of sedation, you may need to skip eating beforehand and have someone drive you home. We give you clear written instructions before your visit.'],
     ],
   },
