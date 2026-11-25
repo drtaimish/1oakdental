@@ -116,3 +116,19 @@ form.consult .check input { width: 22px; height: 22px; }
 dl.hours { display: grid; grid-template-columns: auto 1fr; gap: 2px 12px; margin: 4px 0 0; font-size: 0.95rem; }
 dl.hours dt { font-weight: 500; }
 dl.hours dd { margin: 0; color: var(--muted); }
+
+/* Service illustrations: strokes draw in when scrolled into view */
+.art { color: var(--brand); display: block; }
+.art path { stroke-dasharray: 220; stroke-dashoffset: 220; }
+.art.in path { animation: draw 1.1s ease-out forwards; }
+.art.in path.d2 { animation-delay: .35s; }
+.art.in path.d3 { animation-delay: .65s; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .art path { stroke-dashoffset: 0; animation: none !important; }
+}
+.no-js .art path { stroke-dashoffset: 0; }
+.card .art { margin-bottom: 10px; }
+.hero-art { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; }
+.hero-art .art { width: 112px; height: 112px; }
+@media (max-width: 640px) { .hero-art { grid-template-columns: 1fr; } .hero-art .art { width: 72px; height: 72px; } }

@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import { services, practice } from '../../data/practice.js';
 import { serviceContent } from '../../data/serviceContent.js';
+import ServiceArt from '../../components/ServiceArt.astro';
 
 export function getStaticPaths() {
   return services.map((s) => ({ params: { slug: s.slug }, props: { service: s } }));
@@ -20,13 +21,16 @@ const schema = {
 ---
 <Base title={c.metaTitle} description={c.description} schema={schema}>
   <div class="wrap">
-    <div class="hero">
-      <h1>{c.h1}</h1>
-      <p class="lead">{c.intro}</p>
-      <div class="actions">
-        <a class="btn" href="/contact/">Book a free consultation</a>
-        <a class="btn secondary" href={`tel:${practice.phoneE164}`}>Call {practice.phone}</a>
+    <div class="hero hero-art">
+      <div>
+        <h1>{c.h1}</h1>
+        <p class="lead">{c.intro}</p>
+        <div class="actions">
+          <a class="btn" href="/contact/">Book a free consultation</a>
+          <a class="btn secondary" href={`tel:${practice.phoneE164}`}>Call {practice.phone}</a>
+        </div>
       </div>
+      <ServiceArt slug={service.slug} size={112} />
     </div>
     {c.sections.map(([h, p]) => (
       <section>

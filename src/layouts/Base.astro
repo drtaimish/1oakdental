@@ -33,9 +33,10 @@ const dentist = {
 };
 ---
 <!doctype html>
-<html lang="en-CA">
+<html lang="en-CA" class="no-js">
   <head>
     <meta charset="utf-8" />
+    <script is:inline>document.documentElement.classList.remove("no-js")</script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullTitle}</title>
     {Astro.url.pathname.startsWith("/thank-you") && <meta name="robots" content="noindex" />}
@@ -101,5 +102,15 @@ const dentist = {
       <div class="wrap"><p class="muted">© {new Date().getFullYear()} {practice.legalName}</p></div>
     </footer>
     <a class="btn sticky-call" href={`tel:${practice.phoneE164}`}>Call {practice.phone}</a>
+    <script>
+      // Draw service illustrations when they come into view. Without JS the CSS shows them fully drawn.
+      const arts = document.querySelectorAll('svg.art');
+      if (arts.length) {
+        const io = new IntersectionObserver((entries) => {
+          for (const e of entries) if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        }, { threshold: 0.4 });
+        arts.forEach((a) => io.observe(a));
+      }
+    </script>
   </body>
 </html>

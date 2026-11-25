@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import { services, bookingHref, bookingLabel } from '../data/practice.js';
+import ServiceArt from '../components/ServiceArt.astro';
 ---
 <Base title="For Patients: Dental Care in Downtown Toronto" description="Family dentistry, kids, sleep dentistry, Invisalign, extractions, implants and emergencies at 1 Oak Dental, downtown Toronto. Request an appointment online.">
   <div class="wrap">
@@ -12,6 +13,7 @@ import { services, bookingHref, bookingLabel } from '../data/practice.js';
     <div class="patient-grid">
       {services.map((s) => (
         <div class="card">
+          <ServiceArt slug={s.slug} size={56} />
           <h2>{s.title}</h2>
           <p class="muted">{s.ask}</p>
           <div class="links">

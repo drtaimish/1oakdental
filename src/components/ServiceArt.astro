@@ -1,0 +1,66 @@
+---
+// Simple line illustrations, one per service. Inline SVG: no image requests, crisp at any size,
+// colour follows the page, and the strokes "draw in" once the illustration scrolls into view
+// (disabled when the visitor prefers reduced motion; see global.css).
+interface Props { slug: string; size?: number; class?: string }
+const { slug, size = 72, class: cls = '' } = Astro.props;
+
+// Shared tooth outline (crown + two roots), used as a base in several drawings.
+const tooth = 'M20 14c4-6 10-6 12-2 2-4 8-4 12 2 5 7 2 18-2 30-1 3-3 4-4 1l-3-9c-1-3-5-3-6 0l-3 9c-1 3-3 2-4-1C18 32 15 21 20 14z';
+
+const art: Record<string, { label: string; body: string }> = {
+  'general-dentistry': {
+    label: 'A tooth with a sparkle',
+    body: `<path d="${tooth}"/><path d="M50 10v8M46 14h8" class="d2"/><path d="M12 42l2 2M10 46l-1 3" class="d2"/>`,
+  },
+  'childrens-dentistry': {
+    label: 'A smiling tooth',
+    body: `<path d="${tooth}"/><path d="M26 24h.1M38 24h.1" stroke-width="3.5" class="d2"/><path d="M26 31c3 3 9 3 12 0" class="d2"/>`,
+  },
+  'sleep-dentistry': {
+    label: 'A tooth under a crescent moon',
+    body: `<path d="${tooth}"/><path d="M48 4a10 10 0 1 0 10 14 8 8 0 0 1-10-14z" class="d2"/><path d="M8 20h5l-5 5h5" class="d3"/>`,
+  },
+  'emergency-dentist': {
+    label: 'A tooth with a crack and an alert mark',
+    body: `<path d="${tooth}"/><path d="M34 14l-4 8 5 4-4 8" class="d2"/><path d="M52 32v10M52 48v.1" stroke-width="3" class="d3"/>`,
+  },
+  'invisalign': {
+    label: 'A clear aligner over a row of teeth',
+    body: `<path d="M8 40c6-16 42-16 48 0" class="d2"/><path d="M12 40c0-4 4-7 8-7s8 3 8 7M28 40c0-4 4-7 8-7s8 3 8 7M44 40c0-4 3-6 7-6"/><path d="M6 44c8-22 44-22 52 0" stroke-dasharray="3 3" class="d3"/>`,
+  },
+  'tooth-extractions': {
+    label: 'A tooth being lifted from its socket',
+    body: `<path d="M30 8c3-4 7-4 9-1 2-3 6-3 9 1 3 5 1 13-1 21-1 2-3 3-4 0l-2-6c-1-2-3-2-4 0l-2 6c-1 3-3 2-4 0-2-8-4-16-1-21z"/><path d="M14 56c4-8 10-12 18-12M50 56c-4-8-10-12-18-12" stroke-dasharray="3 3" class="d2"/><path d="M12 30l10 6M52 30l-10 6" class="d3"/>`,
+  },
+  'wisdom-teeth-removal': {
+    label: 'A molar growing at an angle behind a row of teeth',
+    body: `<path d="M6 44c4-6 10-6 14 0M20 44c4-6 10-6 14 0M34 44c4-6 10-6 14 0"/><path d="M6 44v8M20 44v8M34 44v8M48 44v8"/><path d="M50 36l8-10c3-4 1-9-3-9-3 0-5 3-6 7l-3 12" class="d2"/><path d="M58 20l4-4" class="d3"/>`,
+  },
+  'dental-implants': {
+    label: 'A dental implant with a crown',
+    body: `<path d="M22 20c3-6 17-6 20 0 2 4 0 8-3 8H25c-3 0-5-4-3-8z"/><path d="M29 28v6h6v-6M27 34h10M27 38h10M27 42h10M27 46h10M29 50h6l-3 6z" class="d2"/><path d="M14 22h-8M58 22h-8" stroke-dasharray="2 4" class="d3"/>`,
+  },
+  'all-on-4-dental-implants': {
+    label: 'A full arch of teeth on four implants',
+    body: `<path d="M8 28c8-14 40-14 48 0 2 4-1 8-5 8H13c-4 0-7-4-5-8z"/><path d="M16 36v12M28 36v14M36 36v14M48 36v12" class="d2"/><path d="M14 48h4M26 50h4M34 50h4M46 48h4" class="d3"/>`,
+  },
+};
+const a = art[slug];
+---
+{a && (
+  <svg
+    class={`art ${cls}`}
+    width={size}
+    height={size}
+    viewBox="0 0 64 64"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    role="img"
+    aria-label={a.label}
+    set:html={a.body}
+  />
+)}
