@@ -29,7 +29,8 @@ const dentist = {
     addressCountry: 'CA',
   },
   areaServed: [{ '@type': 'City', name: 'Toronto' }, ...neighbourhoods.map((n) => ({ '@type': 'Place', name: n.replace(/^the /, '') + ', Toronto' }))],
-  image: `${practice.url}/og.png`,
+  image: [`${practice.url}/images/office/storefront.jpg`, `${practice.url}/og.jpg`],
+  photo: `${practice.url}/images/office/storefront.jpg`,
   priceRange: '$$',
   isAcceptingNewPatients: true,
   currenciesAccepted: 'CAD',
@@ -52,7 +53,9 @@ const dentist = {
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content={`${practice.url}/og.png`} />
+    <meta property="og:image" content={`${practice.url}/og.jpg`} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="en_CA" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />

@@ -31,7 +31,8 @@ const patientLinks = [
   schema={homeSchema}
 >
   <div class="wrap">
-    <div class="hero">
+    <div class="hero hero-art hero-office">
+      <div>
       <p class="eyebrow">Downtown Toronto · 1 Oak St</p>
       <p class="badge-new">Now accepting new patients</p>
       <h1>Family dentist in downtown Toronto. A referral partner for your practice.</h1>
@@ -41,6 +42,8 @@ const patientLinks = [
         <a class="btn secondary" href="/referring-dentists/#refer"><small>For dental offices</small>Refer a patient</a>
       </div>
       <p class="muted" style="margin:10px 0 0">New patients welcome. Same-day time is kept for emergencies.</p>
+      </div>
+      <img class="hero-photo office-photo" src="/images/office/storefront.jpg" srcset="/images/office/storefront-800.jpg 640w, /images/office/storefront.jpg 1200w" sizes="(max-width: 760px) 100vw, 440px" width="1200" height="1500" alt="The 1 Oak Dental storefront at 1 Oak St in Regent Park, Toronto: glass front with the 1 Oak Dental sign" fetchpriority="high" />
     </div>
 
     <ul class="trust" aria-label="Why patients choose us">
@@ -139,8 +142,9 @@ const patientLinks = [
       {homeFaqs.map(([q, a]) => <details><summary>{q}</summary><p>{a}</p></details>)}
     </section>
 
-    <section>
+    <section class="find-us">
       <h2>Find us</h2>
+      <img class="office-photo" src="/images/office/storefront-800.jpg" srcset="/images/office/storefront-800.jpg 640w, /images/office/storefront.jpg 1200w" sizes="(max-width: 760px) 100vw, 400px" width="640" height="800" loading="lazy" alt="Look for the 1 Oak Dental sign on the red brick building with the glass front at 1 Oak St" />
       <p>{practice.street}, {practice.city}, {practice.region} {practice.postalCode}. In {practice.neighbourhood}. {transit}</p>
       <p class="muted">Patients come to us from {neighbourhoods.slice(0, -1).join(', ')} and {neighbourhoods.at(-1)}, and referring dentists send cases from across the GTA.</p>
       <div class="actions">

@@ -59,8 +59,9 @@ import { transit } from '../data/seo.js';
         if (opt) opt.selected = true;
       })();
     </script>
-    <section>
+    <section class="find-us">
       <h2>Visit us</h2>
+      <img class="office-photo" src="/images/office/storefront-800.jpg" srcset="/images/office/storefront-800.jpg 640w, /images/office/storefront.jpg 1200w" sizes="(max-width: 760px) 100vw, 400px" width="640" height="800" loading="lazy" alt="Look for the 1 Oak Dental sign on the red brick building with the glass front at 1 Oak St" />
       <p>{practice.street}<br />{practice.city}, {practice.region} {practice.postalCode}</p>
       <p class="muted">{transit} Street parking and paid lots nearby.</p>
       <a class="btn secondary" href={practice.mapsUrl}>Get directions</a>
