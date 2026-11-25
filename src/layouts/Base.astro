@@ -1,4 +1,5 @@
 ---
+import Logo from '../components/Logo.astro';
 import '../styles/global.css';
 import { practice, bookingHref, bookingLabel, hoursRows, openingHoursSpecification } from '../data/practice.js';
 import { neighbourhoods } from '../data/seo.js';
@@ -69,7 +70,7 @@ const dentist = {
     <a class="skip" href="#main">Skip to content</a>
     <header class="site">
       <div class="wrap">
-        <a class="logo" href="/">{practice.name}</a>
+        <a class="logo" href="/"><Logo size={26} /></a>
         <nav class="main" aria-label="Main">
           <a href="/patients/">For patients</a>
           <a href="/referring-dentists/">For referring dentists</a>
@@ -95,7 +96,7 @@ const dentist = {
     <footer class="site">
       <div class="wrap grid">
         <div>
-          <strong>{practice.name}</strong><br />
+          <a class="logo" href="/"><Logo size={20} /></a><br />
           {practice.street}<br />
           {practice.city}, {practice.region} {practice.postalCode}<br />
           <a href={`tel:${practice.phoneE164}`}>{practice.phone}</a><br />

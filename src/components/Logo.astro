@@ -1,0 +1,16 @@
+---
+// Wordmark matching the storefront sign: "1 OAK", the tooth-implant mark, "DENTAL".
+// The mark is a redrawn approximation of the sign; swap in the real vector logo when Ammar sends it.
+const { size = 28, class: cls = '' } = Astro.props;
+---
+<span class={`wordmark ${cls}`} style={`--wm: ${size}px`} aria-label="1 Oak Dental">
+  <span class="wm-text">1 OAK</span>
+  <svg class="wm-mark" viewBox="0 0 64 72" aria-hidden="true" focusable="false">
+    <!-- crown outline with the heart-shaped top -->
+    <path d="M32 18 C27 6 8 6 8 22 C8 33 20 42 24 47 C27 50 29 50 32 46 C35 50 37 50 40 47 C44 42 56 33 56 22 C56 6 37 6 32 18 Z" fill="none" stroke="currentColor" stroke-width="8" stroke-linejoin="round" />
+    <!-- implant threads -->
+    <path d="M20 52 L44 52 L40 58 L24 58 Z" fill="currentColor" />
+    <path d="M24 62 L40 62 L37 68 L27 68 Z" fill="currentColor" />
+  </svg>
+  <span class="wm-text">DENTAL</span>
+</span>
