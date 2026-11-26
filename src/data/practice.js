@@ -273,6 +273,13 @@ export const technology = [
     body: 'From the digital scans we print surgical guides that fit over your teeth and show the exact implant position planned on the CBCT, models for planning and checking fit, and the trial smile you can wear home before committing to veneers or a smile makeover.',
     usedFor: ['dental-implants', 'all-on-4-dental-implants', 'veneers', 'smile-makeover', 'dentures'],
   },
+  {
+    id: 'photogrammetry',
+    title: 'Photogrammetry for full-arch implants',
+    short: 'Records the exact position of each implant, to within microns, so a full-arch bridge fits first time.',
+    body: 'When a whole arch of teeth sits on four or more implants, the bridge has to fit every implant at once. A fit that is off by even a fraction of a millimetre strains the screws, the implants and the bone. Photogrammetry solves this. Small coded markers are screwed onto the implants and a stereo camera photographs them from several angles. From the photographs the system calculates the position and angle of each implant relative to the others to within microns, far more accurately than a conventional impression. The TRIOS scan adds the gums and any remaining teeth, the two are combined, and the lab makes the bridge on that record. We use the iMetric system. The result is a bridge that seats passively and can often be delivered sooner, with fewer adjustment visits.',
+    usedFor: ['all-on-4-dental-implants', 'dental-implants'],
+  },
 ];
 
 export const sedationOptions = ['Local anaesthetic only', 'IV sedation (coming soon)', 'Deep sedation (coming soon)', 'General anaesthesia (coming soon)', 'Please discuss with patient'];

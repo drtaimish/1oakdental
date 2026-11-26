@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import { practice, technology, services, bookingHref, bookingLabel } from '../data/practice.js';
-const description = 'The technology we use at 1 Oak Dental in downtown Toronto: CBCT 3D imaging, 3Shape TRIOS digital scanning and in-office 3D printing for implant guides, models and trial smiles.';
+const description = 'The technology we use at 1 Oak Dental in downtown Toronto: CBCT 3D imaging, 3Shape TRIOS digital scanning, in-office 3D printing, and photogrammetry for full-arch implant bridges.';
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
@@ -18,7 +18,7 @@ const titleOf = (slug) => services.find((s) => s.slug === slug)?.title || slug;
     <div class="hero">
       <p class="eyebrow">In our office</p>
       <h1>What we use, and what it does for you</h1>
-      <p class="lead">Three tools that change how surgery and cosmetic work are planned: a 3D X-ray, a digital scanner instead of impression putty, and a 3D printer. Each is here so we can see more before we start, show you the plan, and fit things right the first time.</p>
+      <p class="lead">Four tools that change how surgery and cosmetic work are planned and fitted: a 3D X-ray, a digital scanner instead of impression putty, a 3D printer, and a photogrammetry camera that records implant positions to within microns. Each is here so we can see more before we start, show you the plan, and fit things right the first time.</p>
     </div>
     <div class="grid">
       {technology.map((t) => (
@@ -36,6 +36,7 @@ const titleOf = (slug) => services.find((s) => s.slug === slug)?.title || slug;
         <li><h3>Scan</h3><p>A CBCT scan shows your bone and nerves in 3D. A TRIOS scan captures your teeth and gums in detail.</p></li>
         <li><h3>Plan</h3><p>The two scans are combined on screen, and the implant position is chosen for the bone you have and the tooth you need. You see the plan before anything happens.</p></li>
         <li><h3>Print</h3><p>A surgical guide is printed in the office. On the day, it fits over your teeth and steers the implant to the planned spot.</p></li>
+        <li><h3>Record</h3><p>For a full-arch bridge, photogrammetry records where each implant ended up, to within microns, so the bridge is made to fit all of them at once.</p></li>
       </ol>
     </section>
     <section>
