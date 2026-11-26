@@ -8,7 +8,7 @@ const { compact = false } = Astro.props;
 ---
 <ol class="ladder" aria-label="Tooth replacement options, simplest to most permanent">
   {replacementOptions.map((o, i) => (
-    <li class="rung" id={o.id}>
+    <li class="rung" id={o.id} data-href={compact ? `/tooth-replacement-options/#${o.id}` : o.href}>
       <div class="rung-media">
         {o.media.clip
           ? <video class="hero-photo" muted loop playsinline preload="none" poster={o.media.clip.poster} data-src={o.media.clip.src} width="1600" height="1200" aria-label={o.media.clip.alt}></video>
@@ -28,7 +28,7 @@ const { compact = false } = Astro.props;
             <div><strong>Against</strong><ul>{o.cons.map((p) => <li>{p}</li>)}</ul></div>
           </div>
         )}
-        <a href={compact ? `/tooth-replacement-options/#${o.id}` : o.href}>{compact ? 'Compare in detail' : 'Read about this treatment'} →</a>
+        <a class="more" href={compact ? `/tooth-replacement-options/#${o.id}` : o.href} aria-label={`${compact ? 'Compare' : 'Read about'} ${o.title}`}>→</a>
       </div>
     </li>
   ))}

@@ -186,6 +186,16 @@ const dentist = {
         window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(move); } }, { passive: true });
       }
 
+      // 5. Click anywhere on a card to open its page. The small arrow link inside stays for keyboards and screen readers.
+      document.querySelectorAll('[data-href]').forEach((el) => {
+        el.classList.add('clickable');
+        el.addEventListener('click', (e) => {
+          if (e.target.closest('a, button, input, select, textarea, label, video')) return;
+          if (String(window.getSelection && window.getSelection())) return;
+          if (e.metaKey || e.ctrlKey || e.button === 1) window.open(el.dataset.href, '_blank'); else location.href = el.dataset.href;
+        });
+      });
+
       // 4. Looping clips in the media slot: load and play only while on screen, never with reduced motion.
       const clips = document.querySelectorAll('video.hero-photo');
       if (clips.length && !reduce) {

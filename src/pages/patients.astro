@@ -12,13 +12,13 @@ import ServiceArt from '../components/ServiceArt.astro';
     </div>
     <div class="patient-grid">
       {services.map((s) => (
-        <div class="card">
+        <div class="card" data-href={`/services/${s.slug}/`}>
           <ServiceArt slug={s.slug} size={56} />
           <h2>{s.title}{s.comingSoon && <span class="tag-soon">Coming soon</span>}</h2>
           <p class="muted">{s.ask}</p>
           <div class="links">
             {s.comingSoon ? <a href="/services/sleep-dentistry/">Join the waitlist</a> : <a href={`/contact/?service=${s.slug}`}>Request a visit</a>}
-            <a href={`/services/${s.slug}/`}>Learn more</a>
+            <a class="more" href={`/services/${s.slug}/`} aria-label={`More about ${s.title}`}>→</a>
           </div>
         </div>
       ))}

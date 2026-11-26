@@ -308,4 +308,24 @@ video.hero-photo { background: var(--tint); display: block; aspect-ratio: 16 / 9
 .ref-layout.picked .directory, .ref-layout.unpicked .ref-form { display: none; }
 .ref-layout.picked .ref-form { max-width: 640px; width: 100%; }
 .ref-group { display: grid; gap: 6px; }
-.ref-picked[hidden], .ref-group[hidden] { display: none; }
+.ref-picked[hidden], .ref-hint[hidden], .ref-group[hidden] { display: none; }
+.ref-layout.unpicked .ref-form { opacity: .55; transition: opacity .25s; }
+.ref-layout.unpicked .ref-form:focus-within, .ref-layout.unpicked .ref-form:hover { opacity: 1; }
+
+/* Click anywhere on a card: the whole card is the link, the arrow is its visible handle */
+.clickable { cursor: pointer; position: relative; }
+.clickable:hover, .clickable:focus-within { border-color: var(--brand); box-shadow: 0 10px 28px rgba(18,48,58,.10); transform: translateY(-3px); }
+html:not(.no-js) .reveal.in.clickable { transition: opacity .7s, transform .25s cubic-bezier(.2,.7,.2,1), border-color .15s, box-shadow .2s; }
+a.more { position: absolute; right: 16px; bottom: 14px; width: 36px; height: 36px; border-radius: 50%; border: 1.5px solid var(--line); color: var(--brand); display: grid; place-items: center; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: transform .2s, background .2s, border-color .2s; background: var(--surface); }
+.clickable:hover a.more, a.more:hover, a.more:focus-visible { background: var(--brand); color: #fff; border-color: var(--brand); transform: translateX(3px); }
+.card[data-href], .rung[data-href], .member[data-href] { padding-bottom: 56px; }
+.rung[data-href] .rung-text { padding-bottom: 0; }
+.rung a.more { right: 24px; bottom: 20px; }
+@media (prefers-reduced-motion: reduce) { .clickable:hover { transform: none; } a.more { transition: none; } }
+
+/* The storefront photo drifts slowly inside its frame */
+.hero-photo.frame { display: block; overflow: hidden; border-radius: 16px; }
+.hero-photo.frame .office-photo { border-radius: 0; }
+html:not(.no-js) .drift { animation: drift 26s ease-in-out infinite alternate; transform-origin: 60% 40%; }
+@keyframes drift { from { transform: scale(1) translate(0, 0); } to { transform: scale(1.09) translate(-1.5%, 1.5%); } }
+@media (prefers-reduced-motion: reduce) { html:not(.no-js) .drift { animation: none; } }

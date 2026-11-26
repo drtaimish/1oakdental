@@ -27,7 +27,7 @@ const schema = {
     </div>
     <div class="team">
       {team.map((t) => (
-        <article class="card member" id={t.id}>
+        <article class="card member" id={t.id} data-href={t.href || undefined}>
           {t.photo
             ? <img src={t.photo} alt={t.name} width="400" height="400" loading="lazy" />
             : <div class="avatar" aria-hidden="true">{initials(t.name)}</div>}
@@ -37,7 +37,7 @@ const schema = {
             {Array.isArray(t.bio) ? t.bio.map((para) => <p>{para}</p>) : <p>{t.bio || t.blurb}</p>}
             {t.languages?.length > 1 && <p class="muted">Speaks {t.languages.join(' and ')}.</p>}
             {t.bioDraft && <p class="todo">Draft bio, awaiting {t.name.split(' ').slice(-1)[0] === 'Dong' ? "Dr. Dong's" : 'approval'} approval.</p>}
-            {t.href && <a href={t.href}>More about {t.name.split(' ').slice(-1)[0] === 'Taimish' ? 'Dr. Taimish' : t.name} →</a>}
+            {t.href && <a class="more" href={t.href} aria-label={`More about ${t.name}`}>→</a>}
           </div>
         </article>
       ))}
