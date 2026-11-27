@@ -196,17 +196,29 @@ const dentist = {
         });
       });
 
-      // 4. Looping clips in the media slot: load and play only while on screen, never with reduced motion.
+      // 4. Looping clips in the media slot: load and play only while on screen.
+      //    With reduced motion turned on (common on laptops: macOS "Reduce motion", Windows
+      //    "Animation effects" off), or if the browser blocks autoplay (e.g. Low Power Mode),
+      //    the clip does not start by itself; it shows play controls so the visitor can start it.
       const clips = document.querySelectorAll('video.hero-photo');
-      if (clips.length && !reduce) {
-        const vo = new IntersectionObserver((entries) => {
-          for (const e of entries) {
-            const v = e.target;
-            if (e.isIntersecting) { if (!v.src && v.dataset.src) v.src = v.dataset.src; v.play().catch(() => {}); }
-            else v.pause();
-          }
-        }, { threshold: 0.25 });
-        clips.forEach((v) => vo.observe(v));
+      const manual = (v) => {
+        if (!v.src && v.dataset.src) v.src = v.dataset.src;
+        v.preload = 'metadata';
+        v.controls = true;
+      };
+      if (clips.length) {
+        if (reduce) clips.forEach(manual);
+        else {
+          const vo = new IntersectionObserver((entries) => {
+            for (const e of entries) {
+              const v = e.target;
+              if (v.controls) continue;
+              if (e.isIntersecting) { if (!v.src && v.dataset.src) v.src = v.dataset.src; v.play().catch(() => manual(v)); }
+              else v.pause();
+            }
+          }, { threshold: 0.25 });
+          clips.forEach((v) => vo.observe(v));
+        }
       }
     </script>
   </body>
