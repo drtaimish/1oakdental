@@ -27,5 +27,5 @@ export const media = {
   'wisdom-teeth-removal': { photo: null, clip: null, video: null },
   'dentures': { photo: null, clip: null, video: null },
   'dental-implants': { photo: null, clip: { src: '/videos/services/dental-implants.mp4', poster: '/images/services/dental-implants.jpg', alt: 'Illustration of a dental implant: a titanium post in the jawbone with a crown on top', label: 'Illustration' }, video: null },
-  'all-on-4-dental-implants': { photo: null, clip: null, video: null },
+  'all-on-4-dental-implants': { photo: null, clip: { src: '/videos/services/all-on-4-dental-implants.mp4', poster: '/images/services/all-on-4-dental-implants.jpg', alt: 'Illustration of All-on-4: a full-arch bridge lowering onto four implants in the lower jaw', label: 'Illustration' }, video: null },
 };
